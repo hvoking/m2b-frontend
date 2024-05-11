@@ -52,7 +52,7 @@ export const PointsLayerProvider = ({children}: any) => {
 		    data: filterPoints,
 		    cellSize: 10,
 		    pickable: true,
-		    getPosition: (d: any) => d.geometry.coordinates,
+		    getPosition: (d: any) => [d.longitude, d.latitude],
 		    material: false,
 			getElevation: (d: any) => 
 				unitPrice === "price" ? 

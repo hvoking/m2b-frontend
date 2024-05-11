@@ -50,7 +50,7 @@ export const IconLayerProvider = ({children}: any) => {
 			id: 'price-icon',
 			data: filterPoints,
 			pickable: true,
-			getPosition: (d: any) => d.geometry.coordinates,
+			getPosition: (d: any) => [d.longitude, d.latitude],
 			iconAtlas,
 			iconMapping,
 			getIcon: (d: any) => 
