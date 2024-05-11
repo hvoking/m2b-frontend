@@ -1,0 +1,54 @@
+.user-pdf {
+  position: absolute;
+  width: 100%;
+  top: 60px;
+  height: calc(calc(var(--vh, 1vh) * 100) - 60px);
+  max-height: calc(calc(var(--vh, 1vh) * 100) - 60px);
+  background-color: rgba(255, 255, 255, 0.2);
+  z-index: 6;
+  display: flex;
+  justify-content: space-around;
+}
+.user-pdf-first-page {
+  background-color: rgba(255, 255, 255, 1);
+  width: 35%;
+  max-width: 550px;
+  display: grid;
+  grid-template-rows: auto 24px;
+  font-size: 0.8em;
+}
+.pdf-exit-cancel-cross {
+  position: absolute; 
+  right: 0px; 
+  top: 0px; 
+  padding-top: 5px;
+  padding-left: 10px;
+  padding-right: 10px;
+  width: 17px;
+  cursor: pointer;
+}
+// mobile-style
+@media screen and (max-width: 1000px) {
+  .user-pdf {
+    display: grid;
+    justify-content: stretch;
+    overflow-y: scroll;
+    scroll-snap-type: y mandatory;
+  }
+  .pdf-footer {
+    font-size: 0.8em;
+  }
+  .pdf-title {
+    font-size: 0.8em;
+  }
+  .user-pdf-first-page {
+    scroll-snap-align: start;
+    grid-template-rows: auto 24px;
+    width: 100%;
+    height: calc(calc(var(--vh, 1vh) * 100) - 60px);
+    max-height: calc(calc(var(--vh, 1vh) * 100) - 60px);
+  }
+  .pdf-exit-cancel-cross {
+    display: block;
+  }
+}

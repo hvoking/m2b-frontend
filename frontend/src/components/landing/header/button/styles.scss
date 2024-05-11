@@ -1,0 +1,31 @@
+.subscribe-header-button-wrapper {
+  padding: 1.2px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, rgba(227, 203, 62, 1) 0%, rgba(64, 33, 140, 1) 35%, rgba(64, 33, 140, 1) 65%, rgba(227, 203, 62, 1) 100%);
+  animation: steam 22s linear infinite;
+}
+.subscribe-header-button {
+  padding: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  background: rgba(0, 0, 0, 1);
+  border: none;
+  font-size: 1.2em;
+  white-space: nowrap;
+  color: rgba(255, 255, 255, 1);
+  font-weight: 500;
+}
+.subscribe-header-button:hover {
+  background: rgba(227, 203, 62, 1);
+  color: rgba(0, 0, 0, 1);
+}
+.subscribe-header-button:focus {
+  outline: 0;
+}
+
+@keyframes steam {
+  from {background-position: 0px 600px;}
+    to {background-position: -800px 600px;}
+}

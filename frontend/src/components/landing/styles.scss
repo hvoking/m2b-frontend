@@ -1,0 +1,9 @@
+.landing {
+	display: grid;
+	grid-template-rows: 60px auto;	
+	font-family: montserrat;
+	background-color: rgba(255, 255, 255, 1);
+	height: calc(var(--vh, 1vh) * 100);
+	max-height: calc(var(--vh, 1vh) * 100);
+	overflow: hidden;
+}

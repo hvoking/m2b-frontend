@@ -1,0 +1,22 @@
+.demmand-table {
+  border-collapse: collapse;
+  cursor: pointer;
+  width: 100%;
+}
+.demmand-table {
+  th, td {
+    border: 1px solid rgba(126, 126, 132, 1);
+    text-align: center;
+    font-size: 0.8em;
+  }
+}
+.demmand-table {
+  tr:hover {
+    background-color: rgba(126, 126, 132, 1);
+  }
+}
+.table-item {
+  min-height: 30px;
+  display: grid;
+  align-items: center;
+}

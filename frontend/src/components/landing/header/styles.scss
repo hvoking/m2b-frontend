@@ -1,0 +1,18 @@
+ .landing-header {
+    background: rgba(0, 0, 0, 1);
+    display: grid;
+    grid-template-columns: min-content auto min-content;
+    align-items: center;
+    padding-right: calc(25% + 10px);
+    padding-left: 25%;
+}
+@media screen and (max-width: 1000px) {
+    .landing-header {
+       background: rgba(0, 0, 0, 1);
+       display: grid;
+       grid-template-columns: min-content auto min-content;
+       align-items: center;
+       padding-right: 5px;
+       padding-left: 5px;
+   }
+}

@@ -1,0 +1,11 @@
+.social-wrapper {
+	display: grid;
+	height: 100%;
+	align-items: center;
+}
+.social-logos-wrapper {
+	display: grid;
+	grid-template-rows: min-content 5fr min-content 1fr;
+	grid-gap: 10px;
+	height: 90%;
+}

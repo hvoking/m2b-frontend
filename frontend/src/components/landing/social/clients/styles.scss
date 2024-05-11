@@ -1,0 +1,36 @@
+.clients-wrapper {
+	padding-left: 25%;
+	padding-right: 25%;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+	height: 100%;
+	overflow: hidden;
+}
+.clients-item {
+	box-sizing: border-box;
+	border: 3px solid rgba(241, 241, 241, 1);
+	display: grid;
+	overflow: hidden;
+	height: 100%;
+	width: 100%;
+}
+.clients-image {
+	max-width: 40%;
+	max-height: 80%;
+	margin: auto;
+}
+.client-declaration {
+	font-size: 0.6em; 
+	padding-left: 5px; 
+	font-weight: 550;
+}
+@media screen and (max-width: 1000px) {
+	.clients-wrapper {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+		padding-left: 20px;
+		padding-right: 20px;
+	}
+}

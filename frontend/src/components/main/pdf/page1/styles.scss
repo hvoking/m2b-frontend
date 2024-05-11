@@ -1,0 +1,6 @@
+.pdf-body {
+  display: grid;
+  grid-template-rows: min-content 3fr min-content 4fr;
+  overflow: hidden;
+  position: relative;
+}

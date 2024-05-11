@@ -1,0 +1,36 @@
+.pdf-header-wrapper {
+	display: grid;
+	justify-items: center;
+	padding-top: 10px;
+}
+.pdf-header-title {
+	background-color: rgba(126, 126, 132, 1);
+	border: 1px solid rgba(23, 23, 32, 1);
+	padding: 10px;
+	font-size: 1.4em;
+	color: rgba(255, 255, 255, 1);
+	font-weight: 700;
+	letter-spacing: 1px;
+	text-align: center;
+}
+.property-data-subtitle {
+	font-style: italic;
+	padding: 10px;
+	padding-top: 5px;
+	display: flex; 
+	flex-wrap: wrap;
+	white-space: nowrap;
+	gap: 3px;
+	overflow: hidden;
+}
+// mobile-style
+@media screen and (max-width: 1000px) {
+	.pdf-header-wrapper {
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.property-data-subtitle {
+		display: none;
+	}
+
+}

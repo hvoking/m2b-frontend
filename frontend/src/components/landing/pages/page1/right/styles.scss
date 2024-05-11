@@ -1,0 +1,9 @@
+.landing-gif-wrapper {
+	display: grid;
+	justify-items: end;
+}
+@media screen and (max-width: 1000px) {
+	.landing-gif-wrapper {
+		justify-items: center;
+	}
+}

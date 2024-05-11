@@ -1,0 +1,17 @@
+.areas-number-wrapper {
+	display: grid;
+	text-align: center;
+	grid-auto-flow: column;
+	justify-content: center;
+	grid-gap: 40px;
+	padding-bottom: 10px;
+	font-size: 0.8em;
+}
+.areas-input {
+	width: 30px;
+	background-color: rgba(23, 23, 32, 1);
+	border: 1.5px solid rgba(126, 126, 132, 1);
+	border-radius: 5px;
+	text-align: center;
+	color: rgba(255, 255, 255, 1);
+}

@@ -1,0 +1,20 @@
+.subscribe-button {
+  width: min-content;
+  padding: 5px;
+  padding-right: 15px;
+  padding-left: 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  border: none;
+  font-size: 1.4em;
+  white-space: nowrap;
+  color: rgba(0, 0, 0, 0.8);
+  background: rgba(227, 203, 62, 1);
+}
+.subscribe-button:hover {
+  background: rgba(64, 33, 140, 1);
+  color: rgba(255, 255, 255, 1);
+}
+.subscribe-button:focus {
+  outline: 0;
+}

@@ -1,0 +1,10 @@
+.page1-subtitle {
+	font-size: 2.6em;
+	font-weight: 1000;
+	color: rgba(64, 33, 145, 1);
+}
+@media screen and (max-width: 1000px) {
+	.page1-subtitle {
+		font-size: 2em;
+	}
+}
