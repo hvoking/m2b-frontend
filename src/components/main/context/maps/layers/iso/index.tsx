@@ -26,8 +26,7 @@ export const IsoLayerProvider = ({children}: any) => {
 			pickable: true,
 			data: isoPolygonData.features[0].geometry,
 			getFillColor: [222, 112, 112, 120],
-			getLineColor: [126, 126, 132, 255],
-			getLineWidth: 10,
+			getLineWidth: 0,
 			parameters: { depthTest: false },
 		});
 

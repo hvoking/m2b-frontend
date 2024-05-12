@@ -14,7 +14,7 @@ import { useGeo } from '../../context/filters/geo';
 // Third-party imports
 import * as d3 from 'd3';
 
-export const IsoPolygonSVG = () => {
+export const SvgMap = () => {
 	const svgContainerRef = useRef<any>(null);
 
 	const { isoData } = useIsoApi();
@@ -67,4 +67,4 @@ export const IsoPolygonSVG = () => {
 	)
 }
 
-IsoPolygonSVG.displayName="IsoPolygonSVG";
+SvgMap.displayName="SvgMap";
