@@ -87,6 +87,7 @@ export const PdfPictures = ({ linesData, pricesData }: any) => {
 		<div className="pdf-images-wrapper">
 			<div className="pdf-pictures">
 				{filterById.slice(0, nearest).map((item: any, index: any) => {
+					const currentImage = item.image_src && item.image_src;
 					return (
 						<div
 							key={index} 
@@ -115,7 +116,7 @@ export const PdfPictures = ({ linesData, pricesData }: any) => {
 						>
 							<img 
 								className="pdf-pictures-img"
-								src={`https://wsrv.nl/?url=${iscUrl + item.image_src[0]}&q=20&l=9&default=${defaultPath}`}
+								src={iscUrl + currentImage}
 								alt="property"
 								width="55"
 								height="45"

@@ -88,7 +88,7 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 				<div className="right-images-wrapper">
 					<div className="right-pictures">
 						{filterById.slice(0, nearest).map((item: any, index: any) => {
-							const currentImage = item.image_src && item.image_src[0];
+							const currentImage = item.image_src && item.image_src;
 							return (
 								<div
 									key={index} 
