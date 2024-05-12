@@ -1,9 +1,7 @@
 // App imports
 import './styles.scss';
 
-export const PropertyImages = ({ propertyInfo, imagesLength, currentImage, setCurrentImage }: any) => {
-	let image_src = propertyInfo.image_src;
-
+export const PropertyImages = ({ propertyInfo, imagesArray, imagesLength, currentImage, setCurrentImage }: any) => {
 	const onError = (e: any) => {
 		e.target.src = "static/components/maps/hover/on_error.webp";
 	}
@@ -30,7 +28,7 @@ export const PropertyImages = ({ propertyInfo, imagesLength, currentImage, setCu
 			<div className="pictures-item-wrapper">
 				<img 
 					className="pictures-item"
-					src={iscUrl + image_src[currentImage]}
+					src={iscUrl + imagesArray[currentImage]}
 					alt="property_image"
 					onError={onError}
 				/>

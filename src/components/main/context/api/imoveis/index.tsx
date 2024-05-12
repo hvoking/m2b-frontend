@@ -8,6 +8,7 @@ import { LinesApiProvider } from './lines';
 import { SamplesApiProvider } from './samples';
 import { HistApiProvider } from './hist';
 import { HistPointsApiProvider } from './histPoints';
+import { ImagesApiProvider } from './images';
 
 export const ImoveisApiProvider = ({children}: any) => {
   return (
@@ -20,7 +21,9 @@ export const ImoveisApiProvider = ({children}: any) => {
     <LinesApiProvider>
     <PricesApiProvider>
     <SamplesApiProvider>
+    <ImagesApiProvider>
       {children}
+    </ImagesApiProvider>
     </SamplesApiProvider>
     </PricesApiProvider>
     </LinesApiProvider>

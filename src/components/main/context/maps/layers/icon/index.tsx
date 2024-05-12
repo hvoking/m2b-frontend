@@ -23,7 +23,7 @@ export const useIconLayer = () => {
 
 export const IconLayerProvider = ({children}: any) => {
 	const { unitPrice } = usePrices();
-	const { setPropertyInfo } = useTooltip();
+	const { setPropertyInfo, setActivePropertyInfo } = useTooltip();
 	const { currentPropertyId, setCurrentPropertyId } = usePropertyType();
 	const { bottomLimit, topLimit } = useLinesLimits();
 	const { filterPoints } = usePointsLimits();
@@ -34,6 +34,7 @@ export const IconLayerProvider = ({children}: any) => {
   		"unit_price";
 
   	const onClick = (info: any) => {
+  		setActivePropertyInfo(true);
   		info.object && setPropertyInfo(info.object);
   	};
 
@@ -50,7 +51,7 @@ export const IconLayerProvider = ({children}: any) => {
 			id: 'price-icon',
 			data: filterPoints,
 			pickable: true,
-			getPosition: (d: any) => [d.longitude, d.latitude],
+			getPosition: (d: any) => d.geometry.coordinates,
 			iconAtlas,
 			iconMapping,
 			getIcon: (d: any) => 

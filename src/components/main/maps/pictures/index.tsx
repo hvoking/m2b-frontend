@@ -9,14 +9,17 @@ import './styles.scss';
 
 // Context imports
 import { useTooltip } from '../../context/maps/tooltip';
+import { useImagesApi } from '../../context/api/imoveis/images';
 
 export const Pictures = () => {
 	const [ currentImage, setCurrentImage ] = useState(0);
 	const { propertyInfo, activePropertyInfo, setActivePropertyInfo } = useTooltip();
+	const { imagesData } = useImagesApi();
 	
-	if (!propertyInfo) return <></>
+	if (!propertyInfo || !imagesData) return <></>
 
-	const imagesLength = propertyInfo.image_src.length;
+	const imagesArray = imagesData[0].image_src;
+	const imagesLength = imagesArray.length;
 
 	return (
 		<>
@@ -29,7 +32,8 @@ export const Pictures = () => {
 							setCurrentImage={setCurrentImage}
 						/>
 						<PropertyImages 
-							propertyInfo={propertyInfo} 
+							propertyInfo={propertyInfo}
+							imagesArray={imagesArray}
 							currentImage={currentImage} 
 							setCurrentImage={setCurrentImage}
 							imagesLength={imagesLength}

@@ -6,15 +6,15 @@ import './styles.scss';
 // Context imports
 import { useTooltip } from '../../../context/maps/tooltip';
 import { usePrices } from '../../../context/filters/prices';
+import { useImagesApi } from '../../../context/api/imoveis/images';
 
 export const Tooltip = () => {
 	const { propertyHoverInfo } = useTooltip(); 
 	const { unitPrice } = usePrices();
+	const { imagesData } = useImagesApi();
 	
-	if (!propertyHoverInfo || !propertyHoverInfo.object) return <></>
-
-	// Sort variables
-	let image_src = propertyHoverInfo.object.image_src;
+	if (!propertyHoverInfo || !propertyHoverInfo.object || !imagesData) return <></>
+	let image_src = imagesData[0].image_src;
 
 	const iscUrl = "https://media.imoveis-sc.com.br/media/thumb-290-250/";
 

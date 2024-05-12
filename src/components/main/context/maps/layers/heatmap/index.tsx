@@ -26,7 +26,7 @@ export const HeatmapLayerProvider = ({children}: any) => {
 		new HeatmapLayer({
 		    id: 'heat-map-layer',
 		    data: histPointsData,
-		    getPosition: (d: any) => [d.longitude, d.latitude],
+		    getPosition: (d: any) => d.geometry.coordinates,
 		    getWeight: (d: any) => d.visits,
 		    aggregation: 'SUM',
 		  });

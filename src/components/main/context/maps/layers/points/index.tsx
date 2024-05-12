@@ -52,7 +52,7 @@ export const PointsLayerProvider = ({children}: any) => {
 		    data: filterPoints,
 		    cellSize: 10,
 		    pickable: true,
-		    getPosition: (d: any) => [d.longitude, d.latitude],
+		    getPosition: (d: any) => d.geometry.coordinates,
 		    material: false,
 			getElevation: (d: any) => 
 				unitPrice === "price" ? 
@@ -67,8 +67,8 @@ export const PointsLayerProvider = ({children}: any) => {
 		    	d[currentPriceString] < bottomLimit ?
 		    	[255, 0, 0, 120] :
 		    	[57, 181, 74, 120],
-		    // onHover,
-		    // onClick: (info: any) => onClick(info),
+		    onHover,
+		    onClick: (info: any) => onClick(info),
 		  });
 	return (
 		<PointsLayerContext.Provider value={{ pointsLayer }}>
