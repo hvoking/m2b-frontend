@@ -15,7 +15,7 @@ export const SocialMediaLinks = () => {
 				mediaAlt="instagram-logo"
 			/>
 			<CurrentLink
-				mediaLink="https://www.linkedin.com/in/gustavo-gonz%C3%A1lez-756411297"
+				mediaLink="https://www.linkedin.com/in/computational-designer"
 				mediaImage="static/components/landing/footer/linkedin.png" 
 				mediaAlt="linkedin-logo"
 			/>		
