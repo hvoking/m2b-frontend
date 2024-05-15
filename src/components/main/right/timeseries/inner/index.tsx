@@ -9,6 +9,7 @@ import { Lines } from './topLine';
 import { Tooltip } from './tooltip';
 import { Range } from './range';
 import { yAxisTickFormat } from '../../../utils/constants';
+import { Mean } from './mean';
 
 // Context imports
 import { useLinesApi } from '../../../context/api/imoveis/lines';
@@ -104,6 +105,11 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         yScale={yScale} 
         linesData={linesData} 
         pricesData={pricesData} 
+      />
+      <Mean
+        unitPrice={unitPrice}
+        yScale={yScale} 
+        innerWidth={innerWidth} 
       />
       <rect 
         x={xScale(currentStartDate)} 

@@ -9,6 +9,7 @@ import { SamplesApiProvider } from './samples';
 import { HistApiProvider } from './hist';
 import { HistPointsApiProvider } from './histPoints';
 import { ImagesApiProvider } from './images';
+import { MeanApiProvider } from './mean';
 
 export const ImoveisApiProvider = ({children}: any) => {
   return (
@@ -22,7 +23,9 @@ export const ImoveisApiProvider = ({children}: any) => {
     <PricesApiProvider>
     <SamplesApiProvider>
     <ImagesApiProvider>
+    <MeanApiProvider>
       {children}
+    </MeanApiProvider>
     </ImagesApiProvider>
     </SamplesApiProvider>
     </PricesApiProvider>
