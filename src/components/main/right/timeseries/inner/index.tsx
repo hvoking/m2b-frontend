@@ -52,13 +52,6 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
     setActiveTooltip(false)
   }
 
-  const onClick = () => {
-    const newDates = [...dates]
-    const prevMonth = newDates[0].getMonth() - 1
-    newDates[0].setMonth(prevMonth);
-    setDates(newDates);
-  }
-
   const pricesArray = pricesData.map((items: any) => 
       unitPrice === "price" ? 
       items.price : 
@@ -118,10 +111,14 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         height={innerHeight} 
         fill="rgba(126, 126, 132, 0.4)"
         stroke="rgba(126, 126, 132, 1)"
-        strokeWidth={2}
+        strokeWidth={0.4}
       />
       <Tooltip
-        activeTooltip={activeTooltip && cursorPosition.x + 10 >= xScale(currentStartDate) && cursorPosition.x < xScale(currentFinalDate)} 
+        activeTooltip={
+          activeTooltip && 
+          cursorPosition.x + 10 >= xScale(currentStartDate) && 
+          cursorPosition.x < xScale(currentFinalDate)
+        } 
         cursorPosition={cursorPosition} 
         cursorPrice={cursorPrice}
       />
@@ -132,16 +129,6 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         onMouseMove={onMouseMove}
         onMouseOut={onMouseOut}
       />
-      <polygon 
-        fill="rgba(126, 126, 132, 1)"
-        points={`
-          -3 ${innerHeight/2 - 7}, 
-          -3 ${innerHeight/2 + 7}, 
-          -10 ${innerHeight/2}
-        `}
-        style={{cursor: "pointer"}}
-        onClick={onClick}
-     />
 		</>
 	)
 }

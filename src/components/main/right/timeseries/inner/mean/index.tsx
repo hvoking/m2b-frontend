@@ -27,8 +27,8 @@ export const Mean = ({ unitPrice, yScale, innerWidth }: any) => {
         <g>
             <path
                 className="line-background" 
-                stroke="rgba(255, 255, 255, 1)"
-                strokeWidth={1}
+                stroke="rgba(255, 255, 255, 0.8)"
+                strokeWidth={1.2}
                 d={
                     `${
                         d3.line()
@@ -41,14 +41,14 @@ export const Mean = ({ unitPrice, yScale, innerWidth }: any) => {
             <circle
                 cx={xScale(Date.parse(dataMin))} 
                 cy={yScale(priceAvg[dataMin])}
-                r={4}
-                fill={"rgba(255, 255, 255, 0.8)"}
+                r={3.6}
+                fill={"rgba(255, 255, 255, 0.6)"}
             />
             <circle
                 cx={xScale(Date.parse(dataMax))} 
                 cy={yScale(priceAvg[dataMax])}
-                r={4}
-                fill={"rgba(255, 255, 255, 0.8)"}
+                r={3.6}
+                fill={"rgba(255, 255, 255, 0.6)"}
             />
         </g>
     )
