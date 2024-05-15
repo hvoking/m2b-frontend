@@ -8,8 +8,6 @@ import { datesFormat } from '../../../../utils/constants';
 import { useIsoPolygonApi } from '../../isoPolygon';
 import { usePropertyType } from '../../../filters/property';
 import { useEquipment } from '../../../filters/equipment';
-import { useAreas } from '../../../filters/areas';
-import { useDates } from '../../../filters/dates';
 
 const MeanApiContext: React.Context<any> = createContext(null)
 
@@ -23,8 +21,6 @@ export const MeanApiProvider = ({children}: any) => {
 	const { isoPolygonData } = useIsoPolygonApi();
 	const { businessTypeId, propertyTypeId } = usePropertyType();
 	const { rooms, suites, garages } = useEquipment();
-	const { areaMin, areaMax} = useAreas();
-	const { dates } = useDates();
 	
 	const [ meanData, setMeanData ] = useState<any>(null);
 	
@@ -38,10 +34,6 @@ export const MeanApiProvider = ({children}: any) => {
 	    	&rooms=${rooms}
 	    	&suites=${suites}
 	    	&garages=${garages}
-	    	&area_min=${areaMin}
-	    	&area_max=${areaMax}
-	    	&start_date=${datesFormat(dates[0])}
-		    &final_date=${datesFormat(dates[1])}
 	    `
 	  	const url = tempUrl.replace(/\s/g, '');
 	    const res = await fetch(url);
@@ -53,7 +45,6 @@ export const MeanApiProvider = ({children}: any) => {
 		isoPolygonData,
 		businessTypeId, propertyTypeId, 
 		rooms, suites, garages,
-		areaMax, areaMin
 	]);
 
 	return (
