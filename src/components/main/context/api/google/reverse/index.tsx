@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 
 // Context imports
-import { useIsoApi } from '../../iso';
+import { usePolygonApi } from '../../polygon';
 import { usePdf } from '../../../filters/pdf';
 
 const ReverseGeocodingApiContext: React.Context<any> = createContext(null)
@@ -14,7 +14,7 @@ export const useReverseGeocodingApi = () => {
 }
 
 export const ReverseGeocodingApiProvider = ({children}: any) => {
-	const { isoData } = useIsoApi();
+	const { polygonData } = usePolygonApi();
 	const { activePdf } = usePdf();
 	const [ currentAddress, setCurrentAddress ] = useState<any>(null);
 
@@ -30,8 +30,8 @@ export const ReverseGeocodingApiProvider = ({children}: any) => {
 	    const placeName = receivedData.formatted_address;
 	    setCurrentAddress(placeName);
 	  }
-	  isoData && fetchData();
-	}, [ isoData ]);
+	  polygonData && fetchData();
+	}, [ polygonData ]);
 
 	return (
 		<ReverseGeocodingApiContext.Provider value={{ currentAddress, setCurrentAddress }}>

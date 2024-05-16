@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 
 // Context imports
-import { useIsoApi } from '../../iso';
+import { usePolygonApi } from '../../polygon';
 import { usePropertyType } from '../../../filters/property';
 import { useDates } from '../../../filters/dates';
 
@@ -15,7 +15,7 @@ export const useRoomsApi = () => {
 }
 
 export const RoomsApiProvider = ({children}: any) => {
-	const { isoData } = useIsoApi();
+	const { polygonData } = usePolygonApi();
 	const { businessTypeId, propertyTypeId } = usePropertyType();
 	const { startDate, finalDate } = useDates();
 	
@@ -36,8 +36,8 @@ export const RoomsApiProvider = ({children}: any) => {
 	    const receivedData = await res.json();
 	    setRoomsData(receivedData);
 	  }
-	  isoData && fetchData();
-	}, [ isoData, businessTypeId, propertyTypeId ]);
+	  polygonData && fetchData();
+	}, [ polygonData, businessTypeId, propertyTypeId ]);
 
 	return (
 		<RoomsApiContext.Provider value={{ roomsData }}>

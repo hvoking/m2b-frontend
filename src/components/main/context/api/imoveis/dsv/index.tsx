@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 
 // Context imports
-import { useIsoApi } from '../../iso';
+import { usePolygonApi } from '../../polygon';
 import { usePropertyType } from '../../../filters/property';
 
 const DsvApiContext: React.Context<any> = createContext(null)
@@ -14,7 +14,7 @@ export const useDsvApi = () => {
 }
 
 export const DsvApiProvider = ({children}: any) => {
-	const { isoData } = useIsoApi();
+	const { polygonData } = usePolygonApi();
 	const { businessTypeId, propertyTypeId } = usePropertyType();
 	
 	const [ dsvData, setDsvData ] = useState<any>(null);
@@ -32,8 +32,8 @@ export const DsvApiProvider = ({children}: any) => {
 	    const receivedData = await res.json();
 	    setDsvData(receivedData);
 	  }
-	  isoData && fetchData();
-	}, [ isoData, businessTypeId, propertyTypeId ]);
+	  polygonData && fetchData();
+	}, [ polygonData, businessTypeId, propertyTypeId ]);
 
 	return (
 		<DsvApiContext.Provider value={{ dsvData }}>

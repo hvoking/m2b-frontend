@@ -5,7 +5,7 @@ import { useState, useEffect, useContext, createContext } from 'react';
 import { datesFormat } from '../../../../utils/constants';
 
 // Context imports
-import { useIsoApi } from '../../iso';
+import { usePolygonApi } from '../../polygon';
 import { usePropertyType } from '../../../filters/property';
 import { useEquipment } from '../../../filters/equipment';
 import { useDates } from '../../../filters/dates';
@@ -19,7 +19,7 @@ export const usePricesApi = () => {
 }
 
 export const PricesApiProvider = ({children}: any) => {
-	const { isoData } = useIsoApi();
+	const { polygonData } = usePolygonApi();
 	const { businessTypeId, propertyTypeId, nearest } = usePropertyType();
 	const { rooms, suites, garages } = useEquipment();
 	const { dates } = useDates();
@@ -45,9 +45,9 @@ export const PricesApiProvider = ({children}: any) => {
 		  	const receivedData = await res.json();
 		  	setPricesData(receivedData[0]);
 		}
-		isoData && fetchData();
+		polygonData && fetchData();
 	}, [
-		isoData,
+		polygonData,
 		businessTypeId, propertyTypeId, 
 		rooms, suites, garages,
 		nearest, 

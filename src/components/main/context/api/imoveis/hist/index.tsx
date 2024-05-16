@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 
 // Context imports
-import { useIsoApi } from '../../iso';
+import { usePolygonApi } from '../../polygon';
 import { usePropertyType } from '../../../filters/property';
 import { useCategory } from '../../../filters/category';
 
@@ -15,7 +15,7 @@ export const useHistApi = () => {
 }
 
 export const HistApiProvider = ({children}: any) => {
-	const { isoData } = useIsoApi();
+	const { polygonData } = usePolygonApi();
 	const { businessTypeId, propertyTypeId } = usePropertyType();
 	const { categoryId } = useCategory();
 	
@@ -34,8 +34,8 @@ export const HistApiProvider = ({children}: any) => {
 	    const receivedData = await res.json();
 	    setHistData(receivedData);
 	  }
-	  isoData && categoryId === 2 && fetchData();
-	}, [ isoData, categoryId, businessTypeId, propertyTypeId ]);
+	  polygonData && categoryId === 2 && fetchData();
+	}, [ polygonData, categoryId, businessTypeId, propertyTypeId ]);
 
 	return (
 		<HistApiContext.Provider value={{ histData }}>

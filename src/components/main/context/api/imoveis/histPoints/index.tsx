@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 
 // Context imports
-import { useIsoApi } from '../../iso';
+import { usePolygonApi } from '../../polygon';
 import { usePropertyType } from '../../../filters/property';
 import { useEquipment } from '../../../filters/equipment';
 import { useGeo } from '../../../filters/geo';
@@ -17,7 +17,7 @@ export const useHistPointsApi = () => {
 }
 
 export const HistPointsApiProvider = ({children}: any) => {
-	const { isoData } = useIsoApi();
+	const { polygonData } = usePolygonApi();
 	const { propertyTypeId, businessTypeId } = usePropertyType();
 	const { rooms, suites, garages } = useEquipment();
 	const { cityId } = useGeo();
@@ -42,9 +42,9 @@ export const HistPointsApiProvider = ({children}: any) => {
 	    const receivedData = await res.json();
 	    setHistPointsData(receivedData[0]);
 	  }
-	  isoData && categoryId === 2 && fetchData();
+	  polygonData && categoryId === 2 && fetchData();
 	}, [ 
-		isoData,
+		polygonData,
 		categoryId, cityId,
 		businessTypeId, propertyTypeId, 
 		rooms, suites, garages

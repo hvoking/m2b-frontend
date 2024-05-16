@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext, createContext } from 'react';
 
 // Context imports
-import { useIsoApi } from '../../iso';
+import { usePolygonApi } from '../../polygon';
 import { usePropertyType } from '../../../filters/property';
 import { useEquipment } from '../../../filters/equipment';
 import { useDates } from '../../../filters/dates';
@@ -19,7 +19,7 @@ export const AreasApiProvider = ({children}: any) => {
 	const [ areasData, setAreasData ] = useState<any>(null);
 	const { startDate, finalDate } = useDates();
 
-	const { isoData } = useIsoApi();
+	const { polygonData } = usePolygonApi();
 	const { propertyTypeId, businessTypeId } = usePropertyType();
 	const { rooms, suites, garages } = useEquipment();
 	
@@ -41,9 +41,9 @@ export const AreasApiProvider = ({children}: any) => {
 	    const receivedData = await res.json();
 	    setAreasData(receivedData);
 	  }
-	  isoData && fetchData();
+	  polygonData && fetchData();
 	}, [ 
-		isoData,
+		polygonData,
 		businessTypeId, propertyTypeId, 
 		rooms, suites, garages,
 	]);

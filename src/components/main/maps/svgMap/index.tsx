@@ -6,7 +6,7 @@ import { SVGWrapper } from './svg';
 import './styles.scss';
 
 // Context imports
-import { useIsoApi } from '../../context/api/iso';
+import { usePolygonApi } from '../../context/api/polygon';
 import { useIsoPolygonApi } from '../../context/api/isoPolygon';
 import { useSvgMapSizes } from '../../context/sizes/svgMap';
 import { useGeo } from '../../context/filters/geo';
@@ -17,14 +17,14 @@ import * as d3 from 'd3';
 export const SvgMap = () => {
 	const svgContainerRef = useRef<any>(null);
 
-	const { isoData } = useIsoApi();
+	const { polygonData } = usePolygonApi();
 	const { isoPolygonData } = useIsoPolygonApi();
 	const { innerWidth, innerHeight } = useSvgMapSizes();
 	const { setPlaceCoordinates } = useGeo();
 
-	if (!isoPolygonData || !isoData || !isoData[0].city_geom) return (<></>)
+	if (!isoPolygonData || !polygonData || !polygonData[0].city_geom) return (<></>)
 
-	const city = isoData[0].city_geom[0];
+	const city = polygonData[0].city_geom[0];
 	const polygon = isoPolygonData.features[0].geometry;
 
 	const projection = d3.geoIdentity()
