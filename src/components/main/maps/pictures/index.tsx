@@ -17,9 +17,7 @@ export const Pictures = () => {
 	const { imagesData } = useImagesApi();
 	
 	if (!propertyInfo || !imagesData) return <></>
-
-	const imagesArray = imagesData[0].image_src;
-	const imagesLength = imagesArray.length;
+	const imagesLength = imagesData[0].length;
 
 	return (
 		<>
@@ -33,7 +31,7 @@ export const Pictures = () => {
 						/>
 						<PropertyImages 
 							propertyInfo={propertyInfo}
-							imagesArray={imagesArray}
+							imagesArray={imagesData[0]}
 							currentImage={currentImage} 
 							setCurrentImage={setCurrentImage}
 							imagesLength={imagesLength}

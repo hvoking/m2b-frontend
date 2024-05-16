@@ -26,7 +26,7 @@ export const ImagesApiProvider = ({children}: any) => {
 	  	const url = tempUrl.replace(/\s/g, '');
 	    const res = await fetch(url);
 	    const receivedData = await res.json();
-	    setImagesData(receivedData[0]);
+	    setImagesData(receivedData);
 	  }
 	  currentPropertyId && fetchData();
 	}, [ currentPropertyId	]);

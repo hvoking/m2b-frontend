@@ -14,7 +14,6 @@ export const Tooltip = () => {
 	const { imagesData } = useImagesApi();
 	
 	if (!propertyHoverInfo || !propertyHoverInfo.object || !imagesData) return <></>
-	let image_src = imagesData[0].image_src;
 
 	const iscUrl = "https://media.imoveis-sc.com.br/media/thumb-290-250/";
 
@@ -29,7 +28,7 @@ export const Tooltip = () => {
 			</div>
 			<img 
 				width={170}
-				src={iscUrl + image_src[0]}
+				src={iscUrl + imagesData[0][0]}
 				alt="property"
 			/>
 		</div>
