@@ -36,8 +36,6 @@ export const PricesApiProvider = ({children}: any) => {
 		    	&rooms=${rooms}
 		    	&suites=${suites}
 		    	&garages=${garages}
-		    	&start_date=${datesFormat(dates[0])}
-		    	&final_date=${datesFormat(dates[1])}
 		    	&k=${nearest}
 		    `
 		    const url = tempUrl.replace(/\s/g, '');
@@ -50,8 +48,7 @@ export const PricesApiProvider = ({children}: any) => {
 		polygonData,
 		businessTypeId, propertyTypeId, 
 		rooms, suites, garages,
-		nearest, 
-		dates
+		nearest
 	]);
 
 	return (
