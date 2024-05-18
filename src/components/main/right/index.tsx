@@ -18,11 +18,11 @@ export const Right = () => {
 	return (
 		<div className="right">
 			<div className="right-wrapper">
+				<Calculator/>
 				<Prices 
 					linesData={linesData} 
 					pricesData={pricesData}
 				/>
-				<Calculator/>
 				<Timeseries/>
 				<Pictures 
 					linesData={linesData} 

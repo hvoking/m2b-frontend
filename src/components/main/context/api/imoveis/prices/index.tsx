@@ -37,6 +37,8 @@ export const PricesApiProvider = ({children}: any) => {
 		    	&suites=${suites}
 		    	&garages=${garages}
 		    	&k=${nearest}
+		    	&start_date=${datesFormat(dates[0])}
+	    		&final_date=${datesFormat(dates[1])}
 		    `
 		    const url = tempUrl.replace(/\s/g, '');
 		    const res = await fetch(url);

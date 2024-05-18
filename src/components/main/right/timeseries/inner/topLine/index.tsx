@@ -23,16 +23,18 @@ export const Lines = ({ xScale, innerHeight }: any) => {
 
   return (
     <>
+      <line
+        x1={0}
+        x2={0}
+        y1={-15}
+        y2={0}
+        stroke="rgba(155, 155, 155, 1)"
+        strokeWidth={strokeWidth}
+        strokeDasharray=""
+      />
       {firstMonthOfYear.map((year: any, index: number) => {
         return (
           <g key={index}>
-            <TopLine 
-              y1={0} 
-              y2={-15} 
-              year={year} 
-              xScale={xScale} 
-              strokeWidth={strokeWidth}
-            />
             <TopLine 
               y1={-15} 
               y2={innerHeight} 

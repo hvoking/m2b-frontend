@@ -10,9 +10,9 @@ export const Border = ({ innerWidth, innerHeight}: BorderType) => {
 		<>
 			<rect
 			  x={0}
-			  y={-15}
+			  y={0}
 			  width={innerWidth}
-			  height={innerHeight + 15}
+			  height={innerHeight}
 			  fill="none"
 			  stroke="rgba(126, 126, 132, 1)"
 			  strokeWidth={strokeWidth}

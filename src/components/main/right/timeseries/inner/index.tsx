@@ -10,6 +10,8 @@ import { Tooltip } from './tooltip';
 import { Range } from './range';
 import { yAxisTickFormat } from '../../../utils/constants';
 import { Mean } from './mean';
+import { Refs } from './refs';
+import { Left } from './left';
 
 // Context imports
 import { useLinesApi } from '../../../context/api/imoveis/lines';
@@ -72,6 +74,11 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         stroke="rgba(126, 126, 132, 0)"
         strokeWidth={0}
       />
+      <Left
+        yScale={yScale}
+        innerWidth={innerWidth}
+        innerHeight={innerHeight}
+      />
       <Range
         yScale={yScale}
         yMin={bottomLimit}
@@ -99,6 +106,7 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         linesData={linesData} 
         pricesData={pricesData} 
       />
+      <Refs innerWidth={innerWidth} yScale={yScale}/>
       <Mean
         unitPrice={unitPrice}
         yScale={yScale} 

@@ -1,4 +1,5 @@
 // App imports
+import { Divider } from './divider';
 import './styles.scss';
 
 // Context imports
@@ -60,6 +61,10 @@ export const Bottom = ({ xScale, innerWidth, innerHeight, xAxisTickFormat }: any
           >
             {activeString && meses[parseInt(xAxisTickFormat(tickValue))]}
           </text>
+          <Divider
+            xScale={xScale}
+            innerHeight={innerHeight}
+          />
         </g>
       )}
   )
