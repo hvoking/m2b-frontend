@@ -29,10 +29,11 @@ export const ImagesApiProvider = ({children}: any) => {
 	    setImagesData(receivedData);
 	  }
 	  currentPropertyId && fetchData();
+	  currentPropertyId === null && setImagesData(null)
 	}, [ currentPropertyId	]);
 
 	return (
-		<ImagesApiContext.Provider value={{ imagesData }}>
+		<ImagesApiContext.Provider value={{ imagesData, setImagesData }}>
 			{children}
 		</ImagesApiContext.Provider>
 	)
