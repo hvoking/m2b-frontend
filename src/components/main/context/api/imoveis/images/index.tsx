@@ -29,7 +29,6 @@ export const ImagesApiProvider = ({children}: any) => {
 	    setImagesData(receivedData);
 	  }
 	  currentPropertyId && fetchData();
-	  currentPropertyId === null && setImagesData(null)
 	}, [ currentPropertyId	]);
 
 	return (
