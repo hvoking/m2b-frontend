@@ -1,4 +1,5 @@
 // App imports
+import { Divider } from './divider';
 import './styles.scss';
 
 // Context imports
@@ -42,7 +43,7 @@ export const Bottom = ({ xScale, innerWidth, innerHeight, xAxisTickFormat }: any
             className="dates-background-text"
             transform={
               `
-                translate(${xScale(tickValue) + 3 + tickWidth / 2}, ${innerHeight + 27}), 
+                translate(${xScale(tickValue) + 3 + tickWidth / 2}, ${innerHeight + 26}), 
                 rotate(-90)
               `
             }
@@ -53,13 +54,17 @@ export const Bottom = ({ xScale, innerWidth, innerHeight, xAxisTickFormat }: any
             className="dates-text"
             transform={
               `
-                translate(${xScale(tickValue) + 3 + tickWidth / 2}, ${innerHeight + 27}), 
+                translate(${xScale(tickValue) + 3 + tickWidth / 2}, ${innerHeight + 26}), 
                 rotate(-90)
               `
             }
           >
             {activeString && meses[parseInt(xAxisTickFormat(tickValue))]}
           </text>
+          <Divider
+            xScale={xScale}
+            innerHeight={innerHeight}
+          />
         </g>
       )}
   )

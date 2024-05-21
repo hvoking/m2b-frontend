@@ -13,7 +13,7 @@ export const TimeseriesSizesProvider = ({children}: any) => {
 	const [ width, setWidth ] = useState<any>(null);
 	const [ height, setHeight ] = useState<any>(null);
 
-	const margin = {top: 20, bottom: 32, left: 20, right: 20}
+	const margin = {top: 20, bottom: 50, left: 50, right: 20}
 
 	const innerWidth = width - margin.right - margin.left;
 	const innerHeight = height - margin.top - margin.bottom;

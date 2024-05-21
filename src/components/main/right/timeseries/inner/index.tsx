@@ -2,16 +2,16 @@
 import { useState } from 'react';
 
 // App imports
-import { TimeseriesRef } from './ref';
-import { Points } from './points';
-import { VerticalRef } from './vertical';
 import { Lines } from './topLine';
-import { Tooltip } from './tooltip';
-import { Range } from './range';
-import { yAxisTickFormat } from '../../../utils/constants';
-import { Mean } from './mean';
-import { Refs } from './refs';
 import { Left } from './left';
+import { Mean } from './mean';
+import { Points } from './points';
+import { Range } from './range';
+import { Refs } from './refs';
+import { TimeseriesRef } from './ref';
+import { Tooltip } from './tooltip';
+import { VerticalRef } from './vertical';
+import { yAxisTickFormat } from '../../../utils/constants';
 
 // Context imports
 import { useLinesApi } from '../../../context/api/imoveis/lines';

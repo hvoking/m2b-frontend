@@ -1,10 +1,12 @@
 // App imports
-import { Arrow } from './arrow';
 import { TimeseriesRef } from './ref';
 import { Points } from './points';
 import { VerticalRef } from './vertical';
 import { Lines } from './topLine';
 import { Range } from './range';
+import { Left } from './left';
+import { Mean } from './mean';
+import { Refs } from './refs';
 
 // Context imports
 import { useLinesApi } from '../../../context/api/imoveis/lines';
@@ -19,7 +21,7 @@ import * as d3 from 'd3';
 export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
   const { linesData } = useLinesApi();
   const { pricesData } = usePricesApi();
-  const { dates, setDates, startDate, finalDate } = useDates();
+  const { startDate, finalDate } = useDates();
   const { unitPrice } = usePrices();
   const { bottomLimit, topLimit } = useLinesLimits();
 
@@ -28,13 +30,6 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
 
   const finalDateParts = finalDate.split("-");
   const currentFinalDate = new Date(`${finalDateParts[2]}-${finalDateParts[1]}-${finalDateParts[0]}`);
-
-  const onClick = () => {
-    const newDates = [...dates]
-    const prevMonth = newDates[0].getMonth() - 1
-    newDates[0].setMonth(prevMonth);
-    setDates(newDates);
-  }
 
   const pricesArray = pricesData.map((items: any) => 
       unitPrice === "price" ? 
@@ -47,16 +42,17 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
 
 	return (
 		<>
-      <Arrow 
-        innerHeight={innerHeight}
-        onClick={onClick}
-      />
       <rect 
         width={innerWidth} 
         height={innerHeight} 
         fill="rgba(23, 23, 32, 1)"
         stroke="rgba(126, 126, 132, 0)"
         strokeWidth={0}
+      />
+      <Left
+        yScale={yScale}
+        innerWidth={innerWidth}
+        innerHeight={innerHeight}
       />
       <Range
         yScale={yScale}
@@ -84,6 +80,12 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         yScale={yScale} 
         linesData={linesData} 
         pricesData={pricesData} 
+      />
+      <Refs innerWidth={innerWidth} yScale={yScale}/>
+      <Mean
+        unitPrice={unitPrice}
+        yScale={yScale} 
+        innerWidth={innerWidth} 
       />
       <rect 
         x={xScale(currentStartDate)} 
