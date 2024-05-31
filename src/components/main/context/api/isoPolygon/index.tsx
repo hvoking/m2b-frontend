@@ -18,7 +18,6 @@ export const IsoPolygonApiProvider = ({children}: any) => {
 	const [ routingProfile, setRoutingProfile ] = useState("walking");
 	const [ contoursMinutes, setContoursMinutes ] = useState(15);
 	const [ initialMarker, setInitialMarker ] = useState(true);
-
 	const [ isoPolygonData, setIsoPolygonData ] = useState<any>(null);
 
 	useEffect(() => {

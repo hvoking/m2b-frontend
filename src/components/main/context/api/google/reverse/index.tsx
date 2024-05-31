@@ -1,6 +1,10 @@
 // React imports
 import { useState, useEffect, useContext, createContext } from 'react';
 
+// Context imports
+import { usePolygonApi } from '../../polygon';
+import { usePdf } from '../../../filters/pdf';
+
 const ReverseGeocodingApiContext: React.Context<any> = createContext(null)
 
 export const useReverseGeocodingApi = () => {
@@ -10,9 +14,8 @@ export const useReverseGeocodingApi = () => {
 }
 
 export const ReverseGeocodingApiProvider = ({children}: any) => {
-	const [ parcelsProperties, setParcelsProperties ] = useState<any>({});
-	const [ parcelLongitude, setParcelLongitude ] = useState<any>(null);
-	const [ parcelLatitude, setParcelLatitude ] = useState<any>(null);
+	const { polygonData } = usePolygonApi();
+	const { activePdf } = usePdf();
 	const [ currentAddress, setCurrentAddress ] = useState<any>(null);
 
 	useEffect(() => {
@@ -20,26 +23,18 @@ export const ReverseGeocodingApiProvider = ({children}: any) => {
 	    const tempUrl = `
 	    	${process.env.REACT_APP_API_URL}/
 	    	reverse_api
-	    	?lat=${parcelLatitude}
-	    	&lng=${parcelLongitude}
 	    `;
 	    const url = tempUrl.replace(/\s/g, '');
 	    const res = await fetch(url);
 	    const receivedData = await res.json();
-	    const receivedAddress = receivedData.formatted_address;
-	    const address = receivedAddress.split(",").slice(0, 3).join(",") + "," + receivedAddress.split(",").slice(-1)
-
-	    setCurrentAddress(address);
+	    const placeName = receivedData.formatted_address;
+	    setCurrentAddress(placeName);
 	  }
-	  parcelLongitude && fetchData();
-	}, [ parcelLongitude ]);
+	  polygonData && fetchData();
+	}, [ polygonData ]);
 
 	return (
-		<ReverseGeocodingApiContext.Provider value={{ 
-			parcelsProperties, setParcelsProperties,
-			setParcelLatitude, setParcelLongitude,
-			currentAddress
-		}}>
+		<ReverseGeocodingApiContext.Provider value={{ currentAddress, setCurrentAddress }}>
 			{children}
 		</ReverseGeocodingApiContext.Provider>
 	)
