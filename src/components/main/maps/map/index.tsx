@@ -8,6 +8,7 @@ import { Tooltip } from './tooltip';
 import { Buildings } from './buildings';
 import { Layers } from './layers';
 import { IsoPolygon } from './iso';
+import { HeatmapLayer } from './heatmap';
 
 // Context imports
 import { useMapbox } from '../../context/maps/mapbox';
@@ -43,6 +44,7 @@ export const MapContainer = () => {
 			preserveDrawingBuffer={true}
 		>
 			<IsoPolygon/>
+			<HeatmapLayer/>
 			<Layers/>
 			<Pin/>
 			<Buildings/>

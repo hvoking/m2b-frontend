@@ -1,6 +1,5 @@
 // Layers imports
 import { usePointsLayer } from '../../../context/maps/layers/points';
-import { useHeatmapLayer } from '../../../context/maps/layers/heatmap';
 
 // Third-party imports
 import { useControl } from 'react-map-gl';
@@ -15,9 +14,8 @@ const DeckGLOverlay = (props: DeckProps) => {
 
 export const Layers = () => {
 	const { pointsLayer } = usePointsLayer();
-	const { heatmapLayer } = useHeatmapLayer();
 
-	const layers: any = [ pointsLayer, heatmapLayer ];
+	const layers: any = [ pointsLayer ];
 
 	return (
 		<DeckGLOverlay 
