@@ -1,5 +1,4 @@
 // Layers imports
-import { useIsoLayer } from '../../../context/maps/layers/iso';
 import { usePointsLayer } from '../../../context/maps/layers/points';
 import { useHeatmapLayer } from '../../../context/maps/layers/heatmap';
 
@@ -17,11 +16,10 @@ const DeckGLOverlay = (props: DeckProps) => {
 }
 
 export const Layers = () => {
-	const { isoLayer } = useIsoLayer();
 	const { pointsLayer } = usePointsLayer();
 	const { heatmapLayer } = useHeatmapLayer();
 
-	const layers: any = [ isoLayer, pointsLayer, heatmapLayer ];
+	const layers: any = [ pointsLayer, heatmapLayer ];
 
 	return (
 		<DeckGLOverlay 

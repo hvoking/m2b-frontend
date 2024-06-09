@@ -7,6 +7,7 @@ import { Pin } from './pin';
 import { Tooltip } from './tooltip';
 import { Buildings } from './buildings';
 import { Layers } from './layers';
+import { IsoPolygon } from './iso';
 
 // Context imports
 import { useMapbox } from '../../context/maps/mapbox';
@@ -41,6 +42,7 @@ export const MapContainer = () => {
 			antialias={true}
 			preserveDrawingBuffer={true}
 		>
+			<IsoPolygon/>
 			<Layers/>
 			<Pin/>
 			<Buildings/>

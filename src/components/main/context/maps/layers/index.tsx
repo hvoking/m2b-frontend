@@ -1,12 +1,10 @@
 // App imports
-import { IsoLayerProvider } from './iso';
 import { PointsLayerProvider } from './points';
 import { IconLayerProvider } from './icon';
 import { HeatmapLayerProvider } from './heatmap';
 
 export const LayersProvider = ({children}: any) => {
   return (
-    <IsoLayerProvider>
     <PointsLayerProvider>
     <IconLayerProvider>
     <HeatmapLayerProvider>
@@ -14,7 +12,6 @@ export const LayersProvider = ({children}: any) => {
     </HeatmapLayerProvider>
     </IconLayerProvider>
     </PointsLayerProvider>
-    </IsoLayerProvider>
   )
 }
 
