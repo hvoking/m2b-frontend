@@ -1,11 +1,13 @@
 // Context imports
 import { useHistPointsApi } from '../../../context/api/imoveis/histPoints';
+import { useCategory } from '../../../context/filters/category';
 
 // Third party imports
 import { Source, Layer } from 'react-map-gl';
 
 export const HeatmapLayer = () => {
 	const { histPointsData } = useHistPointsApi();
+    const { categoryId } = useCategory();
 
 	if (!histPointsData) return <></>
 
@@ -99,7 +101,7 @@ export const HeatmapLayer = () => {
 	
 	return (
 		<Source id="heatmapSource" {...heatmapSource}>
-			<Layer {...heatmapLayer}/>
+			{categoryId === 2 && <Layer {...heatmapLayer}/>}
 		</Source>
 	)
 }
