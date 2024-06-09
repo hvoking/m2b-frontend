@@ -5,10 +5,10 @@ import { useHeatmapLayer } from '../../../context/maps/layers/heatmap';
 
 // Third-party imports
 import { useControl } from 'react-map-gl';
-import { MapboxOverlay } from '@deck.gl/mapbox';
+import { MapboxOverlay } from '@deck.gl/mapbox/typed';
 
 // Type imports
-import type { DeckProps } from '@deck.gl/core';
+import type { DeckProps } from '@deck.gl/core/typed';
 
 const DeckGLOverlay = (props: DeckProps) => {
   const deck = useControl<any>(() => new MapboxOverlay(props));
