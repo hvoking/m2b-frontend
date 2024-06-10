@@ -3,10 +3,10 @@ import { useState, useCallback } from 'react';
 
 // App imports
 import { Pin } from './pin';
-import { Buildings } from './buildings';
 import { MapControllers } from './controllers';
 import { PanSelector } from './pan';
 import { IconsLayer } from './icons';
+import { Buildings } from './buildings';
 
 // Context imports
 import { useMapbox } from '../../../context/maps/mapbox';
@@ -14,7 +14,7 @@ import { useGeo } from '../../../context/filters/geo';
 import { useIsoPolygonApi } from '../../../context/api/isoPolygon';
 
 // Third-party imports
-import { Map, useControl } from 'react-map-gl';
+import { Map } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
 
 export const PdfMaps = () => {
@@ -45,8 +45,8 @@ export const PdfMaps = () => {
 			preserveDrawingBuffer={true}
 		>
 			<IconsLayer/>
-			<Pin/>
 			<Buildings/>
+			<Pin/>
 			<MapControllers/>
 		</Map>
 		<PanSelector setActivePan={setActivePan}/>

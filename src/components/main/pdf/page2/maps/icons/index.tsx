@@ -21,6 +21,16 @@ export const IconsLayer = () => {
 	const currentPriceString = unitPrice === "price" ? "price" : "unit_price";
 	const prices = filterPoints.map((item: any) => item[currentPriceString]);
 
+	// const onClick = (info: any) => {
+  	// 	setActivePropertyInfo(true);
+  	// 	info.object && setPropertyInfo(info.object);
+  	// };
+
+  	// const onHover = (info: any) => {
+  	// 	info.object && setCurrentPropertyId(info.object.property_id);
+  	// 	!info.object && setCurrentPropertyId(null);
+  	// }
+
 	const minPrice: any = d3.min(prices);
 	const maxPrice: any = d3.max(prices)
 
@@ -37,8 +47,8 @@ export const IconsLayer = () => {
 	        'interpolate',
 	        ['linear'],
 	        ['get', 'size'],
-	        1, 2, // Min size
-	        100, 6 // Max size, adjust as needed
+	        1, 3, // Min size
+	        100, 9 // Max size
 	      ],
 	      'circle-color': ['get', 'markerColor'],
 	    },
@@ -60,12 +70,12 @@ export const IconsLayer = () => {
 		        size: pricesScale(d[currentPriceString]),
 		        markerColor:
 		          currentPropertyId && currentPropertyId === d.property_id
-		            ? 'yellow'
+		            ? 'rgba(255, 255, 0, 1)'
 		            : d[currentPriceString] >= topLimit
-		            ? 'blue'
+		            ? 'rgba(166, 166, 244, 1)'
 		            : d[currentPriceString] < bottomLimit
-		            ? 'red'
-		            : 'green',
+		            ? 'rgba(255, 0, 0, 1)'
+		            : 'rgba(67, 181, 64, 1)',
 		      },
 		    })),
 		  }
