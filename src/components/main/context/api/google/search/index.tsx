@@ -20,6 +20,7 @@ export const GoogleSearchApiProvider = ({children}: any) => {
 	    	${process.env.REACT_APP_API_URL}/
 	    	search_api
 	    	?query=${temporarySearchText}
+	    	&language=pt_BR
 	    `;
 	    const url = tempUrl.replace(/\s/g, '');
 	    const res = await fetch(url);
