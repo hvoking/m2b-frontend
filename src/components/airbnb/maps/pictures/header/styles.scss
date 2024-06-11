@@ -1,0 +1,23 @@
+.pictures-header {
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: min-content min-content auto min-content min-content;
+  white-space: nowrap;
+  background-color: rgba(33, 33, 43, 1);
+  align-items: center;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+.ads-cancel-search-cross {
+  width: 17px;
+  cursor: pointer;
+  padding-right: 10px;
+}
+@media screen and (max-width: 1000px) {
+  .pictures-header {
+    grid-gap: 10px;
+    padding: 0;
+    padding-left: 10px;
+    overflow: hidden;
+  }
+}

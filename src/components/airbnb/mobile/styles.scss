@@ -1,0 +1,27 @@
+$background-color: rgba(33, 33, 43, 1);
+
+.bottom-item-wrapper {
+	display: grid;
+	grid-template-rows: 30px auto;
+	background-color: $background-color;
+	border-radius: 20px;
+	overflow: hidden;
+	color: rgba(255, 255, 255, 1);
+	width: 100%;
+}
+.bottom-prices-item-wrapper {
+	display: grid;
+	grid-template-rows: 30px auto min-content;
+	background-color: $background-color;
+	border-radius: 20px;
+	overflow: hidden;
+	color: rgba(255, 255, 255, 1);
+	width: 100%;
+}
+.inner-wrapper {
+	 display: grid;
+	 grid-template-columns: min-content auto min-content;
+	 grid-gap: 10px;
+	 height: 100%;
+	 align-items: center;
+}

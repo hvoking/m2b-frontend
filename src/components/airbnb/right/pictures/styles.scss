@@ -1,0 +1,30 @@
+.right-images-wrapper {
+	display: grid;
+	height: calc(100% - 5px);
+	overflow-y: scroll;
+	padding-left: 20px;
+	padding-right: 10px;
+}
+.right-pictures {
+	display: grid;
+	grid-template-columns: 1fr;
+	grid-gap: 5px;
+}
+.pictures-box {
+	display: grid;
+	grid-template-columns: 12px auto;
+}
+.right-pictures-item {
+	display: grid;
+	grid-template-columns: min-content auto;
+	font-size: 0.6em;
+	cursor: pointer;
+}
+.right-images-wrapper::-webkit-scrollbar {
+  width: 15px;
+  background: rgba(33, 33, 43, 1);
+}
+.right-images-wrapper::-webkit-scrollbar-thumb {
+  border-right: 5px solid rgba(33, 33, 43, 1);
+  background: #555;
+}

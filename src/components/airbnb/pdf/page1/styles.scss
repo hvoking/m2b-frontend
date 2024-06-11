@@ -1,0 +1,6 @@
+.airbnb-pdf-body {
+  display: grid;
+  grid-template-rows: min-content min-content min-content 4fr;
+  overflow: hidden;
+  position: relative;
+}

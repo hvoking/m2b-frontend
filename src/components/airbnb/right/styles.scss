@@ -1,0 +1,10 @@
+.right {
+	overflow: hidden;
+}
+.right-wrapper {
+	display: grid; 
+	height: 100%;
+	grid-template-rows: min-content 1fr 1fr 1fr;
+	grid-gap: 5px;
+  	color: rgba(255, 255, 255, 1);
+}

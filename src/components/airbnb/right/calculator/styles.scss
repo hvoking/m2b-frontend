@@ -1,0 +1,21 @@
+.calculator-item-wrapper {
+  display: grid;
+  background-color: rgba(33, 33, 43, 1);
+  border-radius: 20px;
+  padding: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+.property-prices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+.property-prices-number {
+  border: 2px solid rgba(126, 126, 132, 1);
+  border-radius: 5px;
+  font-weight: 580;
+  background-color: rgba(23, 23, 32, 1);
+  text-align: center;
+  display: grid;
+}
