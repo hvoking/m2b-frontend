@@ -21,7 +21,32 @@ export const Mean = ({ yScale, innerWidth }: any) => {
       .domain([Date.parse(dataMin), Date.parse(dataMax)])
       .range([0, innerWidth]);
 
-    const entries: any = Object.entries(priceAvg)
+    const filteredPriceAvg = Object.fromEntries(
+        Object.entries(priceAvg).filter(([key, value]: any) => value !== null)
+    );
+
+
+    const entries: any = Object.entries(filteredPriceAvg)
+
+    const values = entries.map(([date, value]: any) => value);
+
+    // Function to calculate the quartiles and IQR
+    function calculateIQR(values: any) {
+        const sortedValues = values.slice().sort((a: any, b: any) => a - b);
+        const q1 = sortedValues[Math.floor((sortedValues.length / 4))];
+        const q3 = sortedValues[Math.floor((sortedValues.length * (3 / 4)))];
+        const iqr = q3 - q1;
+        const lowerBound = q1 - 1.5 * iqr;
+        const upperBound = q3 + 1.5 * iqr;
+        return { lowerBound, upperBound };
+    }
+
+    // Calculate the IQR and bounds
+    const { lowerBound, upperBound } = calculateIQR(values);
+
+    // Filter out the outliers
+    const filteredData = entries.filter(([date, value]: any) => value >= lowerBound && value <= upperBound);
+
 
     return (
         <g>
@@ -34,7 +59,7 @@ export const Mean = ({ yScale, innerWidth }: any) => {
                         d3.line()
                             .x((d: any) => xScale(Date.parse(d[0])))
                             .y((d: any) => yScale(d[1]))
-                            .curve(d3.curveNatural)(entries)
+                            .curve(d3.curveNatural)(filteredData)
                     }`
                 } 
             />

@@ -3,5 +3,5 @@ export const london = {
   latitude: 51.508530,
   longitude: -0.076132,
   pitch: 58.43,
-  zoom: 14,
+  zoom: 12,
 };

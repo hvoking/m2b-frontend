@@ -1,9 +1,6 @@
 // React imports
 import { useState, useEffect, useContext, createContext } from 'react';
 
-// App imports
-import { datesFormat } from '../../../../utils/constants';
-
 // Context imports
 import { useIsoPolygonApi } from '../../isoPolygon';
 import { useEquipment } from '../../../filters/equipment';
@@ -34,7 +31,7 @@ export const MeanApiProvider = ({children}: any) => {
 	    const receivedData = await res.json();
 	    setMeanData(receivedData[0]);
 	  }
-	  isoPolygonData && fetchData();
+	  // isoPolygonData && fetchData();
 	}, [ isoPolygonData, rooms ]);
 
 	return (

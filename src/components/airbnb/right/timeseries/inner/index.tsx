@@ -4,7 +4,7 @@ import { useState } from 'react';
 // App imports
 import { Lines } from './topLine';
 import { Left } from './left';
-import { Mean } from './mean';
+// import { Mean } from './mean';
 import { Points } from './points';
 import { Range } from './range';
 import { Refs } from './refs';
@@ -17,7 +17,6 @@ import { yAxisTickFormat } from '../../../utils/constants';
 import { useLinesApi } from '../../../context/api/imoveis/lines';
 import { usePricesApi } from '../../../context/api/imoveis/prices';
 import { useDates } from '../../../context/filters/dates';
-import { usePrices } from '../../../context/filters/prices';
 import { useLinesLimits } from '../../../context/limits/lines';
 
 // Third-party imports
@@ -26,7 +25,7 @@ import * as d3 from 'd3';
 export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
   const { linesData } = useLinesApi();
   const { pricesData } = usePricesApi();
-  const { dates, setDates, startDate, finalDate } = useDates();
+  const { startDate, finalDate } = useDates();
   const { bottomLimit, topLimit } = useLinesLimits();
 
   const [ activeTooltip, setActiveTooltip ] = useState(false);
@@ -102,10 +101,10 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         pricesData={pricesData} 
       />
       <Refs innerWidth={innerWidth} yScale={yScale}/>
-      <Mean
+     {/* <Mean
         yScale={yScale} 
         innerWidth={innerWidth} 
-      />
+      />*/}
       <rect 
         x={xScale(currentStartDate)} 
         y={0} 
