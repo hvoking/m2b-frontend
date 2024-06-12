@@ -15,7 +15,7 @@ import { useLinesLimits } from '../../context/limits/lines';
 
 export const Pictures = ({ linesData, pricesData }: any) => {
 	const { rejectedIds, setRejectedIds, currentPropertyId, nearest, setNearest, activeEquipment, setCurrentPropertyId, setSamplesIds } = usePropertyType();
-	const { setSamplesPrices, leftPosition, rightPosition, unitPrice } = usePrices();
+	const { setSamplesPrices, leftPosition, rightPosition } = usePrices();
 	const { startDate, finalDate } = useDates();
 	const { setPropertyInfo, setActivePropertyInfo } = useTooltip();
 	const { bottomLimit, topLimit } = useLinesLimits();
@@ -40,7 +40,7 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 		setSamplesPrices(filterById.slice(0, nearest).map((item: any) => item['price']));
 		setSamplesIds(filterById.slice(0, nearest).map((item: any) => item['property_id']))
 	}, [ 
-		rejectedIds, activeEquipment, linesData, unitPrice, 
+		rejectedIds, activeEquipment, linesData, 
 		leftPosition, rightPosition, 
 		startDate, finalDate,
 	]);

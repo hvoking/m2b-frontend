@@ -12,12 +12,10 @@ import './styles.scss';
 
 // Context imports
 import { usePricesApi } from '../context/api/imoveis/prices';
-import { usePrices } from '../context/filters/prices';
 
 export const Mobile = () => {
 	const [ activeIndex, setActiveIndex ] = useState(0);
 	const { pricesData } = usePricesApi();
-	const { unitPrice } = usePrices();
 ;
 	if (!pricesData) return (
 		<Description/>		
