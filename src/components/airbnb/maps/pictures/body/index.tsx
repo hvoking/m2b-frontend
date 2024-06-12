@@ -21,7 +21,7 @@ export const PropertyImages = ({ currentImage }: any) => {
 	// }
 
 	return (
-		<div className="pictures-body">
+		<div className="airbnb-pictures-body">
 			{/*<div className="arrow-left" onClick={decrement}/>*/}
 			<div className="pictures-item-wrapper">
 				<img 
