@@ -14,7 +14,7 @@ const roomsColors: any = {
 }
 
 export const Legend = ({ roomsData }: any) => {
-	const { rooms, setRooms, setSuites, setGarages } = useEquipment();
+	const { rooms, setRooms } = useEquipment();
 
 	const onClick = (item: any) => {
 		item && setRooms(item);

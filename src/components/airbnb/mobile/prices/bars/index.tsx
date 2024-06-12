@@ -2,8 +2,7 @@ export const Bars = ({
     bottomLimit, topLimit,
     xScale, yScale, 
     pricesArray, pricesKeys, 
-    innerWidth, innerHeight, 
-    unitPrice, priceFormat,
+    innerWidth, innerHeight, priceFormat,
     leftPosition, rightPosition,
 }: any) => {
     return (

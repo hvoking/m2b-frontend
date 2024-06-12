@@ -5,15 +5,9 @@ import { useLinesLimits } from '../../../../context/limits/lines';
 import { usePricesLimits } from '../../../../context/limits/prices';
 
 export const Points = ({ linesData, pricesData, xScale, yScale }: any) => {
-    const { unitPrice } = usePrices();
     const { propertyHoverInfo } = useTooltip();
     const { bottomLimit, topLimit } = useLinesLimits();
     const { filterPrices } = usePricesLimits();
-
-    const currentPriceString = 
-        unitPrice === "price" ? 
-        "price" : 
-        "unit_price";
 
     const currentPropertyId = propertyHoverInfo && propertyHoverInfo.object && propertyHoverInfo.object.property_id;
     
@@ -23,7 +17,7 @@ export const Points = ({ linesData, pricesData, xScale, yScale }: any) => {
                 <circle 
                     key={i}
                     cx={xScale(Date.parse(item.start_date))} 
-                    cy={yScale(item[currentPriceString])}
+                    cy={yScale(item['price'])}
                     r={
                         currentPropertyId === item.property_id ? 5 : 
                         1.6
@@ -31,9 +25,9 @@ export const Points = ({ linesData, pricesData, xScale, yScale }: any) => {
                     fill={
                         currentPropertyId === item.property_id ? 
                         "rgba(222, 222, 0, 1)" :
-                        item[currentPriceString] > topLimit ?
+                        item['price'] > topLimit ?
                         "rgba(166, 166, 244, 1)" :
-                        item[currentPriceString] < bottomLimit?
+                        item['price'] < bottomLimit?
                         "rgba(255, 0, 0, 1)" : 
                         "rgba(57, 181, 74, 1)"
                     }

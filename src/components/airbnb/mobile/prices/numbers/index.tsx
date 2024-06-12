@@ -23,7 +23,7 @@ export const Numbers = ({ leftPosition, rightPosition, setPriceMin, setPriceMax 
 				>
 					{leftPosition}
 				</div>
-				<div>mínimo</div>
+				<div>min</div>
 			</div>
 			<div>
 				<div 
@@ -32,7 +32,7 @@ export const Numbers = ({ leftPosition, rightPosition, setPriceMin, setPriceMax 
 				>
 					{rightPosition}
 				</div>
-				<div>máximo</div>
+				<div>max</div>
 			</div>
 		</div>
 	)

@@ -1,10 +1,10 @@
 export const Subtitle = () => {
 	return (
 		<div className="pages-subtitle">
-			<div>a plataforma</div> 
-			<div>de inteligência</div> 
-			<div>imobiliária que</div>
-			<div>cabe no seu bolso</div>
+			<div>Real estate</div> 
+			<div>platform</div> 
+			<div>that fits in</div>
+			<div>your pocket</div>
 		</div>
 	)
 }

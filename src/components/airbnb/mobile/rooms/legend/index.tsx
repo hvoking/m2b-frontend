@@ -2,6 +2,7 @@
 import { useEquipment } from '../../../context/filters/equipment';
 
 const roomsColors: any = {
+	0: 'rgba(255, 255, 255, 0.4)',
 	1: 'rgba(109, 86, 166, 1)',
 	2: 'rgba(84, 181, 103, 1)',
 	3: 'rgba(65, 145, 198, 1)',
@@ -9,17 +10,11 @@ const roomsColors: any = {
 	5: 'rgba(254, 0, 23, 1)',
 }
 
-export const RoomsLegend = ({ roomsData, dsvData }: any) => {
-	const { rooms, setRooms, setSuites, setGarages } = useEquipment();
+export const RoomsLegend = ({ roomsData }: any) => {
+	const { rooms, setRooms } = useEquipment();
 
 	const onClick = (item: any) => {
 		item && setRooms(item);
-		const obj = dsvData[`d${item}`].counts;
-		const maxRooms = Object.keys(obj).reduce((a, b) => obj[a] > obj[b] ? a : b).split(',');
-
-		setRooms(parseInt(maxRooms[0]))
-		setSuites(null)
-		setGarages(null)
 	}
 
 	const sortedRooms = Object.keys(roomsData).sort((a, b) => roomsData[b] - roomsData[a]);

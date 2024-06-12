@@ -11,16 +11,16 @@ export const Header = ({ activeIndex, setActiveIndex }: any) => {
 	return (
 		<div className="carousel-header">
 			<div onClick={() => setActiveIndex(0)} style={{color: active(0)}}>
-				Dormitórios
+				Rooms
 			</div>
 			<div onClick={() => setActiveIndex(1)} style={{color: active(1)}}>
-				Dsv
+				Prices
 			</div>
 			<div onClick={() => setActiveIndex(2)} style={{color: active(2)}}>
-				Datas
+				Dates
 			</div>
 			<div onClick={() => setActiveIndex(3)} style={{color: active(3)}}>
-				Valores
+				Prices
 			</div>
 		</div>
 	)

@@ -23,7 +23,7 @@ export const Rooms = () => {
 				</div>
 				<input 
 					type="checkbox" 
-					name="tipologias" 
+					name="rooms" 
 					onChange={onClick} 
 					checked={rooms === null}
 				/>

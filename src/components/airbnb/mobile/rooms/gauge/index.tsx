@@ -18,8 +18,8 @@ const roomsCounter: any = {
 	1: 'rgba(109, 86, 166, 1)',
 }
 
-export const RoomsGauge = ({ roomsData, dsvData }: any) => {
-	const { rooms, setRooms, setSuites, setGarages } = useEquipment();
+export const RoomsGauge = ({ roomsData }: any) => {
+	const { rooms, setRooms } = useEquipment();
 	const { innerWidth, innerHeight } = useRoomsGaugeSizes();
 
 	let totalCircunference = 0;
@@ -32,8 +32,6 @@ export const RoomsGauge = ({ roomsData, dsvData }: any) => {
 
 	const onClick = (item: any) => {
 		setRooms(item);
-		setSuites(null)
-		setGarages(null)
 	}
 		
 	return (

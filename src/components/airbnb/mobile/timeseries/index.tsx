@@ -14,21 +14,13 @@ import * as d3 from 'd3';
 
 export const Timeseries = () => {
 	const { dates } = useDates();
-	const { unitPrice } = usePrices();
 	const { linesData } = useLinesApi();
 	const { innerWidth, innerHeight } = useTimeseriesSizes();
 
 	if (!linesData) return <></>
 
-	const minLine = 
-		unitPrice === "price" ? 
-		linesData.min_line_price : 
-		linesData.min_line_unit_price;
-
-	const maxLine = 
-		unitPrice === "price" ? 
-		linesData.max_line_price : 
-		linesData.max_line_unit_price;
+	const minLine = linesData.min_line_price;
+	const maxLine = linesData.max_line_price;
 
 	const xScale = d3.scaleTime()
 		.domain(dates)
@@ -43,7 +35,7 @@ export const Timeseries = () => {
 
 	return (
 		<div className="bottom-prices-item-wrapper">
-			<div className="sidebar-title-wrapper">Intervalo de tempo</div>
+			<div className="sidebar-title-wrapper">Timeseries</div>
 			<SVGWrapper>
 				<Wrapper
 					xScale={xScale}  

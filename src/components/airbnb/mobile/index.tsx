@@ -31,13 +31,13 @@ export const Mobile = () => {
 					<Rooms/>
 				</CarouselItem>
 				<CarouselItem>
-					<div></div>
+					<Prices pricesData={pricesData}/>
 				</CarouselItem>
 				<CarouselItem>
 					<Timeseries/>
 				</CarouselItem>
 				<CarouselItem>
-					<Prices pricesData={pricesData} unitPrice={unitPrice}/>
+					<Prices pricesData={pricesData}/>
 				</CarouselItem>
 			</Carousel>
 		</div>

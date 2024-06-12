@@ -18,7 +18,7 @@ import { useLinesLimits } from '../../context/limits/lines';
 // Third party imports
 import * as d3 from 'd3';
 
-export const Prices = ({ pricesData, unitPrice }: any) => {
+export const Prices = ({ pricesData }: any) => {
 	const { innerWidth, innerHeight } = usePricesSizes();
 	const { 
 		setPriceMin, setPriceMax, 
@@ -28,9 +28,7 @@ export const Prices = ({ pricesData, unitPrice }: any) => {
 
 	const { bottomLimit, topLimit, minLine, meanLine, maxLine } = useLinesLimits();
 
-	const pricesArray = pricesData && pricesData.map((item: any) => {
-		return unitPrice === "price" ? item.price : item.unit_price
-	});
+	const pricesArray = pricesData && pricesData.map((item: any) => item.price);
 	
 	const unitPriceFormat = (tickValue: any) => d3.format(".2s")(tickValue).replace('G', 'B');
 	const priceFormat = (tickValue: any) => unitPriceFormat(tickValue);
@@ -106,7 +104,6 @@ export const Prices = ({ pricesData, unitPrice }: any) => {
 					pricesKeys={pricesKeys}
 					innerWidth={innerWidth}
 					innerHeight={innerHeight}
-					unitPrice={unitPrice}
 					leftPosition={leftPosition}
 					rightPosition={rightPosition}
 					priceFormat={priceFormat}

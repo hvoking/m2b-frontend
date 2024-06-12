@@ -7,12 +7,12 @@ import { useMeanApi } from '../../../../context/api/imoveis/mean';
 // Third party imports
 import * as d3 from 'd3';
 
-export const Mean = ({ unitPrice, yScale, innerWidth }: any) => {
+export const Mean = ({ yScale, innerWidth }: any) => {
     const { meanData } = useMeanApi();
 
-    if (!meanData || !meanData.price_avg || !meanData.unit_price_avg) return <></>
+    if (!meanData || !meanData.price_avg) return <></>
 
-    const priceAvg = unitPrice === "price" ? meanData.price_avg : meanData.unit_price_avg;
+    const priceAvg = meanData.price_avg;
 
     const dataMin: any = d3.min(Object.keys(priceAvg));
     const dataMax: any = d3.max(Object.keys(priceAvg));

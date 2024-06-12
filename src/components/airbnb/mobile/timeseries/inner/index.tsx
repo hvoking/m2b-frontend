@@ -22,7 +22,6 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
   const { linesData } = useLinesApi();
   const { pricesData } = usePricesApi();
   const { startDate, finalDate } = useDates();
-  const { unitPrice } = usePrices();
   const { bottomLimit, topLimit } = useLinesLimits();
 
   const startDateParts = startDate.split("-");
@@ -31,11 +30,7 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
   const finalDateParts = finalDate.split("-");
   const currentFinalDate = new Date(`${finalDateParts[2]}-${finalDateParts[1]}-${finalDateParts[0]}`);
 
-  const pricesArray = pricesData.map((items: any) => 
-      unitPrice === "price" ? 
-      items.price : 
-      items.unit_price
-    );
+  const pricesArray = pricesData.map((items: any) => items.price);
 
   const maxPoint = d3.max(pricesArray);
   const minPoint = d3.min(pricesArray);
@@ -83,7 +78,6 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
       />
       <Refs innerWidth={innerWidth} yScale={yScale}/>
       <Mean
-        unitPrice={unitPrice}
         yScale={yScale} 
         innerWidth={innerWidth} 
       />
