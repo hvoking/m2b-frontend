@@ -39,13 +39,13 @@ export const Mean = ({ yScale, innerWidth }: any) => {
                 } 
             />
             <circle
-                cx={0} 
+                cx={xScale(Date.parse(dataMin))} 
                 cy={yScale(priceAvg[dataMin])}
                 r={3.6}
                 fill={"rgba(255, 255, 255, 0.6)"}
             />
             <circle
-                cx={innerWidth} 
+                cx={xScale(Date.parse(dataMax))} 
                 cy={yScale(priceAvg[dataMax])}
                 r={3.6}
                 fill={"rgba(255, 255, 255, 0.6)"}

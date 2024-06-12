@@ -14,10 +14,10 @@ export const Calculator = () => {
   const priceMean = samplesData && Math.round(samplesData.mean_price);
 
   return (
-    <div className="calculator-item-wrapper">
+    <div className="airbnb-calculator-item-wrapper">
       <div className="property-prices">
         <div>Mean value</div>
-        <div className="property-prices-number">
+        <div className="airbnb-property-prices-number">
           {siFormat(priceMean).replaceAll(",", ".")} $ 
         </div>
       </div>
