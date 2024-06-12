@@ -22,7 +22,7 @@ export const SellPrices = () => {
 					calculated based on the samples
 				</div>
 				<div className="sell-prices-price">
-					{siFormat(valorAnuncio).replaceAll(',', '.')} $
+					{siFormat(valorAnuncio).replaceAll(',', '.')} £
 				</div>
 			</div>
 		</div>

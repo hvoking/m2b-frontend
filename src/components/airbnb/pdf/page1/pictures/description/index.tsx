@@ -24,7 +24,7 @@ export const Description = ({ item, setRejectedIds, setCurrentPropertyId }: any)
 			onMouseOut={() => setCurrentPropertyId(null)}
 		>
 			<div className="pdf-pictures-description">
-				<div>{siFormat(Math.round(item.price))} $</div>
+				<div>{siFormat(Math.round(item.price))} £</div>
 				<Symbols item={item}/>
 			</div>
 			<img

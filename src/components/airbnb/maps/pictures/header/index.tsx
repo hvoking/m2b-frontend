@@ -28,7 +28,7 @@ export const ImagesHeader = ({ propertyInfo, setActivePropertyInfo }: any) => {
 				}
 			</div>
 			<div></div>
-			<div>R$ {siFormat(Math.round(propertyInfo.price))}</div>
+			<div>{siFormat(Math.round(propertyInfo.price))} £</div>
 			<img
 				className="ads-cancel-search-cross"
 				src="static/logos/cancel_search.svg" 

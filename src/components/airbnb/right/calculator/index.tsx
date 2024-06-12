@@ -18,7 +18,7 @@ export const Calculator = () => {
       <div className="property-prices">
         <div>Mean value</div>
         <div className="airbnb-property-prices-number">
-          {siFormat(priceMean).replaceAll(",", ".")} $ 
+          {siFormat(priceMean).replaceAll(",", ".")} £ 
         </div>
       </div>
     </div>

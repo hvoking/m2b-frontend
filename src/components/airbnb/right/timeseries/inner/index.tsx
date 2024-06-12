@@ -4,7 +4,6 @@ import { useState } from 'react';
 // App imports
 import { Lines } from './topLine';
 import { Left } from './left';
-// import { Mean } from './mean';
 import { Points } from './points';
 import { Range } from './range';
 import { Refs } from './refs';
@@ -101,10 +100,6 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         pricesData={pricesData} 
       />
       <Refs innerWidth={innerWidth} yScale={yScale}/>
-     {/* <Mean
-        yScale={yScale} 
-        innerWidth={innerWidth} 
-      />*/}
       <rect 
         x={xScale(currentStartDate)} 
         y={0} 

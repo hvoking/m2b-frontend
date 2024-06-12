@@ -24,7 +24,7 @@ export const Body = ({ item, setRejectedIds, setCurrentPropertyId }: any) => {
 			onMouseOut={() => setCurrentPropertyId(null)}
 		>
 			<div className="pdf-pictures-description">
-				<div>$ {siFormat(item.price).replaceAll(",", ".")}</div>
+				<div>{siFormat(item.price).replaceAll(",", ".")} £</div>
 				<Symbols item={item}/>
 			</div>
 			<img
