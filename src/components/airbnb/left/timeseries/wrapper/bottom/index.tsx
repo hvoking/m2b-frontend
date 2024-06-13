@@ -9,10 +9,10 @@ import { useDates } from '../../../../context/filters/dates';
 import * as d3 from 'd3';
 
 const meses = ['',
-  "jan", "fev", "mar", 
-  "abr", "mai", "jun",
-  "jul", "ago", "set", 
-  "oct", "nov", "dez",
+  "jan", "feb", "mar", 
+  "apr", "may", "jun",
+  "jul", "aug", "sep", 
+  "oct", "nov", "dec",
 ];
 
 export const Bottom = ({ xScale, innerWidth, innerHeight, xAxisTickFormat }: any) => {
