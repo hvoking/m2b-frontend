@@ -1,6 +1,6 @@
-.right-images-wrapper {
+.airbnb-images-wrapper {
 	display: grid;
-	height: calc(100% - 5px);
+	height: calc(100vh - 100px);
 	overflow-y: scroll;
 	padding-left: 20px;
 	padding-right: 10px;
@@ -20,11 +20,11 @@
 	font-size: 0.6em;
 	cursor: pointer;
 }
-.right-images-wrapper::-webkit-scrollbar {
+.airbnb-images-wrapper::-webkit-scrollbar {
   width: 15px;
   background: rgba(33, 33, 43, 1);
 }
-.right-images-wrapper::-webkit-scrollbar-thumb {
+.airbnb-images-wrapper::-webkit-scrollbar-thumb {
   border-right: 5px solid rgba(33, 33, 43, 1);
   background: #555;
 }

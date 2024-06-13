@@ -48,7 +48,7 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 	return (
 			<div className="right-item-wrapper">
 				<Header nearest={nearest} setNearest={setNearest}/>
-				<div className="right-images-wrapper">
+				<div className="airbnb-images-wrapper">
 					<div className="right-pictures">
 						{filterById.slice(0, nearest).map((item: any, index: any) => {
 							const currentImage = item.image_src && item.image_src;
@@ -88,8 +88,7 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 										className="pdf-pictures-img"
 										src={currentImage}
 										alt="property"
-										width="55"
-										height="45"
+										width="120"
 										loading="lazy"
 									/>
 									<Body 

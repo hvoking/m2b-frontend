@@ -1,11 +1,11 @@
 // App imports
 import { SVGWrapper } from './svg';
-import { Text } from './text';
 import { Circle } from './circle';
+import { Text } from './text';
 
 // Context imports
-import { useEquipment } from '../../../../context/filters/equipment';
-import { useRoomsGaugeSizes } from '../../../../context/sizes/rooms';
+import { useEquipment } from '../../../context/filters/equipment';
+import { useRoomsGaugeSizes } from '../../../context/sizes/rooms';
 
 // Third party imports
 import * as d3 from 'd3';
@@ -38,7 +38,13 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 		
 	return (
 		<SVGWrapper>
-			{Object.keys(roomsData).map((item: any, index: number) => {
+			<Text 
+				innerWidth={innerWidth}
+				innerHeight={innerHeight}
+				rooms={rooms}
+				roomsData={roomsData}
+			/>
+			{Object.keys(roomsData).map((item: any) => {
 				const currentPercent = roomsData[item] ? roomsData[item] : 0
 				const currentCircunference = Math.round(circumference * currentPercent / 100)
 
@@ -47,13 +53,7 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 				}
 
 				return (
-					<g key={index}>
-						<Text 
-							innerWidth={innerWidth}
-							innerHeight={innerHeight}
-							rooms={rooms}
-							roomsData={roomsData}
-						/>
+					<g key={item}>
 						{currentCircunference && roomsCounter[item] &&
 							<Circle
 								innerWidth={innerWidth}

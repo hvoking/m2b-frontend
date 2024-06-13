@@ -2,7 +2,7 @@
 import './styles.scss';
 
 // Context imports
-import { useEquipment } from '../../../../context/filters/equipment';
+import { useEquipment } from '../../../context/filters/equipment';
 
 const roomsColors: any = {
 	1: 'rgba(109, 86, 166, 1)',

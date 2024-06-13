@@ -2,7 +2,7 @@
 import { useCallback, Children, cloneElement } from 'react';
 
 // Context imports
-import { useRoomsGaugeSizes } from '../../../../../context/sizes/rooms';
+import { useRoomsGaugeSizes } from '../../../../context/sizes/rooms';
 
 export const SVGWrapper = ({ children }: any) => {
 	const { width, height, setWidth, setHeight, margin } = useRoomsGaugeSizes();

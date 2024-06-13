@@ -11,7 +11,6 @@ import { Refs } from './refs';
 import { useLinesApi } from '../../../context/api/imoveis/lines';
 import { usePricesApi } from '../../../context/api/imoveis/prices';
 import { useDates } from '../../../context/filters/dates';
-import { usePrices } from '../../../context/filters/prices';
 import { useLinesLimits } from '../../../context/limits/lines';
 
 // Third-party imports

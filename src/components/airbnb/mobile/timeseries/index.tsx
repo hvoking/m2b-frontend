@@ -5,7 +5,6 @@ import { SVGWrapper } from './svg';
 
 // Context imports
 import { useDates } from '../../context/filters/dates';
-import { usePrices } from '../../context/filters/prices';
 import { useLinesApi } from '../../context/api/imoveis/lines';
 import { useTimeseriesSizes } from '../../context/sizes/bottom/timeseries';
 

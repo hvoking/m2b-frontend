@@ -1,7 +1,9 @@
 // App imports
 import { Header } from './header';
-import { Graphics } from './graphics';
-import { LoadingImage } from '../../utils/loading'
+import { LoadingImage } from '../../utils/loading';
+import { Gauge } from './gauge';
+import { Legend } from './legend';
+import './styles.scss';
 
 // Context imports
 import { useEquipment } from '../../context/filters/equipment';
@@ -25,7 +27,10 @@ export const Rooms = () => {
 			{
 				!dsvData || !roomsData ? 
 				<LoadingImage/> :
-				<Graphics roomsData={roomsData} dsvData={dsvData}/>
+				<div className="rooms-wrapper">
+					<Legend roomsData={roomsData} dsvData={dsvData}/>
+					<Gauge roomsData={roomsData} dsvData={dsvData}/>
+				</div>
 			}
 		</div>
 	)
