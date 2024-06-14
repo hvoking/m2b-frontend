@@ -1,5 +1,4 @@
 // App imports
-import { Location } from './location';
 import { Calculator } from './calculator';
 import { Prices } from './prices';
 import { Timeseries } from './timeseries';

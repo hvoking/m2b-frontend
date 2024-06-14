@@ -29,7 +29,6 @@ export const SvgMap = () => {
 
 	const city = polygonData[0].city_geom[0];
 	const polygon = isoPolygonData.features[0].geometry;
-	const hexagons = polygonData.map((item: any) => item.city_hex);
 
 	const projection = d3.geoIdentity()
 		.reflectY(true)
@@ -47,17 +46,19 @@ export const SvgMap = () => {
 	return (
 		<div className="airbnb-svgmap-wrapper">
 			<div className="sidebar-sub-title">Location</div>
-			<div ref={svgContainerRef}>
+			<div>
 				<SVGWrapper>
-					<g onClick={onClick}>
-						<Hexagons path={path}/>
-						<path
-							fill="rgba(222, 112, 112, 0.8)"
-							stroke="rgba(255, 0, 0, 1)"
-							strokeWidth={0.3}
-							className="feature" 
-							d={`${path(polygon)}`}
-						/>
+					<g ref={svgContainerRef}>
+						<g onClick={onClick}>
+							<Hexagons path={path}/>
+							<path
+								fill="rgba(222, 112, 112, 0.8)"
+								stroke="rgba(255, 0, 0, 1)"
+								strokeWidth={0.3}
+								className="feature" 
+								d={`${path(polygon)}`}
+							/>
+						</g>
 					</g>
 				</SVGWrapper>
 			</div>

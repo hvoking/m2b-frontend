@@ -47,7 +47,7 @@ export const PointsLayerProvider = ({children}: any) => {
 		    material: false,
 			getElevation: (d: any) =>  d.price,
 		    getFillColor: (d: any) => 
-		    	currentPropertyId && currentPropertyId === d.property_id ?
+		    	currentPropertyId === d.property_id ?
 		    	[255, 255, 0, 255] :
 		    	d['price'] > topLimit ?
 		    	[166, 166, 244, 120] :
