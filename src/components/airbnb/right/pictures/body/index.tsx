@@ -12,21 +12,25 @@ export const Body = ({ item, setRejectedIds, setCurrentPropertyId }: any) => {
 		const currentValue = item.property_id;
 		setRejectedIds((prev: any) => [...prev, currentValue]);
 	}
-	
-	const onMouseOver = (e: any, item: any) => {
-		setCurrentPropertyId(item.property_id);
-	}
 
 	return (
-		<div
-			className="airbnb-description-wrapper"
-			onMouseOver={(e: any) => onMouseOver(e, item)}
-			onMouseOut={() => setCurrentPropertyId(null)}
-		>
-			<div className="airbnb-description">
-				<div>{item.property_type}</div>
-				<div>{siFormat(item.price).replaceAll(",", ".")} £ night</div>
-				<div>{item.accommodates}</div>
+		<div className="airbnb-description-wrapper">
+			<div style={{display: "grid", gridTemplateRows: "auto 18px"}}>
+				<div className="airbnb-description">
+					<div>{item.name}</div>
+					<div>{item.property_type}</div>
+					<div>{item.accommodates} {item.accommodates === 1 ? "guest" : "guests"}</div>
+					<div>{siFormat(item.price).replaceAll(",", ".")} £ night</div>
+					
+				</div>
+				<a 
+					href={item.listing_url}
+					style={{fontSize: "1em", color: "rgba(255, 255, 255, 0.8)"}}
+					target="_blank"
+					rel="noopener noreferrer"
+				>
+					View on Airbnb
+				</a>
 			</div>
 			<img
 				className="pdf-cancel-cross"

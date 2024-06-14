@@ -55,6 +55,10 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 		setValidImages((prev: any) => ({ ...prev, [id]: false }));
 	};
 
+	const onMouseOver = (e: any, item: any) => {
+		setCurrentPropertyId(item.property_id);
+	}
+
 	return (
 		<div className="right-item-wrapper">
 			<Header nearest={nearest} setNearest={setNearest}/>
@@ -89,13 +93,7 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 												"rgba(166, 166, 244, 1)" :
 												"rgba(67, 181, 64, 1)"
 										}}></div>
-										<div
-											className="right-pictures-item"
-											onClick={() => {
-												setPropertyInfo(item);
-												setActivePropertyInfo(true);
-											}}
-										>
+										<div className="airbnb-right-pictures-item">
 											<img 
 												className="pdf-pictures-img"
 												src={currentImage}
@@ -105,6 +103,12 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 												loading="lazy"
 												onLoad={() => handleImageLoad(item.property_id)}
 												onError={() => handleImageError(item.property_id)}
+												onMouseOver={(e: any) => onMouseOver(e, item)}
+												onMouseOut={() => setCurrentPropertyId(null)}
+												onClick={() => {
+													setPropertyInfo(item);
+													setActivePropertyInfo(true);
+												}}
 											/>
 											<Body 
 												item={item} 
