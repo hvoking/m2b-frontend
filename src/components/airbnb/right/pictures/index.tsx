@@ -45,16 +45,6 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 		startDate, finalDate,
 	]);
 
-	let isValid = function(urlTocheck="", defaultValue=false){
-	    var image = new Image();
-	    image.src = urlTocheck;
-	    if (image.width == 0) {
-	       return false;
-	    } else {
-	       return true;
-	    }
-	 }
-
 	return (
 			<div className="right-item-wrapper">
 				<Header nearest={nearest} setNearest={setNearest}/>
@@ -62,34 +52,32 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 					<div className="right-pictures">
 						{filterById.slice(0, nearest).map((item: any, index: any) => {
 							const currentImage = item.image_src && item.image_src;
-							const validImage = currentImage && isValid(currentImage);
 
 							return (
-								<>
-								{validImage && <div
-										key={index} 
-										className="airbnb-pictures-box"
-										style={{ 
-											border: 
-												currentPropertyId && currentPropertyId === item.property_id ? 
-												"2px solid rgba(255, 255, 0, 1)" :
-												"2px solid rgba(23, 23, 32, 1)",
-											backgroundColor: 
-												item['price'] < bottomLimit ? 
-												"rgba(68, 27, 30, 1)" :
-												item['price'] > topLimit ? 
-												"rgba(42, 43, 96, 1)" :
-												"rgba(21, 59, 39, 1)"
-										}}
-									>
-										<div style={{
-											backgroundColor: 
-												item['price'] < bottomLimit ? 
-												"rgba(255, 0, 0, 1)" :
-												item['price'] > topLimit ? 
-												"rgba(166, 166, 244, 1)" :
-												"rgba(67, 181, 64, 1)"
-										}}></div>
+								<div
+									key={index} 
+									className="airbnb-pictures-box"
+									style={{ 
+										border: 
+											currentPropertyId && currentPropertyId === item.property_id ? 
+											"2px solid rgba(255, 255, 0, 1)" :
+											"2px solid rgba(23, 23, 32, 1)",
+										backgroundColor: 
+											item['price'] < bottomLimit ? 
+											"rgba(68, 27, 30, 1)" :
+											item['price'] > topLimit ? 
+											"rgba(42, 43, 96, 1)" :
+											"rgba(21, 59, 39, 1)"
+									}}
+								>
+									<div style={{
+										backgroundColor: 
+											item['price'] < bottomLimit ? 
+											"rgba(255, 0, 0, 1)" :
+											item['price'] > topLimit ? 
+											"rgba(166, 166, 244, 1)" :
+											"rgba(67, 181, 64, 1)"
+									}}></div>
 									<div
 										className="right-pictures-item"
 										onClick={() => {
@@ -111,8 +99,7 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 											setCurrentPropertyId={setCurrentPropertyId}
 										/>
 									</div>
-								</div>}
-							</>
+								</div>
 							)}
 						)}
 					</div>
