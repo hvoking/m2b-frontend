@@ -1,7 +1,7 @@
 export const london = {
-  bearing: -34,
-  latitude: 51.508530,
-  longitude: -0.076132,
-  pitch: 58.43,
-  zoom: 12,
+  bearing: -45,
+  latitude: 51.50,
+  longitude: -0.077,
+  pitch: 60,
+  zoom: 13,
 };

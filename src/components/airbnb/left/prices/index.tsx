@@ -4,13 +4,11 @@ import { useEffect } from 'react';
 // App imports
 import { SVGWrapper } from './svg';
 import { Bars } from './bars';
-import { Header } from './header';
 import { Marker } from './marker';
 import { Numbers } from './numbers';
-import { Flags } from './flags';
-import { Refs } from './refs';
 import { createJsonFromArray } from '../../utils/createArr';
 import { priceFormat } from '../../utils/constants';
+import { Legend } from './legend';
 
 // Context imports
 import { usePricesSizes } from '../../context/sizes/prices';
@@ -65,7 +63,7 @@ export const Prices = ({ linesData, pricesData }: any) => {
 
 	const yScale: any = d3.scaleLinear()
 		.domain([ minValue, maxValue ])
-		.range([0, innerHeight - 45]);
+		.range([0, innerHeight]);
 
 	const xPriceScale: any = d3.scaleLinear()
 		.domain([minBound, maxBound])
@@ -83,8 +81,10 @@ export const Prices = ({ linesData, pricesData }: any) => {
 
 	return (
 		<div className="right-item-wrapper">
-			<Header/>
+			<div className="sidebar-sub-title">Price range</div>
 			<SVGWrapper>
+				<Legend innerHeight={innerHeight} currentPosition={xPriceScale(leftPosition)}/>
+				<Legend innerHeight={innerHeight} currentPosition={xPriceScale(rightPosition)}/>
 				<Bars
 					xScale={xScale}
 					xPriceScale={xPriceScale}
@@ -104,19 +104,6 @@ export const Prices = ({ linesData, pricesData }: any) => {
 					bottomLimit={bottomLimit}
 					topLimit={topLimit}
 				/>
-				<Refs
-					data={linesData}
-					xScale={xPriceScale}
-					innerHeight={innerHeight}
-					priceFormat={priceFormat}
-				/>
-				<Flags
-					minLine={minLine}
-					meanLine={meanLine}
-					maxLine={maxLine}
-					xScale={xPriceScale}
-					priceFormat={priceFormat}
-				/>
 				<Marker 
 					xScale={xPriceScale} 
 					innerHeight={innerHeight}
@@ -124,12 +111,6 @@ export const Prices = ({ linesData, pricesData }: any) => {
 					maxBound={maxBound}
 				/>
 			</SVGWrapper>
-			<Numbers 
-				leftPosition={priceFormat(leftPosition)} 
-				rightPosition={priceFormat(rightPosition)}
-				setPriceMin={setPriceMin}
-				setPriceMax={setPriceMax}
-			/>
 	  </div>
 	)
 }

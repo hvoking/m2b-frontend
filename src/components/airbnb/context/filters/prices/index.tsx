@@ -19,8 +19,8 @@ export const PricesProvider = ({children}: any) => {
 	const [ priceMin, setPriceMin ] = useState(null);
 	const [ priceMax, setPriceMax ] = useState(null);
 	
-	const [ leftPosition, setLeftPosition ] = useState(0);
-	const [ rightPosition, setRightPosition ] = useState(10000);
+	const [ leftPosition, setLeftPosition ] = useState(null);
+	const [ rightPosition, setRightPosition ] = useState(null);
 
 	return (
 		<PricesContext.Provider value={{

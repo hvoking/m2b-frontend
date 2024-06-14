@@ -9,7 +9,7 @@ import * as d3 from 'd3';
 
 export const Marker = ({ xScale, innerHeight, minBound, maxBound }: any) => {
   const { leftPosition, setLeftPosition, rightPosition, setRightPosition } = usePrices();
-  const circleRadius = 12;
+  const circleRadius = 11;
 
   const onDragLeft = (event: any) => {
       const x = xScale.invert(event.x);
@@ -50,7 +50,7 @@ export const Marker = ({ xScale, innerHeight, minBound, maxBound }: any) => {
           cx={`${xScale(leftPosition)}`} 
           cy={`${innerHeight}`} 
           r={circleRadius} 
-          fill="rgba(23, 23, 32, 0.8)"
+          fill="rgba(23, 23, 32, 1)"
           stroke="rgba(126, 126, 132, 1)"
           strokeWidth={1}
           style={{cursor: "ew-resize"}}
@@ -60,7 +60,7 @@ export const Marker = ({ xScale, innerHeight, minBound, maxBound }: any) => {
           cx={`${xScale(rightPosition)}`} 
           cy={`${innerHeight}`} 
           r={circleRadius} 
-          fill="rgba(23, 23, 32, 0.8)"
+          fill="rgba(23, 23, 32, 1)"
           stroke="rgba(126, 126, 132, 1)"
           strokeWidth={1}
           style={{cursor: "ew-resize"}}

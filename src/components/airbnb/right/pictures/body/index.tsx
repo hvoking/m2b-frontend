@@ -1,8 +1,8 @@
-// App imports
-import { Symbols } from './symbols';
-
 // Third-party imports
 import * as d3 from 'd3';
+
+// App imports
+import './styles.scss';
 
 const siFormat = d3.format(",");
 
@@ -19,13 +19,14 @@ export const Body = ({ item, setRejectedIds, setCurrentPropertyId }: any) => {
 
 	return (
 		<div
-			className="pdf-pictures-description-wrapper"
+			className="airbnb-description-wrapper"
 			onMouseOver={(e: any) => onMouseOver(e, item)}
 			onMouseOut={() => setCurrentPropertyId(null)}
 		>
-			<div className="pdf-pictures-description">
-				<div>{siFormat(item.price).replaceAll(",", ".")} £</div>
-				<Symbols item={item}/>
+			<div className="airbnb-description">
+				<div>{item.property_type}</div>
+				<div>{siFormat(item.price).replaceAll(",", ".")} £ night</div>
+				<div>{item.accommodates}</div>
 			</div>
 			<img
 				className="pdf-cancel-cross"

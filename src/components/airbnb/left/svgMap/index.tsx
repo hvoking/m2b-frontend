@@ -2,6 +2,7 @@
 import { useRef } from 'react';
 
 // App imports
+import { Hexagons } from './hexagons';
 import { SVGWrapper } from './svg';
 import './styles.scss';
 
@@ -10,6 +11,7 @@ import { usePolygonApi } from '../../context/api/polygon';
 import { useIsoPolygonApi } from '../../context/api/isoPolygon';
 import { useSvgMapSizes } from '../../context/sizes/svgMap';
 import { useGeo } from '../../context/filters/geo';
+import { useReverseGeocodingApi } from '../../context/api/google/reverse';
 
 // Third-party imports
 import * as d3 from 'd3';
@@ -21,11 +23,13 @@ export const SvgMap = () => {
 	const { isoPolygonData } = useIsoPolygonApi();
 	const { innerWidth, innerHeight } = useSvgMapSizes();
 	const { setPlaceCoordinates } = useGeo();
+	const { currentAddress } = useReverseGeocodingApi();
 
 	if (!isoPolygonData || !polygonData || !polygonData[0]) return (<></>)
 
 	const city = polygonData[0].city_geom[0];
 	const polygon = isoPolygonData.features[0].geometry;
+	const hexagons = polygonData.map((item: any) => item.city_hex);
 
 	const projection = d3.geoIdentity()
 		.reflectY(true)
@@ -42,17 +46,11 @@ export const SvgMap = () => {
 
 	return (
 		<div className="airbnb-svgmap-wrapper">
+			<div className="sidebar-sub-title">Location</div>
 			<div ref={svgContainerRef}>
 				<SVGWrapper>
-					<g>
-						<path
-							onClick={onClick}
-							fill="rgba(126, 126, 132, 0.4)"
-							stroke="rgba(255, 255, 255, 1)" 
-							strokeWidth={0.5}
-							className="feature" 
-							d={`${path(city)}`}
-						/>
+					<g onClick={onClick}>
+						<Hexagons path={path}/>
 						<path
 							fill="rgba(222, 112, 112, 0.8)"
 							stroke="rgba(255, 0, 0, 1)"
@@ -62,6 +60,14 @@ export const SvgMap = () => {
 						/>
 					</g>
 				</SVGWrapper>
+			</div>
+			<div style={{display: "flex", gap: "10px", paddingLeft: "20px", fontSize: "0.8em", alignItems: "center"}}>
+				<img 
+					style={{width: "12px", height: "17px"}} 
+					src="static/components/maps/marker.svg" 
+					alt="pin-location"
+			     />
+				<div>{currentAddress}</div>
 			</div>
 		</div>
 	)

@@ -68,7 +68,7 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 								<>
 								{validImage && <div
 										key={index} 
-										className="pictures-box"
+										className="airbnb-pictures-box"
 										style={{ 
 											border: 
 												currentPropertyId && currentPropertyId === item.property_id ? 
@@ -102,6 +102,7 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 											src={currentImage}
 											alt="property"
 											width="120"
+											height="80"
 											loading="lazy"
 										/>
 										<Body 

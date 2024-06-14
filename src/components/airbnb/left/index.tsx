@@ -1,5 +1,4 @@
 // App imports
-import { Search } from './search';
 import { Location } from './location';
 import { Calculator } from './calculator';
 import { Prices } from './prices';
@@ -21,8 +20,6 @@ export const Left = () => {
 	return (
 		<div className="left">
 			<div className="airbnb-message-wrapper">
-				<Search/>
-				
 				{!initialMarker && linesData && pricesData ?
 					<div className="airbnb-sidebar-items">
 						<SvgMap/>
