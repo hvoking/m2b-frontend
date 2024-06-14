@@ -1,5 +1,5 @@
 // React imports
-import { useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
 // App imports
 import { Header } from './header';
@@ -14,6 +14,8 @@ import { useTooltip } from '../../context/maps/tooltip';
 import { useLinesLimits } from '../../context/limits/lines';
 
 export const Pictures = ({ linesData, pricesData }: any) => {
+	const [ validImages, setValidImages ] = useState<any>({});
+
 	const { rejectedIds, setRejectedIds, currentPropertyId, nearest, setNearest, activeEquipment, setCurrentPropertyId, setSamplesIds } = usePropertyType();
 	const { setSamplesPrices, leftPosition, rightPosition } = usePrices();
 	const { startDate, finalDate } = useDates();
@@ -45,67 +47,81 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 		startDate, finalDate,
 	]);
 
-	return (
-			<div className="right-item-wrapper">
-				<Header nearest={nearest} setNearest={setNearest}/>
-				<div className="airbnb-images-wrapper">
-					<div className="right-pictures">
-						{filterById.slice(0, nearest).map((item: any, index: any) => {
-							const currentImage = item.image_src && item.image_src;
+	const handleImageLoad = (id: any) => {
+	    setValidImages((prev: any) => ({ ...prev, [id]: true }));
+	  };
 
-							return (
-								<div
-									key={index} 
-									className="airbnb-pictures-box"
-									style={{ 
-										border: 
-											currentPropertyId && currentPropertyId === item.property_id ? 
-											"2px solid rgba(255, 255, 0, 1)" :
-											"2px solid rgba(23, 23, 32, 1)",
-										backgroundColor: 
-											item['price'] < bottomLimit ? 
-											"rgba(68, 27, 30, 1)" :
-											item['price'] > topLimit ? 
-											"rgba(42, 43, 96, 1)" :
-											"rgba(21, 59, 39, 1)"
-									}}
-								>
-									<div style={{
-										backgroundColor: 
-											item['price'] < bottomLimit ? 
-											"rgba(255, 0, 0, 1)" :
-											item['price'] > topLimit ? 
-											"rgba(166, 166, 244, 1)" :
-											"rgba(67, 181, 64, 1)"
-									}}></div>
-									<div
-										className="right-pictures-item"
-										onClick={() => {
-											setPropertyInfo(item);
-											setActivePropertyInfo(true);
-										}}
-									>
-										<img 
-											className="pdf-pictures-img"
-											src={currentImage}
-											alt="property"
-											width="120"
-											height="80"
-											loading="lazy"
-										/>
-										<Body 
-											item={item} 
-											setRejectedIds={setRejectedIds} 
-											setCurrentPropertyId={setCurrentPropertyId}
-										/>
-									</div>
-								</div>
+	  const handleImageError = (id: any) => {
+	    setValidImages((prev: any) => ({ ...prev, [id]: false }));
+	  };
+
+
+	return (
+		
+				<div className="right-item-wrapper">
+					<Header nearest={nearest} setNearest={setNearest}/>
+					<div className="airbnb-images-wrapper">
+						<div className="right-pictures">
+							{filterById.slice(0, nearest).map((item: any, index: any) => {
+								const currentImage = item.image_src && item.image_src;
+								return (
+									<>
+										{validImages[item.property_id] !== false && (
+											<div
+												key={index} 
+												className="airbnb-pictures-box"
+												style={{ 
+													border: 
+														currentPropertyId && currentPropertyId === item.property_id ? 
+														"2px solid rgba(255, 255, 0, 1)" :
+														"2px solid rgba(23, 23, 32, 1)",
+													backgroundColor: 
+														item['price'] < bottomLimit ? 
+														"rgba(68, 27, 30, 1)" :
+														item['price'] > topLimit ? 
+														"rgba(42, 43, 96, 1)" :
+														"rgba(21, 59, 39, 1)"
+												}}
+											>
+												<div style={{
+													backgroundColor: 
+														item['price'] < bottomLimit ? 
+														"rgba(255, 0, 0, 1)" :
+														item['price'] > topLimit ? 
+														"rgba(166, 166, 244, 1)" :
+														"rgba(67, 181, 64, 1)"
+												}}></div>
+												<div
+													className="right-pictures-item"
+													onClick={() => {
+														setPropertyInfo(item);
+														setActivePropertyInfo(true);
+													}}
+												>
+													<img 
+														className="pdf-pictures-img"
+														src={currentImage}
+														alt="property"
+														width="120"
+														height="80"
+														loading="lazy"
+														onLoad={() => handleImageLoad(item.property_id)}
+														onError={() => handleImageError(item.property_id)}
+													/>
+													<Body 
+														item={item} 
+														setRejectedIds={setRejectedIds} 
+														setCurrentPropertyId={setCurrentPropertyId}
+													/>
+												</div>
+											</div>
+										)}
+									</>
+								)}
 							)}
-						)}
+						</div>
 					</div>
 				</div>
-			</div>
-
 	)
 }
 
