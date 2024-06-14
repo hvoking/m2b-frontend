@@ -9,7 +9,6 @@ export const usePrices = () => {
 }
 
 export const PricesProvider = ({children}: any) => {
-	const [ detachment, setDetachment ] = useState(15);
 	const [ discount, setDiscount ] = useState(-5);
 	const [ samplesPrices, setSamplesPrices ] = useState<any>(null);
 
@@ -26,7 +25,6 @@ export const PricesProvider = ({children}: any) => {
 		<PricesContext.Provider value={{
 			priceMin, setPriceMin, 
 			priceMax, setPriceMax,
-			detachment, setDetachment,
 			discount, setDiscount,
 			samplesPrices, setSamplesPrices,
 			leftPosition, setLeftPosition,

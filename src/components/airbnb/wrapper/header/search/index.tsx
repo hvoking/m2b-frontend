@@ -99,7 +99,7 @@ export const Search = ({ activeSearch, setActiveSearch }: any) => {
 	return (
 		<div className="auto-complete">
 			<img 
-				className="header-search-icon"
+				className="airbnb-search-icon"
 				src="static/logos/search_icon.svg" 
 				alt="search-icon"
 				onClick={() => setActiveSearch((prev: boolean) => !prev)}
