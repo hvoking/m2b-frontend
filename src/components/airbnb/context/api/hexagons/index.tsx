@@ -19,10 +19,12 @@ export const HexagonsApiProvider = ({children}: any) => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const res = await fetch(`${process.env.REACT_APP_API_URL}/hexagons_api`, {
-				method: "POST",
-				headers: {'Content-Type': 'application/json'},
-			});
+			const tempUrl = `
+				${process.env.REACT_APP_API_URL}/
+				hexagons_api
+			`;
+			const url = tempUrl.replace(/\s/g, '');
+			const res = await fetch(url);
 			const receivedData = await res.json();
 			setHexagonsData(receivedData[0]);
 		}
