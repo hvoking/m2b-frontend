@@ -14,7 +14,7 @@ export const useSamplesApi = () => {
 
 export const SamplesApiProvider = ({children}: any) => {
 	const [ samplesData, setSamplesData ] = useState<any>(null);
-	const { discount, samplesPrices } = usePrices();
+	const { samplesPrices } = usePrices();
 
 	useEffect(() => {
 		const postData = async () => {
@@ -22,15 +22,14 @@ export const SamplesApiProvider = ({children}: any) => {
 				method: "POST",
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify({ 
-					'samples': samplesPrices,
-					'discount': parseInt(discount)
+					'samples': samplesPrices
 				}),
 			});
 			const receivedData = await res.json();
 			setSamplesData(receivedData);
 		}
 		samplesPrices && postData();
-	}, [ samplesPrices, discount ]);
+	}, [ samplesPrices ]);
 
 	return (
 		<SamplesApiContext.Provider value={{ samplesData }}>
