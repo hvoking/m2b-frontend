@@ -26,11 +26,12 @@ export const Timeseries = () => {
     .range([0, innerWidth]);
 
   const yScale = d3.scaleLinear()
-      .domain([
-        maxLine + (maxLine + minLine) * 0.2, 
-        minLine - (maxLine + minLine) * 0.2, 
-      ])
-      .range([0, innerHeight]);    
+    .domain([
+      maxLine + (maxLine + minLine) * 0.2, 
+      minLine - (maxLine + minLine) * 0.2, 
+    ])
+    .range([0, innerHeight]);    
+      
   return (
       <div className="timeseries-wrapper">
         <Header/>

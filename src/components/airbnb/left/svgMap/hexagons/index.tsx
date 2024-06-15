@@ -1,13 +1,13 @@
-import { useHexagonsApi } from '../../../context/api/hexagons'
+import { usePricesLimits } from '../../../context/limits/prices';
 import { useLinesLimits } from '../../../context/limits/lines';
 
 export const Hexagons = ({ path }: any) => {
-	const { hexagonsData } = useHexagonsApi();
+	const { filterHexagons } = usePricesLimits();
 	const { bottomLimit, topLimit } = useLinesLimits();
 
 	return (
 		<>
-			{hexagonsData && hexagonsData.map((item: any, index: any) => 
+			{filterHexagons && filterHexagons.map((item: any, index: any) => 
 				<path
 					key={index}
 					fill="transparent"
