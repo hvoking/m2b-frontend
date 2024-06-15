@@ -21,8 +21,12 @@ export const Body = ({ item, setRejectedIds, currentImage, setCurrentPropertyId,
 		setValidImages((prev: any) => ({ ...prev, [id]: false }));
 	};
 
+	const onMouseOver = (e: any, item: any) => {
+		setCurrentPropertyId(item.property_id);
+	}
+
 	return (
-		<div className="airbnb-description-wrapper">
+		<div className="airbnb-description-wrapper" onMouseOver={(e: any) => onMouseOver(e, item)}>
 			 {validImages[item.property_id] !== false && (<div className="listing-container" style={{backgroundColor: backgroundColor}}>
 			 	<div style={{position: "relative"}}>
 			 		<img 

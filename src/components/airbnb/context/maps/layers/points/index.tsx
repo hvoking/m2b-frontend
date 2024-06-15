@@ -47,13 +47,14 @@ export const PointsLayerProvider = ({children}: any) => {
 		    material: false,
 			getElevation: (d: any) =>  d.price,
 		    getFillColor: (d: any) => 
-		    	currentPropertyId === d.property_id ?
+		    	currentPropertyId && currentPropertyId === d.property_id ?
 		    	[255, 255, 0, 255] :
 		    	d['price'] > topLimit ?
 		    	[166, 166, 244, 120] :
 		    	d['price'] < bottomLimit ?
 		    	[255, 0, 0, 120] :
 		    	[57, 181, 74, 120],
+		    updateTriggers: {getFillColor: [currentPropertyId]},
 		    onHover,
 		    onClick: (info: any) => onClick(info),
 		  });

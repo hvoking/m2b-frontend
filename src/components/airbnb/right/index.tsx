@@ -48,10 +48,6 @@ export const Right = () => {
 		startDate, finalDate,
 	]);
 
-	const onMouseOver = (e: any, item: any) => {
-		setCurrentPropertyId(item.property_id);
-	}
-
 	return (
 		<div className="airbnb-right">
 			<Header nearest={nearest} setNearest={setNearest}/>
