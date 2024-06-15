@@ -10,9 +10,9 @@ export const useDates = () => {
 }
 
 export const DatesProvider = ({children}: any) => {
-	const [ startDate, setStartDate ] = useState<any>("18-01-2023");
+	const [ startDate, setStartDate ] = useState<any>("02-03-2023");
 	const [ finalDate, setFinalDate ] = useState<any>("24-03-2024");
-	const [ dates, setDates ] = useState([new Date("2023-01-18"), new Date("2024-03-24")]);
+	const [ dates, setDates ] = useState([new Date("2023-03-01"), new Date("2024-03-24")]);
 
 	return (
 		<DatesContext.Provider value={{

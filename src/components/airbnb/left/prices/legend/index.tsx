@@ -1,18 +1,18 @@
-export const Legend = ({ innerHeight, currentPosition }: any) => {
+export const Legend = ({ innerHeight, xScale, currentPosition }: any) => {
 	const legendWidth = 16;
 
 	return (
 		<>
 		<polygon 
 			points={`
-				${currentPosition} ${innerHeight + 13}, 
-				${currentPosition - 6} ${innerHeight + 13 + 5}, 
-				${currentPosition + 6} ${innerHeight + 13 + 5}
+				${xScale(currentPosition)} ${innerHeight + 13}, 
+				${xScale(currentPosition) - 6} ${innerHeight + 13 + 5}, 
+				${xScale(currentPosition) + 6} ${innerHeight + 13 + 5}
 			`}
 			fill="rgba(126, 126, 132, 1)"
 		/>
 		<rect
-			x={currentPosition - legendWidth}
+			x={xScale(currentPosition) - legendWidth}
 			y={innerHeight + 13 + 5}
 			rx={2}
 			ry={2}
@@ -24,7 +24,7 @@ export const Legend = ({ innerHeight, currentPosition }: any) => {
 		>
 		</rect>
 		<text 
-			x={currentPosition} 
+			x={xScale(currentPosition)} 
 			y={innerHeight + 13 + 15} 
 			fill="rgba(255, 255, 255, 0.8)" 
 			textAnchor="middle"

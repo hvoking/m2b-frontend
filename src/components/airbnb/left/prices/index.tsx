@@ -83,8 +83,16 @@ export const Prices = ({ linesData, pricesData }: any) => {
 		<div className="right-item-wrapper">
 			<div className="sidebar-sub-title">Price range</div>
 			<SVGWrapper>
-				<Legend innerHeight={innerHeight} currentPosition={xPriceScale(leftPosition)}/>
-				<Legend innerHeight={innerHeight} currentPosition={xPriceScale(rightPosition)}/>
+				<Legend 
+					innerHeight={innerHeight} 
+					xScale={xPriceScale}
+					currentPosition={leftPosition}
+				/>
+				<Legend 
+					innerHeight={innerHeight} 
+					xScale={xPriceScale}
+					currentPosition={rightPosition}
+				/>
 				<Bars
 					xScale={xScale}
 					xPriceScale={xPriceScale}
