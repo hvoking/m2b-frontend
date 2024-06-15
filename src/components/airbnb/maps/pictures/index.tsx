@@ -24,9 +24,7 @@ export const Pictures = () => {
 							propertyInfo={propertyInfo} 
 							setActivePropertyInfo={setActivePropertyInfo} 
 						/>
-						<PropertyImages 
-							currentImage={propertyInfo.image_src} 
-						/>
+						<PropertyImages currentImage={propertyInfo.image_src}/>
 						<ImagesFooter 
 							propertyInfo={propertyInfo}
 						/>
