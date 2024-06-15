@@ -53,7 +53,7 @@ export const Right = () => {
 	}
 
 	return (
-		<div className="right-item-wrapper">
+		<div className="airbnb-right">
 			<Header nearest={nearest} setNearest={setNearest}/>
 			<div className="airbnb-images-wrapper">
 				{filterById && filterById.slice(0, nearest).map((item: any, index: any) => {

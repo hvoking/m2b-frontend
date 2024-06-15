@@ -13,3 +13,9 @@
     grid-template-rows: 3fr 2fr;
   }
 }
+
+@media screen and (max-width: 1000px) {
+  .airbnb-right {
+    display: none;
+  }
+}

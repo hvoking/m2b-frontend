@@ -4,6 +4,14 @@
     border-radius: 8px;
     overflow: hidden;
 }
+.airbnb-right {
+	display: grid;
+	grid-template-rows: 30px auto;
+	background-color: rgba(33, 33, 43, 1);
+	border-radius: 20px;
+	overflow: hidden;
+	color: rgba(255, 255, 255, 1);
+}
 .airbnb-images-wrapper {
 	display: grid;
 	grid-gap: 10px;

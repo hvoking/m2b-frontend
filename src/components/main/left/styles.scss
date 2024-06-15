@@ -32,14 +32,6 @@ $background-color: rgba(33, 33, 43, 1);
 	overflow: hidden;
 	color: rgba(255, 255, 255, 1);
 }
-.right-item-wrapper {
-	display: grid;
-	grid-template-rows: 30px auto min-content;
-	background-color: $background-color;
-	border-radius: 20px;
-	overflow: hidden;
-	color: rgba(255, 255, 255, 1);
-}
 .sidebar-title-wrapper {
 	display: flex;
 	gap: 10px;
