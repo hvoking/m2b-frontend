@@ -10,10 +10,16 @@ export const Hexagons = ({ path }: any) => {
 			{filterHexagons && filterHexagons.map((item: any, index: any) => 
 				<path
 					key={index}
-					fill="transparent"
+					fill={
+						item['avg_price'] > topLimit ?
+					    "rgba(42, 43, 96, 1)" :
+					    item['avg_price'] < bottomLimit ?
+					    "rgba(68, 27, 30, 1)" : 
+					    item['avg_price'] > bottomLimit && item['avg_price'] < topLimit ?
+					    "rgba(21, 59, 39, 1)" :
+					    "rgba(255, 255, 255, 0)"
+					}
 					stroke={
-						item['avg_price'] === null ?
-						"rgba(255, 255, 255, 0)" :
 						item['avg_price'] > topLimit ?
 					    "rgba(166, 166, 244, 1)" :
 					    item['avg_price'] < bottomLimit ?

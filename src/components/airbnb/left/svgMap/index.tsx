@@ -4,6 +4,7 @@ import { useRef } from 'react';
 // App imports
 import { Hexagons } from './hexagons';
 import { SVGWrapper } from './svg';
+import { Location } from './location';
 import './styles.scss';
 
 // Context imports
@@ -62,14 +63,7 @@ export const SvgMap = () => {
 					</g>
 				</SVGWrapper>
 			</div>
-			<div style={{display: "flex", gap: "10px", paddingLeft: "20px", fontSize: "0.8em", alignItems: "center"}}>
-				<img 
-					style={{width: "12px", height: "17px"}} 
-					src="static/components/maps/marker.svg" 
-					alt="pin-location"
-			     />
-				<div>{currentAddress}</div>
-			</div>
+			<Location currentAddress={currentAddress}/>
 		</div>
 	)
 }
