@@ -28,6 +28,8 @@ export const PolygonApiProvider = ({children}: any) => {
 					"polygon": JSON.stringify(isoPolygonData.features[0].geometry),
 					"longitude": JSON.stringify(placeCoordinates.longitude),
 					"latitude": JSON.stringify(placeCoordinates.latitude),
+					"schema": "limites",
+					"table": "municipios_br",
 				}),
 			});
 			const receivedData = await res.json();

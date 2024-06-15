@@ -21,13 +21,15 @@ export const PolygonApiProvider = ({children}: any) => {
 
 	useEffect(() => {
 		const fetchData = async () => {
-			const res = await fetch(`${process.env.REACT_APP_API_URL}/airbnb_polygon_api`, {
+			const res = await fetch(`${process.env.REACT_APP_API_URL}/polygon_api`, {
 				method: "POST",
 				headers: {'Content-Type': 'application/json'},
 				body: JSON.stringify({ 
 					"polygon": JSON.stringify(isoPolygonData.features[0].geometry),
 					"longitude": JSON.stringify(placeCoordinates.longitude),
 					"latitude": JSON.stringify(placeCoordinates.latitude),
+					"schema": "limits",
+					"table": "london",
 				}),
 			});
 			const receivedData = await res.json();
