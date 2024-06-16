@@ -2,7 +2,7 @@
 import './styles.scss';
 
 // Context imports
-import { useSamplesApi } from '../../context/api/imoveis/samples';
+import { useSamplesApi } from '../../../context/api/imoveis/samples';
 
 // Third-party imports
 import * as d3 from 'd3';

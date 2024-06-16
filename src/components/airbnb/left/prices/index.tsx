@@ -9,7 +9,7 @@ import { Numbers } from './numbers';
 import { createJsonFromArray } from '../../utils/createArr';
 import { priceFormat } from '../../utils/constants';
 import { Legend } from './legend';
-import { Calculator } from '../calculator';
+import { Calculator } from './calculator';
 
 // Context imports
 import { usePricesSizes } from '../../context/sizes/prices';
