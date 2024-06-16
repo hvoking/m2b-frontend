@@ -1,8 +1,6 @@
 // App imports
-import { Calculator } from './calculator';
 import { Prices } from './prices';
 import { Timeseries } from './timeseries';
-import { SvgMap } from './svgMap';
 import './styles.scss';
 
 // Context imports
@@ -18,19 +16,18 @@ export const Left = () => {
 
 	return (
 		<div className="left">
-			<div className="airbnb-message-wrapper">
-				{!initialMarker && linesData && pricesData ?
-					<div className="airbnb-sidebar-items">
-						<SvgMap/>
-						<Prices 
-							linesData={linesData} 
-							pricesData={pricesData}
-						/>
-						<Timeseries/>
-					</div> :
-					<UserMessage/>
-				}
-			</div>
+		<div className="airbnb-message-wrapper">
+			{!initialMarker && linesData && pricesData ?
+				<div className="airbnb-sidebar-items">
+					<Prices 
+						linesData={linesData} 
+						pricesData={pricesData}
+					/>
+					<Timeseries/>
+				</div> :
+				<UserMessage/>
+			}
+		</div>
 		</div>
 	)
 }
