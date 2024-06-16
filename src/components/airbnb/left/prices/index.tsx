@@ -9,6 +9,7 @@ import { Numbers } from './numbers';
 import { createJsonFromArray } from '../../utils/createArr';
 import { priceFormat } from '../../utils/constants';
 import { Legend } from './legend';
+import { Calculator } from '../calculator';
 
 // Context imports
 import { usePricesSizes } from '../../context/sizes/prices';
@@ -81,7 +82,8 @@ export const Prices = ({ linesData, pricesData }: any) => {
 
 	return (
 		<div className="right-item-wrapper">
-			<div className="sidebar-sub-title">Price range</div>
+			{/*<div className="sidebar-sub-title">Price range</div>*/}
+			<Calculator/>
 			<SVGWrapper>
 				<Legend 
 					innerHeight={innerHeight} 
