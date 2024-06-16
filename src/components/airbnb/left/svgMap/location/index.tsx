@@ -10,6 +10,7 @@ export const Location = ({ currentAddress }: any) => {
 				alt="pin-location"
 		     />
 			<div>{currentAddress}</div>
+			<div></div>
 		</div>
 	)
 }

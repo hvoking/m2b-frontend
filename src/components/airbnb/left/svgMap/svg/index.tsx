@@ -18,20 +18,6 @@ export const SVGWrapper = ({ children }: any) => {
 		}
 	}, []);
 
-	useEffect(() => {
-		const svg = d3.select(svgRef.current);
-		const g = svg.select("g");
-
-		const zoomed = (e: any) => {
-			g.attr("transform", e.transform);
-		}
-
-		svg.call(d3.zoom()
-			.scaleExtent([0.1, 100000])
-			.on("zoom", zoomed));
-
-	}, [ svgRef ]);
-
 	return (
 		<div ref={parentRef} style={{width: "100%", height: "100%"}}>
 			{width &&

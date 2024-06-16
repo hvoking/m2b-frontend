@@ -46,7 +46,7 @@ export const Hexagons = ({ path }: any) => {
 						    "rgba(68, 27, 30, 1)" : 
 						    avg > bottomLimit && avg < topLimit ?
 						    "rgba(21, 59, 39, 1)" :
-						    "rgba(255, 255, 255, 0)"
+						    "rgba(23, 23, 32, 1)"
 						}
 						stroke={
 							avg > topLimit ?
@@ -55,7 +55,7 @@ export const Hexagons = ({ path }: any) => {
 						    "rgba(255, 0, 0, 1)" : 
 						    avg > bottomLimit && avg < topLimit ?
 						    "rgba(57, 181, 74, 1)" :
-						    "rgba(255, 255, 255, 0)"
+						    "rgba(255, 255, 255, 0.25)"
 						}
 						strokeWidth={0.4}
 						className="feature" 

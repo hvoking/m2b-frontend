@@ -1,11 +1,15 @@
 .airbnb-location-wrapper {
 	display: flex; 
-	gap: 10px; 
+	gap: 7px; 
 	padding-left: 20px; 
-	font-size: 0.8em; 
+	padding-right: 20px; 
 	align-items: center;
+	font-size: 0.7em;
+	color: rgba(255, 255, 255, 0.6);
+	white-space: nowrap;
+	overflow: hidden;
 }
 .location-pin {
-	width: 12px; 
-	height: 17px;
+	width: 10px; 
+	height: 14px;
 }
