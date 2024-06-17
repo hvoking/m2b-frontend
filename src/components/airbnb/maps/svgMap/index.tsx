@@ -46,26 +46,20 @@ export const SvgMap = () => {
 
 	return (
 		<div className="airbnb-svgmap-wrapper">
-			<div className="sidebar-sub-title">Location</div>
-			<div style={{display: "grid", gridTemplateColumns: "20px auto 20px"}}>
-				<div></div>
-				<div ref={svgContainerRef}>
-					<SVGWrapper>
-						<g onClick={onClick}>
-							<Hexagons path={path}/>
-							<path
-								fill="rgba(222, 112, 112, 0.8)"
-								stroke="rgba(255, 0, 0, 1)"
-								strokeWidth={0.3}
-								className="feature" 
-								d={`${path(polygon)}`}
-							/>
-						</g>
-					</SVGWrapper>
-				</div>
-				<div></div>
+			<div ref={svgContainerRef}>
+				<SVGWrapper>
+					<g onClick={onClick}>
+						<Hexagons path={path}/>
+						<path
+							fill="rgba(222, 112, 112, 0.8)"
+							stroke="rgba(255, 0, 0, 1)"
+							strokeWidth={0.3}
+							className="feature" 
+							d={`${path(polygon)}`}
+						/>
+					</g>
+				</SVGWrapper>
 			</div>
-			<Location currentAddress={currentAddress}/>
 		</div>
 	)
 }
