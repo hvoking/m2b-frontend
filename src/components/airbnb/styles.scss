@@ -2,7 +2,7 @@
   background-color: rgba(23, 23, 32, 1);
   overflow: hidden;
   display: grid;
-  grid-template-columns: 5fr 14fr 5fr;
+  grid-template-columns: 13fr 8fr;
   padding: 5px;
   grid-gap: 5px;
 }
@@ -10,7 +10,7 @@
 @media screen and (max-width: 1000px) {
   .airbnb-wrapper {
     grid-template-columns: auto;
-    grid-template-rows: 3fr 2fr;
+    grid-template-rows: 2fr 1fr;
   }
 }
 
