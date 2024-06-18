@@ -17,10 +17,13 @@ export const GeoProvider = ({children}: any) => {
 	const [ placeId, setPlaceId ] = useState<any>(null);
 	
 	const [ viewport, setViewport ] = useState(Locations.london);
-	const [ placeCoordinates, setPlaceCoordinates ] = useState<any>(null);
+	const [ placeCoordinates, setPlaceCoordinates ] = useState({
+		latitude: viewport.latitude, 
+		longitude: viewport.longitude 
+	});
 
-	const [ geocodingLongitude, setGeocodingLongitude ] = useState<any>(null);
-	const [ geocodingLatitude, setGeocodingLatitude ] = useState<any>(null);
+	const [ geocodingLongitude, setGeocodingLongitude ] = useState(viewport.longitude);
+	const [ geocodingLatitude, setGeocodingLatitude ] = useState(viewport.latitude);
 
 	const [ marker, setMarker ] = useState({ 
 		latitude: viewport.latitude, 

@@ -12,7 +12,6 @@ import { useIsoPolygonApi } from '../../../context/api/isoPolygon';
 import { Marker } from 'react-map-gl';
 
 export const Pin = () => {
-	const { initialMarker, setInitialMarker } = useIsoPolygonApi();
 	const { marker, setMarker, setPlaceCoordinates } = useGeo();
 
 	const onMarkerDrag = useCallback((event: any) => {
@@ -23,7 +22,6 @@ export const Pin = () => {
 	}, []);
 
 	const onMarkerDragEnd = useCallback((event: any) => {
-		setInitialMarker(false);
 		setPlaceCoordinates({
 			longitude: event.lngLat.lng,
 			latitude: event.lngLat.lat
@@ -31,27 +29,20 @@ export const Pin = () => {
 	}, []);
 	  
 	return (
-		<>
-			<Marker
-		      longitude={marker.longitude}
-		      latitude={marker.latitude}
-		      anchor="bottom"
-		      draggable
-		      onDrag={onMarkerDrag}
-		      onDragEnd={onMarkerDragEnd}
-		    >
-		      <img 
-			      style={{width: "25px"}} 
-			      src="static/components/maps/marker.svg" 
-			      alt="marker"
-		     />
-		    </Marker>
-		    {initialMarker && 
-				<div className="initial-marker-text">
-					Drag the marker or search for a place
-				</div>
-			}
-		</>
+		<Marker
+	      longitude={marker.longitude}
+	      latitude={marker.latitude}
+	      anchor="bottom"
+	      draggable
+	      onDrag={onMarkerDrag}
+	      onDragEnd={onMarkerDragEnd}
+	    >
+	      <img 
+		      style={{width: "25px"}} 
+		      src="static/components/maps/marker.svg" 
+		      alt="marker"
+	     />
+	    </Marker>
 	)
 }
 

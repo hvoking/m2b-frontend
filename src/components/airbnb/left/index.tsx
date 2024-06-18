@@ -5,7 +5,6 @@ import './styles.scss';
 
 // Context imports
 import { useIsoPolygonApi } from '../context/api/isoPolygon';
-import { UserMessage } from './message';
 import { useLinesApi } from '../context/api/imoveis/lines';
 import { usePricesApi } from '../context/api/imoveis/prices';
 
@@ -17,15 +16,14 @@ export const Left = () => {
 	return (
 		<div className="left">
 		<div className="airbnb-message-wrapper">
-			{!initialMarker && linesData && pricesData ?
+			{!initialMarker && linesData && pricesData &&
 				<div className="airbnb-sidebar-items">
 					<Prices 
 						linesData={linesData} 
 						pricesData={pricesData}
 					/>
 					<Timeseries/>
-				</div> :
-				<UserMessage/>
+				</div>
 			}
 		</div>
 		</div>

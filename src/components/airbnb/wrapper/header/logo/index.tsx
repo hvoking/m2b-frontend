@@ -1,23 +1,16 @@
 // App imports
-import './styles.scss';
-
-// Third-party imports
-import { useNavigate } from 'react-router-dom';
+import './styles.scss'
 
 export const Logo = () => {
-	const navigate = useNavigate();
-
-	const onClick = () => {
-		navigate('/')
-	}
-
 	return (
-		<img 
-			className="gnrt-logo"
-			src="static/logos/gnrt.svg" 
-			alt="gnrt-logo"
-			onClick={onClick}
-		/>
+		<div className="gg-logo-wrapper">
+			<img 
+				className="gg-logo"
+				src="static/logos/white.svg" 
+				alt="header-logo"
+			/>
+			<div className="gg-logo-name" style={{paddingLeft: "8px"}}>Airbnb Metrics</div>
+		</div>
 	)
 }
 

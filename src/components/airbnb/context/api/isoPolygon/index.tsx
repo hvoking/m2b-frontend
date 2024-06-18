@@ -17,7 +17,6 @@ export const IsoPolygonApiProvider = ({children}: any) => {
 
 	const [ routingProfile, setRoutingProfile ] = useState("walking");
 	const [ contoursMinutes, setContoursMinutes ] = useState(30);
-	const [ initialMarker, setInitialMarker ] = useState(true);
 	const [ isoPolygonData, setIsoPolygonData ] = useState<any>(null);
 
 	useEffect(() => {
@@ -37,12 +36,11 @@ export const IsoPolygonApiProvider = ({children}: any) => {
 		    const receivedData = await res.json();
 		    setIsoPolygonData(receivedData);
 		}
-		!initialMarker && fetchData();
-	}, [ initialMarker, placeCoordinates, routingProfile, contoursMinutes ]);
+		placeCoordinates && fetchData();
+	}, [ placeCoordinates, routingProfile, contoursMinutes ]);
 
 	return (
 		<IsoPolygonApiContext.Provider value={{ 
-			initialMarker, setInitialMarker,
 			isoPolygonData,
 			routingProfile, setRoutingProfile,
 			contoursMinutes, setContoursMinutes,

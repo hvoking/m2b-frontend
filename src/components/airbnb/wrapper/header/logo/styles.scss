@@ -1,4 +1,16 @@
-.gnrt-logo {
-  height: 40px;
-  cursor: pointer;
+.gg-logo-wrapper {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	color: rgba(255, 255, 255, 1);
+	white-space: nowrap;
+}
+.gg-logo {
+	height: 40px;
+	padding-right: 7px;
+}
+.gg-logo-name {
+	font-size: 1.4em; 
+	letter-spacing: 1.1px;
+	transform: translateX(-2px);
 }
