@@ -28,34 +28,40 @@ export const Hexagons = ({ path }: any) => {
 		const avg = d3.mean(prices);
 		return avg
 	}
-	const filterHexagons = (avg: any) => {
-		return leftPosition < avg && avg < rightPosition
-	}
+
+	const maxLength: any = hexagonsData && d3.max(hexagonsData.map((item: any) => item.properties.length));
+
+	const opacityScale = hexagonsData && d3.scaleLinear()
+		.range([0.6, 1])
+		.domain([0, maxLength]);
+
 	return (
 		<>
 			{hexagonsData && hexagonsData.map((item: any, index: any) => {
 				const avg = hexagonAvg(item.properties);
+				const propertiesLength = item.properties.length;
+				const opacity = opacityScale(propertiesLength);
 
 				return (
 					<path
 						key={index}
 						fill={
 							avg > topLimit ?
-						    "rgba(42, 43, 96, 1)" :
+						    `rgba(42, 43, 96, ${opacity})` :
 						    avg < bottomLimit ?
-						    "rgba(68, 27, 30, 1)" : 
+						    `rgba(68, 27, 30, ${opacity})` : 
 						    avg > bottomLimit && avg < topLimit ?
-						    "rgba(21, 59, 39, 1)" :
-						    "rgba(23, 23, 32, 1)"
+						    `rgba(21, 59, 39, ${opacity})` :
+						    `rgba(23, 23, 32, 1)`
 						}
 						stroke={
 							avg > topLimit ?
-						    "rgba(166, 166, 244, 1)" :
+						    `rgba(166, 166, 244, ${opacity})` :
 						    avg < bottomLimit ?
-						    "rgba(255, 0, 0, 1)" : 
+						    `rgba(255, 0, 0, ${opacity})` : 
 						    avg > bottomLimit && avg < topLimit ?
-						    "rgba(57, 181, 74, 1)" :
-						    "rgba(255, 255, 255, 0.25)"
+						    `rgba(57, 181, 74, ${opacity})` :
+						    "rgba(255, 255, 255, 0.1)"
 						}
 						strokeWidth={0.4}
 						className="feature" 

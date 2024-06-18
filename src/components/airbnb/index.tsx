@@ -4,7 +4,6 @@ import { Left } from './left';
 import { Right } from './right';
 import { Mobile } from './mobile';
 import { Maps } from './maps';
-import { UserPdf } from './pdf';
 import './styles.scss';
 
 export const Airbnb = () => {
@@ -18,7 +17,6 @@ export const Airbnb = () => {
 				</div>
 				<Mobile/>
 			</div>
-			<UserPdf/>
 		</Wrapper>
 	)
 }

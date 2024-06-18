@@ -6,7 +6,7 @@ export const Logo = () => {
 		<div className="gg-logo-wrapper">
 			<img 
 				className="gg-logo"
-				src="static/logos/white.svg" 
+				src="static/logos/pink.svg" 
 				alt="header-logo"
 			/>
 			<div className="gg-logo-name" style={{paddingLeft: "8px"}}>Airbnb Metrics</div>
