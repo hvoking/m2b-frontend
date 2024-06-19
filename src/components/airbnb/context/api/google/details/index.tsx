@@ -18,7 +18,6 @@ export const useGoogleDetailsApi = () => {
 
 export const GoogleDetailsApiProvider = ({children}: any) => {
 	const { placeId, setPlaceCoordinates, setCityId } = useGeo();
-	const { setInitialMarker } = useIsoPolygonApi();
 	const [ googleDetailsData, setGoogleDetailsData ] = useState<any>(null);
 	
 	useEffect(() => {
@@ -51,7 +50,6 @@ export const GoogleDetailsApiProvider = ({children}: any) => {
 			  }
 			}
 			setPlaceCoordinates({longitude: longitude, latitude: latitude});
-			setInitialMarker(false);
 		}
 	}, [ googleDetailsData ])
 
