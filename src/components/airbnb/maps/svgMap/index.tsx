@@ -23,7 +23,7 @@ export const SvgMap = () => {
 	const { polygonData } = usePolygonApi();
 	const { isoPolygonData } = useIsoPolygonApi();
 	const { innerWidth, innerHeight } = useSvgMapSizes();
-	const { setPlaceCoordinates } = useGeo();
+	const { placeCoordinates, setPlaceCoordinates } = useGeo();
 	const { currentAddress } = useReverseGeocodingApi();
 
 	if (!isoPolygonData || !polygonData || !polygonData[0]) return (<></>)
@@ -44,18 +44,21 @@ export const SvgMap = () => {
 	    setPlaceCoordinates({ latitude: lat, longitude: lng });
 	}
 
+	const pinCoordinates: any = projection([placeCoordinates.longitude, placeCoordinates.latitude]);
+
 	return (
 		<div className="airbnb-svgmap-wrapper">
 			<div ref={svgContainerRef}>
 				<SVGWrapper>
 					<g onClick={onClick}>
 						<Hexagons path={path}/>
-						<path
-							fill="rgba(222, 112, 112, 0.8)"
-							stroke="rgba(255, 0, 0, 1)"
-							strokeWidth={0.3}
-							className="feature" 
-							d={`${path(polygon)}`}
+						<image
+						  x={pinCoordinates[0] - 3}
+						  y={pinCoordinates[1] - 10}
+						  width={6}
+						  height={10}
+						  href="static/components/maps/marker.svg"
+						  className="pin-marker"
 						/>
 					</g>
 				</SVGWrapper>

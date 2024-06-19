@@ -32,7 +32,7 @@ export const Hexagons = ({ path }: any) => {
 	const maxLength: any = hexagonsData && d3.max(hexagonsData.map((item: any) => item.properties.length));
 
 	const opacityScale = hexagonsData && d3.scaleLinear()
-		.range([0.6, 1])
+		.range([0.3, 1])
 		.domain([0, maxLength]);
 
 	return (
