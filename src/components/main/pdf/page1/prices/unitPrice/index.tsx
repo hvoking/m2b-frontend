@@ -4,7 +4,7 @@ import './styles.scss';
 export const PdfUnitPrice = ({unitPriceMin, unitPriceMean, unitPriceMax}: any) => {
 	return (
 		<>
-			<div className="pdf-title">Faixa de valores (m²)</div>
+			<div className="pdf-title">Valor sugerido por m² (R$/m²)</div>
 			<div className="pdf-unit-price">
 				<div>
 					<div className="pdf-unit-price-value" style={{
@@ -13,7 +13,7 @@ export const PdfUnitPrice = ({unitPriceMin, unitPriceMean, unitPriceMax}: any) =
 					}}>
 						{unitPriceMin}
 					</div>
-					<div style={{fontSize: "0.8em"}}>baixo</div>
+					<div style={{fontSize: "0.8em"}}>Mínimo</div>
 				</div>
 				<div>
 					<div className="pdf-unit-price-value"  style={{
@@ -22,7 +22,7 @@ export const PdfUnitPrice = ({unitPriceMin, unitPriceMean, unitPriceMax}: any) =
 					}}>
 						{unitPriceMean}
 					</div>
-					<div style={{fontSize: "0.8em"}}>medio</div>
+					<div style={{fontSize: "0.8em"}}>Sugerido</div>
 				</div>
 				<div>
 					<div className="pdf-unit-price-value"  style={{
@@ -31,7 +31,7 @@ export const PdfUnitPrice = ({unitPriceMin, unitPriceMean, unitPriceMax}: any) =
 					}}>
 						{unitPriceMax}
 					</div>
-					<div style={{fontSize: "0.8em"}}>alto</div>
+					<div style={{fontSize: "0.8em"}}>Máximo</div>
 				</div>
 			</div>
 		</>

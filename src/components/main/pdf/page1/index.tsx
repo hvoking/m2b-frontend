@@ -1,7 +1,6 @@
 // App Imports
 import { PdfHeader } from '../header';
 import { PdfProperty } from './property';
-import { Values } from './values';
 import { PdfPrices } from './prices';
 import { PdfPictures } from './pictures';
 import { PdfFooter } from '../footer';
@@ -33,7 +32,6 @@ export const Page1 = ({ page1Ref, setActivePdf }: any) => {
 				<PdfHeader/>
 				<PdfProperty/>
 				<PdfPrices/>		
-				{/*<Values/>*/}
 				<PdfPictures
 				  linesData={linesData}
 				  pricesData={pricesData}
