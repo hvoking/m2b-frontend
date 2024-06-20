@@ -1,0 +1,19 @@
+.pdf-prices {
+	display: grid;
+	grid-template-rows: 20px auto min-content;
+	align-items: center;
+	padding: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	border-bottom: 1px solid rgba(0, 0, 0, 1);
+	grid-gap: 5px;
+}
+.pdf-prices-wrapper {
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.2em;
+	font-weight: 600;
+	div {
+		cursor: pointer;
+	}
+}

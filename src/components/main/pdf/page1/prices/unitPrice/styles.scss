@@ -1,0 +1,16 @@
+.pdf-unit-price {
+	display: flex;
+	justify-content: space-around;
+	text-align: center;
+	div {
+		align-self: center;
+	}
+}
+.pdf-unit-price-value {
+	color: rgba(255, 255, 255, 1);
+	padding: 5px;
+	padding-right: 10px;
+	padding-left: 10px;
+	border-radius: 5px;
+	cursor: pointer;
+}
