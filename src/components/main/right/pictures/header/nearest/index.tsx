@@ -1,16 +1,17 @@
 export const Nearest = ({ nearest, setNearest }: any) => {
 	const onChange = (e: any, setState: any) => {
-		setState(e.currentTarget.value);
+		const currentValue = e.currentTarget.value;
+		currentValue >= 0 && currentValue < 101 && setState(e.currentTarget.value);
 	}
 
 	const onChangeMin = (e: any) => {
 		const currentValue = nearest - 1;
-		currentValue < 101 && currentValue > - 101 && setNearest(currentValue);
+		currentValue >= 0 && setNearest(currentValue);
 	}
 	
 	const onChangeMax = (e: any) => {
 		const currentValue = nearest + 1;
-		currentValue < 101 && currentValue > - 101 && setNearest(currentValue);
+		currentValue < 101 && setNearest(currentValue);
 	}
 
 	return (
@@ -26,8 +27,8 @@ export const Nearest = ({ nearest, setNearest }: any) => {
 				className="samples-number" 
 				value={nearest}
 				onChange={(e: any) => onChange(e, setNearest)}
-				min="1" 
-				max="100"
+				min={1} 
+				max={100}
 				style={{fontSize: "0.6em"}}
 			/>
 			<div 
