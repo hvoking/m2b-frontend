@@ -2,7 +2,7 @@
 import { Prices } from './prices';
 import { Timeseries } from './timeseries';
 import { Pictures } from './pictures';
-import { Calculator } from './calculator';
+import { Values } from './values';
 import './styles.scss';
 
 // Context imports
@@ -18,7 +18,7 @@ export const Right = () => {
 	return (
 		<div className="right">
 			<div className="right-wrapper">
-				<Calculator/>
+				<Values/>
 				<Prices 
 					linesData={linesData} 
 					pricesData={pricesData}

@@ -1,25 +1,20 @@
-.calculator-wrapper {
-  background-color: rgba(33, 33, 43, 1);
-  border-radius: 20px;
-}
-.calculator-item-wrapper {
+.values-item-wrapper {
   display: flex;
   justify-content: space-between;
-  padding: 10px;
+  padding: 5px;
   padding-left: 20px;
   padding-right: 20px;
   color: rgba(255, 255, 255, 1);
-  font-size: 0.8em;
 }
-.calculator-item {
+.pdf-values-item {
   padding: 3px;
   padding-left: 5px;
   padding-right: 5px;
   border-radius: 3px;
-  font-weight: 600;
   text-align: center;
+  font-size: 1.2em;
 }
-.calculator-text {
-  color: rgba(255, 255, 255, 0.8);
+.pdf-values-text {
+  color: rgba(0, 0, 0, 0.8);
   padding-top: 5px;
 }

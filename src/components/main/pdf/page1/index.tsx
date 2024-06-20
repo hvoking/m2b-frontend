@@ -1,7 +1,7 @@
 // App Imports
 import { PdfHeader } from '../header';
 import { PdfProperty } from './property';
-import { SellPrices } from './sellPrices';
+import { Values } from './values';
 import { PdfPictures } from './pictures';
 import { PdfFooter } from '../footer';
 import './styles.scss';
@@ -31,7 +31,7 @@ export const Page1 = ({ page1Ref, setActivePdf }: any) => {
 				/>
 				<PdfHeader/>
 				<PdfProperty/>			
-				<SellPrices/>
+				<Values/>
 				<PdfPictures
 				  linesData={linesData}
 				  pricesData={pricesData}
