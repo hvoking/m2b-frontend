@@ -6,9 +6,7 @@ import { SVGWrapper } from './svg';
 import { Bars } from './bars';
 import { Header } from './header';
 import { Marker } from './marker';
-import { Numbers } from './numbers';
-import { Flags } from './flags';
-import { Refs } from './refs';
+import { Legend } from './legend';
 import { createJsonFromArray } from '../../utils/createArr';
 import { priceFormat } from '../../utils/constants';
 
@@ -29,7 +27,7 @@ export const Prices = ({ linesData, pricesData }: any) => {
 	const { areaMin, areaMax } = useAreas();
 	const { startDate, finalDate } = useDates();
 	const { activeEquipment } = usePropertyType();
-	const { bottomLimit, topLimit, minLine, meanLine, maxLine } = useLinesLimits();
+	const { bottomLimit, topLimit, minLine, maxLine } = useLinesLimits();
 
 	const startDateParts = startDate.split("-");
 	const currentStartDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);
@@ -102,7 +100,7 @@ export const Prices = ({ linesData, pricesData }: any) => {
 
 	const yScale: any = d3.scaleLinear()
 		.domain([ minValue, maxValue ])
-		.range([0, innerHeight - 45]);
+		.range([0, innerHeight - 25]);
 
 	const xPriceScale: any = d3.scaleLinear()
 		.domain([minBound, maxBound])
@@ -122,6 +120,18 @@ export const Prices = ({ linesData, pricesData }: any) => {
 		<div className="right-item-wrapper">
 			<Header/>
 			<SVGWrapper>
+				<Legend 
+					innerHeight={innerHeight} 
+					xScale={xPriceScale}
+					currentPosition={leftPosition}
+					priceFormat={priceFormat}
+				/>
+				<Legend 
+					innerHeight={innerHeight} 
+					xScale={xPriceScale}
+					currentPosition={rightPosition}
+					priceFormat={priceFormat}
+				/>
 				<Bars
 					xScale={xScale}
 					xPriceScale={xPriceScale}
@@ -142,20 +152,6 @@ export const Prices = ({ linesData, pricesData }: any) => {
 					bottomLimit={bottomLimit}
 					topLimit={topLimit}
 				/>
-				<Refs
-					data={linesData}
-					xScale={xPriceScale}
-					innerHeight={innerHeight}
-					unitPrice={unitPrice}
-					priceFormat={priceFormat}
-				/>
-				<Flags
-					minLine={minLine}
-					meanLine={meanLine}
-					maxLine={maxLine}
-					xScale={xPriceScale}
-					priceFormat={priceFormat}
-				/>
 				<Marker 
 					xScale={xPriceScale} 
 					innerHeight={innerHeight}
@@ -163,12 +159,6 @@ export const Prices = ({ linesData, pricesData }: any) => {
 					maxBound={maxBound}
 				/>
 			</SVGWrapper>
-			<Numbers 
-				leftPosition={priceFormat(leftPosition)} 
-				rightPosition={priceFormat(rightPosition)}
-				setPriceMin={setPriceMin}
-				setPriceMax={setPriceMax}
-			/>
 	  </div>
 	)
 }

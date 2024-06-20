@@ -16,23 +16,17 @@ export const Numbers = ({ leftPosition, rightPosition, setPriceMin, setPriceMax 
 
 	return (
 		<div className="price-number-wrapper">
-			<div>
-				<div 
-					className="price-input" 
-					onChange={onChangeMin}
-				>
-					{leftPosition}
-				</div>
-				<div>mínimo</div>
+			<div 
+				className="price-input" 
+				onChange={onChangeMin}
+			>
+				{leftPosition}
 			</div>
-			<div>
-				<div 
-					className="price-input" 
-					onChange={onChangeMax}
-				>
-					{rightPosition}
-				</div>
-				<div>máximo</div>
+			<div 
+				className="price-input" 
+				onChange={onChangeMax}
+			>
+				{rightPosition}
 			</div>
 		</div>
 	)

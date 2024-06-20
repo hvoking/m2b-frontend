@@ -41,9 +41,9 @@ export const PdfMaps = () => {
 			antialias={true}
 			preserveDrawingBuffer={true}
 		>
-			<Clusters/>
 			<Buildings/>
 			<Pin/>
+			<Clusters/>
 			<Controllers/>
 		</Map>
 		</div>
