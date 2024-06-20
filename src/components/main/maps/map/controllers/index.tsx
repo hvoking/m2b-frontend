@@ -9,7 +9,7 @@ import { useIsoPolygonApi } from '../../../context/api/isoPolygon';
 // Third party imports
 import { NavigationControl, GeolocateControl } from 'react-map-gl';
 
-export const MapControllers = () => {
+export const Controllers = () => {
 	const { viewport, setViewport, placeCoordinates, setPlaceCoordinates } = useGeo();
 	const { setInitialMarker } = useIsoPolygonApi();
 
@@ -37,4 +37,4 @@ export const MapControllers = () => {
 	)
 }
 
-MapControllers.displayName="MapControllers";
+Controllers.displayName="Controllers";

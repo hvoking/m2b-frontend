@@ -2,7 +2,7 @@
 import { useCallback } from 'react';
 
 // App imports
-import { MapControllers } from './controllers';
+import { Controllers } from './controllers';
 import { Pin } from './pin';
 import { Tooltip } from './tooltip';
 import { Buildings } from './buildings';
@@ -48,7 +48,7 @@ export const MapContainer = () => {
 			<Layers/>
 			<Pin/>
 			<Buildings/>
-			<MapControllers/>
+			<Controllers/>
 			<Tooltip/>
 		</Map>
 	)

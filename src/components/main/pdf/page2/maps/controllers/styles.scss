@@ -1,5 +1,5 @@
 .mapboxgl-ctrl-group {
-  background-color: rgba(33, 33, 43, 0) !important;
+  background-color: rgba(33, 33, 43, 1) !important;
   margin-right: 1px !important;
   box-shadow: none !important;
 }
@@ -15,4 +15,8 @@
 }
 .mapboxgl-ctrl-top-right {
   z-index: 5 !important;
+}
+.mapboxgl-ctrl.mapboxgl-ctrl-group:last-child {
+  padding: 0;
+  margin: 0;
 }
