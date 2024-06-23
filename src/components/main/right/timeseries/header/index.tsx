@@ -5,7 +5,7 @@ export const Header = () => {
   return (
     <div className="sidebar-header">
       <div className="sidebar-sub-title">
-        Intervalo de Tempo
+        Data do anúncio
       </div>
       <div></div>
       <Selectors/>

@@ -5,7 +5,7 @@ import { useRef, useCallback } from 'react';
 import * as d3 from 'd3';
 
 export const Bars = ({ 
-    xScale, xPriceScale, yScale, 
+    divisions, xPriceScale, yScale, 
     minBound, maxBound,
     pricesArray, pricesKeys, 
     innerWidth, innerHeight, 
@@ -16,6 +16,10 @@ export const Bars = ({
     bottomLimit, topLimit,
 }: any) => {
     const currentDragRef = useRef<any>(null);
+
+    const xScale: any = d3.scaleLinear()
+        .domain([0, divisions])
+        .range([0, innerWidth]);
 
     const onDragStart = (event: any) => {
         const x = xPriceScale.invert(event.x);

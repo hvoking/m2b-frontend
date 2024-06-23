@@ -8,7 +8,7 @@ export const Rooms = () => {
 	return (
 		<div className="property-parameter">
 			<div className="input-group" style={{justifyContent: "space-between"}}>
-				<div>Quartos</div>
+				<div>Dormitórios</div>
 				<div style={{paddingRight: "20px"}}>
 					<input 
 						className="input-group" 
@@ -38,7 +38,7 @@ export const Rooms = () => {
 				/>
 			</div>
 			<div className="input-group">
-				<div style={{paddingLeft: "10px"}}>Garagens</div>
+				<div style={{paddingLeft: "10px"}}>Vagas</div>
 				<input 
 					className="input-group" 
 					type="number" 

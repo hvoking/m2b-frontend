@@ -7,7 +7,7 @@ import { Bars } from './bars';
 import { Header } from './header';
 import { Marker } from './marker';
 import { Legend } from './legend';
-import { createJsonFromArray } from '../../utils/createArr';
+import { groupPrices } from '../../utils/prices';
 import { priceFormat } from '../../utils/constants';
 
 // Context imports
@@ -80,23 +80,14 @@ export const Prices = ({ linesData, pricesData }: any) => {
     const maxBound = maxLine + (maxLine + minLine) * 0.2;
     const divisions: number = 12;
 
-    const pricesCounts = 
-    	createJsonFromArray(
-    		filterPoints.filter((item: any) => item > 0),
-    		minBound,
-    		maxBound,
-    		divisions
-    	);
-    const pricesValues: any = Object.values(pricesCounts);
+    const arr = filterPoints.filter((item: any) => item > 0);
+    const pricesCounts = groupPrices(arr, minBound, maxBound, divisions);
 
+    const pricesValues: any = Object.values(pricesCounts);
     const minValue: any = d3.min(pricesValues);
     const maxValue: any = d3.max(pricesValues);
     
     const pricesKeys = Object.keys(pricesCounts);
-
-	const xScale: any = d3.scaleLinear()
-		.domain([0, divisions])
-		.range([0, innerWidth]);
 
 	const yScale: any = d3.scaleLinear()
 		.domain([ minValue, maxValue ])
@@ -133,7 +124,6 @@ export const Prices = ({ linesData, pricesData }: any) => {
 					priceFormat={priceFormat}
 				/>
 				<Bars
-					xScale={xScale}
 					xPriceScale={xPriceScale}
 					yScale={yScale}
 					pricesArray={pricesValues}
@@ -151,6 +141,7 @@ export const Prices = ({ linesData, pricesData }: any) => {
 					maxBound={maxBound}
 					bottomLimit={bottomLimit}
 					topLimit={topLimit}
+					divisions={divisions}
 				/>
 				<Marker 
 					xScale={xPriceScale} 

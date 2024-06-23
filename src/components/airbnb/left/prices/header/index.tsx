@@ -7,7 +7,7 @@ import { useSamplesApi } from '../../../context/api/imoveis/samples';
 // Third-party imports
 import * as d3 from 'd3';
 
-export const Calculator = () => {
+export const Header = () => {
   const { samplesData } = useSamplesApi();
 
   const siFormat = d3.format(",");
@@ -26,4 +26,4 @@ export const Calculator = () => {
   )
 }
 
-Calculator.displayName="Calculator";
+Header.displayName="Header";

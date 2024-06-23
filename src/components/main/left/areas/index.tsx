@@ -4,12 +4,14 @@ import { Bars } from './bars';
 import { Ref } from './ref';
 import { AxisBottom } from './bottom';
 import { Marker } from './marker';
-import { Numbers } from './numbers';
-import { LoadingImage } from '../../utils/loading'
+import { Legend } from './legend';
+import { LoadingImage } from '../../utils/loading';
+import { priceFormat } from '../../utils/constants';
 
 // Context imports
 import { useAreasApi } from '../../context/api/imoveis/areas';
 import { useAreasSizes } from '../../context/sizes/areas';
+import { useAreas } from '../../context/filters/areas';
 
 // Third party imports
 import * as d3 from 'd3';
@@ -17,6 +19,8 @@ import * as d3 from 'd3';
 export const Areas = () => {
 	const { areasData } = useAreasApi();
 	const { margin, innerWidth, innerHeight } = useAreasSizes();
+	const { leftPosition, rightPosition } = useAreas();
+
 
 	const areasColor = areasData && areasData.areas_color;
 	const areasPercentage = areasData && areasData.areas_percentage;
@@ -50,6 +54,18 @@ export const Areas = () => {
 							innerWidth={innerWidth}
 							innerHeight={innerHeight}
 						/>
+						<Legend 
+							innerHeight={innerHeight} 
+							xScale={xScale}
+							currentPosition={leftPosition}
+							priceFormat={priceFormat}
+						/>
+						<Legend 
+							innerHeight={innerHeight} 
+							xScale={xScale}
+							currentPosition={rightPosition}
+							priceFormat={priceFormat}
+						/>
 						<Bars
 							areasPercentage={areasPercentage}
 							areasColor={areasColor}
@@ -73,8 +89,7 @@ export const Areas = () => {
 							areasMin={areasMin}
 							areasMax={areasMax}
 						/>
-				  	</SVGWrapper>
-			  		<Numbers/> 
+				  	</SVGWrapper> 
 		  		</> : 
 		  		<LoadingImage/>
 		  	}

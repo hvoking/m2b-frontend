@@ -1,4 +1,4 @@
-export const createJsonFromArray = (arr: any, minBound: any, maxBound: any, divisions: any) => {
+export const groupPrices = (arr: any, minBound: any, maxBound: any, divisions: any) => {
 	const rangeWidth = (maxBound - minBound) / divisions;
 
 	// Initialize an object to store the counts for each range
@@ -20,5 +20,6 @@ export const createJsonFromArray = (arr: any, minBound: any, maxBound: any, divi
 		  }
 		}
 	});
+	
   return rangeCounts;
 }

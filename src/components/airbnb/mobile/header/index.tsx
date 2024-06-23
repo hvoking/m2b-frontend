@@ -11,7 +11,7 @@ export const Header = ({ activeIndex, setActiveIndex }: any) => {
 	return (
 		<div className="carousel-header">
 			<div onClick={() => setActiveIndex(0)} style={{color: active(0)}}>
-				Rooms
+				Location
 			</div>
 			<div onClick={() => setActiveIndex(1)} style={{color: active(1)}}>
 				Prices
