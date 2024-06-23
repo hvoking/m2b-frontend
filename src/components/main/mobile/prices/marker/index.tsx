@@ -9,7 +9,7 @@ import * as d3 from 'd3';
 
 export const Marker = ({ xScale, innerHeight, minBound, maxBound }: any) => {
   const { leftPosition, setLeftPosition, rightPosition, setRightPosition } = usePrices();
-  const circleRadius = 15;
+  const circleRadius = 11;
 
   const onDragLeft = (event: any) => {
       const x = xScale.invert(event.x);
