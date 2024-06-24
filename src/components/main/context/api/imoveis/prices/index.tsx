@@ -39,6 +39,7 @@ export const PricesApiProvider = ({children}: any) => {
 		    	&k=${nearest}
 		    	&start_date=${datesFormat(dates[0])}
 	    		&final_date=${datesFormat(dates[1])}
+	    		&order_by="distance"
 		    `
 		    const url = tempUrl.replace(/\s/g, '');
 		    const res = await fetch(url);

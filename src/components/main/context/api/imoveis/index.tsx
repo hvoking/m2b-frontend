@@ -5,7 +5,6 @@ import { RoomsApiProvider } from './rooms';
 import { PointsApiProvider } from './points';
 import { PricesApiProvider } from './prices';
 import { LinesApiProvider } from './lines';
-import { SamplesApiProvider } from './samples';
 import { HistApiProvider } from './hist';
 import { HistPointsApiProvider } from './histPoints';
 import { ImagesApiProvider } from './images';
@@ -21,13 +20,11 @@ export const ImoveisApiProvider = ({children}: any) => {
     <HistPointsApiProvider>
     <LinesApiProvider>
     <PricesApiProvider>
-    <SamplesApiProvider>
     <ImagesApiProvider>
     <MeanApiProvider>
       {children}
     </MeanApiProvider>
     </ImagesApiProvider>
-    </SamplesApiProvider>
     </PricesApiProvider>
     </LinesApiProvider>
     </HistPointsApiProvider>
