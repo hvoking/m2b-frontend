@@ -26,7 +26,7 @@ export const Header = () => {
       <div style={{display: "flex", gap: "5px", paddingTop: '5px', alignItems: "center"}}>
         <div style={{color: "rgba(255, 255, 255, 0.6)"}}>Méd.</div>
         <div className="airbnb-property-prices-number">
-          {samplesPrices && priceFormat(mean(samplesPrices))}
+          {samplesPrices && priceFormat(Math.round(mean(samplesPrices)))}
         </div>
       </div>
     </div>
