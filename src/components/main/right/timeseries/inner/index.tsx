@@ -26,7 +26,7 @@ import * as d3 from 'd3';
 export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
   const { linesData } = useLinesApi();
   const { pricesData } = usePricesApi();
-  const { dates, setDates, startDate, finalDate } = useDates();
+  const { startDate, finalDate } = useDates();
   const { unitPrice } = usePrices();
   const { bottomLimit, topLimit } = useLinesLimits();
 

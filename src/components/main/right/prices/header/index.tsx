@@ -4,10 +4,6 @@ import { priceFormat } from '../../../utils/constants';
 // Context imports
 import { usePrices } from '../../../context/filters/prices';
 
-
-// Third-party imports
-import * as d3 from 'd3';
-
 export const Header = () => {
   const { samplesPrices } = usePrices();
 
