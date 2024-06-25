@@ -8,7 +8,7 @@ import './styles.scss';
 // Context imports
 import { usePropertyType } from '../../../context/filters/property';
 
-export const PdfProperty = () => {
+export const Property = () => {
 	const { propertyName, setPropertyTypeId, propertyDict, businessName, setBusinessTypeId, businessDict } = usePropertyType();
 
 	return (
@@ -36,4 +36,4 @@ export const PdfProperty = () => {
 	)
 }
 
-PdfProperty.displayName="PdfProperty";
+Property.displayName="Property";

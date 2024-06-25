@@ -1,10 +1,9 @@
 // App Imports
-import { PdfHeader } from '../header';
-import { PdfProperty } from './property';
-import { PdfPrices } from './prices';
-import { PdfPictures } from './pictures';
-import { PdfTable } from './table';
-import { PdfFooter } from '../footer';
+import { Header } from '../header';
+import { Property } from './property';
+import { Prices } from './prices';
+import { Table } from './table';
+import { Footer } from '../footer';
 import './styles.scss';
 
 // Context imports
@@ -30,19 +29,12 @@ export const Page1 = ({ page1Ref, setActivePdf }: any) => {
 					alt="search-icon"
 					onClick={() => setActivePdf(false)}
 				/>
-				<PdfHeader/>
-				<PdfProperty/>
-				<PdfPrices/>
-				<PdfTable
-					linesData={linesData}
-					pricesData={pricesData}
-				/>
-				{/*<PdfPictures
-				  linesData={linesData}
-				  pricesData={pricesData}
-				/>*/}
+				<Header/>
+				<Property/>
+				<Prices/>
+				<Table linesData={linesData} pricesData={pricesData}/>
 			</div>
-			<PdfFooter/>
+			<Footer/>
 		</div>
 	)
 }

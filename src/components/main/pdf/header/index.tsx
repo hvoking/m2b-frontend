@@ -4,7 +4,7 @@ import './styles.scss';
 // Context imports
 import { useDates } from '../../context/filters/dates';
 
-export const PdfHeader = () => {
+export const Header = () => {
 	const { startDate, finalDate } = useDates();
 	const convertToDate = (str: any) =>	{
 			const dateArr = str.split("-");
@@ -29,4 +29,4 @@ export const PdfHeader = () => {
 	)
 }
 
-PdfHeader.displayName="PdfHeader";
+Header.displayName="Header";

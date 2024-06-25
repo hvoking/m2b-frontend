@@ -1,15 +1,16 @@
 // App imports
 import { PdfMaps } from './maps';
 import { PdfObs } from './obs';
+import { Header } from './header';
+import { Footer } from '../footer';
 import './styles.scss';
 
-// Pdf imports
-import { PdfFooter } from '../footer';
 
 export const Page2 = ({ page2Ref, setActivePdf }: any) => {
 	const onClick = (e: any) => {
 		e.stopPropagation()
 	}
+	
 	return (
 		<div 
 			ref={page2Ref} 
@@ -23,26 +24,11 @@ export const Page2 = ({ page2Ref, setActivePdf }: any) => {
 					alt="search-icon"
 					onClick={() => setActivePdf(false)}
 				/>
-				<div className="pdf-header-wrapper">
-					<div className="pdf-header-title">
-						Avaliação Mercadológica
-					</div>
-					<div 
-						className="property-data-subtitle" 
-						style={{fontWeight: "600"}}
-					>
-						<img 
-							src="static/components/maps/marker.svg" 
-							alt="marker" 
-							width="10px"
-						/>
-						<div>Localização do imóvel</div>
-					</div>
-				</div>
+				<Header/>
 				<PdfMaps/>
 				<PdfObs/>
 			</div>
-			<PdfFooter/>
+			<Footer/>
 		</div>
 	)
 }

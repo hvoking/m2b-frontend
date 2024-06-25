@@ -1,7 +1,7 @@
 // App imports
 import './styles.scss';
 
-export const PdfFooter = () => {
+export const Footer = () => {
 	return (
 		<div className="pdf-footer">
 			<div className="m2b-letters">m²b</div>
@@ -25,4 +25,4 @@ export const PdfFooter = () => {
 	)
 }
 
-PdfFooter.displayName="PdfFooter";
+Footer.displayName="Footer";

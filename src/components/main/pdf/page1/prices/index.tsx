@@ -9,7 +9,7 @@ import { usePropertyType } from '../../../context/filters/property';
 // Third-party imports
 import * as d3 from 'd3';
 
-export const PdfPrices = () => {
+export const Prices = () => {
     const { linesData } = useLinesApi();
     const { businessTypeId } = usePropertyType();
     
@@ -50,3 +50,5 @@ export const PdfPrices = () => {
         </div>
     )
 }
+
+Prices.displayName="Prices";
