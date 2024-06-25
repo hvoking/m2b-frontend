@@ -15,7 +15,7 @@ export const PdfProperty = () => {
 		<div className="property-parameters">
 			<Address/>
 			<div className="property-parameter">
-				<div>Imóvel</div>
+				<div>Tipologia</div>
 				<Dropdown
 					imoveisDict={propertyDict}
 					propertyName={propertyName}
@@ -23,7 +23,7 @@ export const PdfProperty = () => {
 				/>
 			</div>
 			<div className="property-parameter">
-				<div>Negócio</div>
+				<div>Tipo de Negócio</div>
 				<Dropdown
 					imoveisDict = {businessDict}
 					propertyName={businessName}

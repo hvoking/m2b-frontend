@@ -3,7 +3,6 @@ import { useEffect } from 'react';
 
 // App imports
 import { Description } from './description';
-import './styles.scss';
 
 // Context imports
 import { usePropertyType } from '../../../context/filters/property';
@@ -20,9 +19,6 @@ export const PdfPictures = ({ linesData, pricesData }: any) => {
 	const { startDate, finalDate } = useDates();
 	const { setPropertyInfo, setActivePropertyInfo } = useTooltip();
 	const { bottomLimit, topLimit } = useLinesLimits();
-
-	const defaultImage = "/static/components/maps/hover/on_error.webp";
-	const defaultPath = window.location.origin +  defaultImage;
 
 	const startDateParts = startDate.split("-");
 	const currentStartDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);

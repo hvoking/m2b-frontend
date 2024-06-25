@@ -26,12 +26,12 @@ export const AreaInputs = () => {
 	return (
 		<div className="sidebar-title-wrapper">
 			<AreaItem
-				title={"de:"}
+				title={"Mínima:"}
 				value={Math.round(areaMin)}
 				onChange={onChangeMin}
 			/>
 			<AreaItem
-				title={"até:"}
+				title={"Maxima:"}
 				value={Math.round(areaMax)}
 				onChange={onChangeMax}
 			/>

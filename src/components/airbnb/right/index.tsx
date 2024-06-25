@@ -17,7 +17,7 @@ import { useLinesLimits } from '../context/limits/lines';
 export const Right = () => {
 	const { pricesData } = usePricesApi();
 
-	const { rejectedIds, setRejectedIds, currentPropertyId, nearest, setNearest, activeEquipment, setCurrentPropertyId, setSamplesIds } = usePropertyType();
+	const { rejectedIds, setRejectedIds, nearest, setNearest, activeEquipment, setCurrentPropertyId, setSamplesIds } = usePropertyType();
 	const { setSamplesPrices, leftPosition, rightPosition } = usePrices();
 	const { startDate, finalDate } = useDates();
 	const { setPropertyInfo, setActivePropertyInfo } = useTooltip();

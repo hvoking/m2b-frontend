@@ -28,3 +28,32 @@
   border-right: 5px solid rgba(33, 33, 43, 1);
   background: #555;
 }
+.pdf-cancel-cross {
+	width: 12px;
+	padding: 5px;
+	padding-left: 10px;
+	padding-bottom: 10px;
+}
+.pdf-pictures-img {
+	padding: 5px;
+}
+.pdf-pictures-description-wrapper {
+	display: grid;
+	grid-template-columns: auto min-content;
+}
+.pdf-pictures-description {
+	padding-top: 5px;
+	padding-bottom: 5px;
+	display: grid;
+	grid-template-rows: 1fr 1fr 1fr;
+	font-weight: 580;
+}
+
+@media screen and (max-width: 1000px) {
+	.pdf-images-wrapper {
+		padding-right: 20px;
+	}
+	.pdf-pictures-box {
+		font-size: 1.2em;
+	}
+}

@@ -3,6 +3,7 @@ import { PdfHeader } from '../header';
 import { PdfProperty } from './property';
 import { PdfPrices } from './prices';
 import { PdfPictures } from './pictures';
+import { PdfTable } from './table';
 import { PdfFooter } from '../footer';
 import './styles.scss';
 
@@ -31,11 +32,15 @@ export const Page1 = ({ page1Ref, setActivePdf }: any) => {
 				/>
 				<PdfHeader/>
 				<PdfProperty/>
-				<PdfPrices/>		
-				<PdfPictures
+				<PdfPrices/>
+				<PdfTable
+					linesData={linesData}
+					pricesData={pricesData}
+				/>
+				{/*<PdfPictures
 				  linesData={linesData}
 				  pricesData={pricesData}
-				/>
+				/>*/}
 			</div>
 			<PdfFooter/>
 		</div>
