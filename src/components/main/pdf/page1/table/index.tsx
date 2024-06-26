@@ -1,3 +1,6 @@
+// React imports
+import { useState } from 'react';
+
 // App imports
 import { Header } from './header';
 import './styles.scss';
@@ -14,7 +17,10 @@ import { useLinesLimits } from '../../../context/limits/lines';
 import * as d3 from 'd3';
 
 export const Table = ({ linesData, pricesData }: any) => {
-	const { rejectedIds, setRejectedIds, setCurrentPropertyId, nearest, orderBy, setOrderBy, activeEquipment } = usePropertyType();
+	const [ sortKey, setSortKey ] = useState("distance");
+	const [ currentDirection, setCurrentDirection ] = useState("up");
+
+	const { rejectedIds, setRejectedIds, setCurrentPropertyId, nearest, activeEquipment } = usePropertyType();
 	const { leftPosition, rightPosition, unitPrice } = usePrices();
 	const { areaMin, areaMax } = useAreas();
 	const { startDate, finalDate } = useDates();
@@ -67,6 +73,10 @@ export const Table = ({ linesData, pricesData }: any) => {
 	    filterByDates
 	
 	const filterById = filterPoints.filter((item: any) => !rejectedIds.includes(item.property_id));
+	
+	currentDirection === "up" ?
+	filterById.sort((a: any, b: any) => a[sortKey] - b[sortKey]) :
+	filterById.sort((a: any, b: any) => b[sortKey] - a[sortKey]);
 
 	const iscUrl = "https://media.imoveis-sc.com.br/media/thumb-290-250/";
 
@@ -87,10 +97,14 @@ export const Table = ({ linesData, pricesData }: any) => {
 	return (
 		<div className="fixTableHead"> 
 			<table>
-				<Header orderBy={orderBy} setOrderBy={setOrderBy}/>
+				<Header setSortKey={setSortKey} setCurrentDirection={setCurrentDirection}/>
 				<tbody> 
 				{filterById.slice(0, nearest).map((item: any, index: any) => {
-					const currentImage = item.image_src && item.image_src;
+					const currentImage = iscUrl + item.image_src;
+					const distance = (Math.round(item.distance * 10000 * 10) / 10).toString().replace(".", ",");
+					const currentPrice = siFormat(Math.round(item.price)).replace(",", ".");
+					const currentUnitPrice = siFormat(Math.round(item.unit_price)).replace(",", ".");
+
 					return (
 						<tr key={index} onClick={(e: any) => onClick(e, item)}>
 							<td>
@@ -109,16 +123,17 @@ export const Table = ({ linesData, pricesData }: any) => {
 							</td>
 							<td>
 								<img 
-									src={iscUrl + currentImage}
+									src={currentImage}
 									alt="property"
 									width="55"
 									height="45"
 									loading="lazy"
 								/>
 							</td>
+							<td>{distance} m</td>
 							<td>{item.processed_area} m²</td>
-							<td>R$ {siFormat(Math.round(item.price))}</td>
-							<td>R$ {siFormat(Math.round(item.unit_price))}</td>
+							<td>R$ {currentPrice}</td>
+							<td>R$ {currentUnitPrice}</td>
 						</tr>
 					)}
 				)}

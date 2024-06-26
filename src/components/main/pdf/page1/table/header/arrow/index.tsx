@@ -1,12 +1,17 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-export const Arrow = ({ fill }: any) => {
+export const Arrow = ({ fill, item, setSortKey, setCurrentDirection }: any) => {
 	const [ up, setUp ] = useState(false);
 
 	const y1 = up ? "6" : "12";
 	const y2 = up ? "12" : "6";
 
 	const x = 5;
+
+	useEffect(() => {
+		up ? setCurrentDirection("up") : setCurrentDirection("down");
+		setSortKey(item);
+	}, [up])
 
 	return (
 		<div 

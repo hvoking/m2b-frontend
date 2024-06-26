@@ -16,7 +16,6 @@ export const PropertyTypeProvider = ({children}: any) => {
 	const [ businessTypeId, setBusinessTypeId ] = useState(1);
 	const [ propertyTypeId, setPropertyTypeId ] = useState(1);
 	const [ nearest, setNearest ] = useState(8);
-	const [ orderBy, setOrderBy ] = useState("distance");
 	const [ activeEquipment, setActiveEquipment ] = useState("");
 
 	const [ samplesIds, setSamplesIds ] = useState<any>([]);
@@ -53,7 +52,6 @@ export const PropertyTypeProvider = ({children}: any) => {
 			rejectedIds, setRejectedIds,
 			currentPropertyId, setCurrentPropertyId,
 			activeEquipment, setActiveEquipment,
-			orderBy, setOrderBy,
 		}}>
 			{children}
 		</PropertyTypeContext.Provider>
