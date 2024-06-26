@@ -75,8 +75,8 @@ export const Table = ({ linesData, pricesData }: any) => {
 	const filterById = filterPoints.filter((item: any) => !rejectedIds.includes(item.property_id));
 	
 	currentDirection === "up" ?
-	filterById.sort((a: any, b: any) => b[sortKey] - a[sortKey]) :
-	filterById.sort((a: any, b: any) => a[sortKey] - b[sortKey]);
+	[...filterById].sort((a: any, b: any) => b[sortKey] - a[sortKey]) :
+	[...filterById].sort((a: any, b: any) => a[sortKey] - b[sortKey]);
 
 	const iscUrl = "https://media.imoveis-sc.com.br/media/thumb-290-250/";
 
@@ -99,44 +99,44 @@ export const Table = ({ linesData, pricesData }: any) => {
 			<table>
 				<Header setSortKey={setSortKey} setCurrentDirection={setCurrentDirection}/>
 				<tbody> 
-				{filterById.slice(0, nearest).map((item: any, index: any) => {
-					const currentImage = iscUrl + item.image_src;
-					const distance = (Math.round(item.distance * 10000 * 10) / 10).toString().replace(".", ",");
-					const currentPrice = siFormat(Math.round(item.price)).replace(",", ".");
-					const currentUnitPrice = siFormat(Math.round(item.unit_price)).replace(",", ".");
+					{filterById.slice(0, nearest).map((item: any, index: any) => {
+						const currentImage = iscUrl + item.image_src;
+						const distance = (Math.round(item.distance * 10000 * 10) / 10).toString().replace(".", ",");
+						const currentPrice = siFormat(Math.round(item.price)).replace(",", ".");
+						const currentUnitPrice = siFormat(Math.round(item.unit_price)).replace(",", ".");
 
-					return (
-						<tr key={index} onClick={(e: any) => onClick(e, item)}>
-							<td>
-								<div 
-									style={{
-										backgroundColor: 
-											item[currentPriceString] < bottomLimit ? 
-											"rgba(255, 0, 0, 1)" :
-											item[currentPriceString] > topLimit ? 
-											"rgba(166, 166, 244, 1)" :
-											"rgba(67, 181, 64, 1)"
-									}}
-								>
-									{index + 1}
-								</div>
-							</td>
-							<td>
-								<img 
-									src={currentImage}
-									alt="property"
-									width="55"
-									height="45"
-									loading="lazy"
-								/>
-							</td>
-							<td>{distance} m</td>
-							<td>{item.processed_area} m²</td>
-							<td>R$ {currentPrice}</td>
-							<td>R$ {currentUnitPrice}</td>
-						</tr>
+						return (
+							<tr key={index} onClick={(e: any) => onClick(e, item)}>
+								<td>
+									<div 
+										style={{
+											backgroundColor: 
+												item[currentPriceString] < bottomLimit ? 
+												"rgba(255, 0, 0, 1)" :
+												item[currentPriceString] > topLimit ? 
+												"rgba(166, 166, 244, 1)" :
+												"rgba(67, 181, 64, 1)"
+										}}
+									>
+										{index + 1}
+									</div>
+								</td>
+								<td>
+									<img 
+										src={currentImage}
+										alt="property"
+										width="55"
+										height="45"
+										loading="lazy"
+									/>
+								</td>
+								<td>{distance} m</td>
+								<td>{item.processed_area} m²</td>
+								<td>R$ {currentPrice}</td>
+								<td>R$ {currentUnitPrice}</td>
+							</tr>
+						)}
 					)}
-				)}
 				</tbody> 
 			</table>
 		</div>

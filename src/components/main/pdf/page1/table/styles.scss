@@ -1,5 +1,9 @@
 .fixTableHead { 
   overflow-y: scroll; 
+  table {
+    width: 100%;
+    border-collapse: collapse;
+  }
   thead{ 
     position: sticky; 
     top: 0; 
