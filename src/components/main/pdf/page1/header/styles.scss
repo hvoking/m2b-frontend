@@ -1,7 +1,8 @@
 .pdf-header-wrapper {
-	display: grid;
-	justify-items: center;
 	padding-top: 10px;
+	padding-left: 20px;
+	padding-right: 20px;
+	padding-bottom: 10px;
 }
 .pdf-header-title {
 	background-color: rgba(126, 126, 132, 1);
@@ -22,6 +23,13 @@
 	white-space: nowrap;
 	gap: 3px;
 	overflow: hidden;
+}
+.header-items-wrapper {
+	display: grid;
+	grid-template-columns: min-content auto min-content;
+	white-space: nowrap;
+	padding-top: 20px; 
+	grid-gap: 20px;
 }
 // mobile-style
 @media screen and (max-width: 1000px) {

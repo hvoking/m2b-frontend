@@ -1,7 +1,6 @@
 // App imports
 import { Areas } from './areas';
 import { Rooms } from './rooms';
-import { Address } from './address';
 import { Dropdown } from './dropdown';
 import './styles.scss';
 
@@ -13,7 +12,6 @@ export const Property = () => {
 
 	return (
 		<div className="property-parameters">
-			<Address/>
 			<div className="property-parameter">
 				<div>Tipologia</div>
 				<Dropdown

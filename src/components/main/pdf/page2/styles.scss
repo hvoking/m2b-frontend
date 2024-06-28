@@ -1,6 +1,24 @@
 .pdf-body-page2 {
 	display: grid;
-	grid-template-rows: min-content 1fr 1fr;
+	grid-template-rows: 3fr min-content 4fr min-content;
 	position: relative;
 	overflow: hidden;
+}
+.pdf-cta {
+	display: flex;
+	justify-content: end;
+	align-items: center;
+	gap: 10px;
+	padding-right: 30px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: rgba(126, 126, 132, 0.2);
+}
+.pdf-button {
+	padding: 7px; 
+	padding-left: 20px; 
+	padding-right: 20px; 
+	background-color: rgba(0, 0, 0, 1);
+	color: rgba(255, 255, 255, 1);
+	border-radius: 5px;
 }

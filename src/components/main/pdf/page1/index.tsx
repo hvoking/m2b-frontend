@@ -1,20 +1,13 @@
 // App Imports
-import { Header } from '../header';
-import { Property } from './property';
-import { Prices } from './prices';
-import { Table } from './table';
+import { Header } from './header';
 import { Footer } from '../footer';
+import { PdfMaps } from './maps';
+import { Address } from './address';
+import { Rooms } from './rooms';
+import { Dsv } from './dsv';
 import './styles.scss';
 
-// Context imports
-import { useLinesApi } from '../../context/api/imoveis/lines';
-import { usePricesApi } from '../../context/api/imoveis/prices';
-
 export const Page1 = ({ page1Ref, setActivePdf }: any) => {
-	const { linesData } = useLinesApi();
-	const { pricesData } = usePricesApi();
-
-	if (!linesData || !pricesData) return <></>
 
 	return (
 		<div 
@@ -30,9 +23,12 @@ export const Page1 = ({ page1Ref, setActivePdf }: any) => {
 					onClick={() => setActivePdf(false)}
 				/>
 				<Header/>
-				<Property/>
-				<Prices/>
-				<Table linesData={linesData} pricesData={pricesData}/>
+				<Address/>
+				<PdfMaps/>
+				<div style={{display: "grid", gridTemplateColumns: "1fr 1fr"}}>
+					<Rooms/>
+					<Dsv/>
+				</div>
 			</div>
 			<Footer/>
 		</div>
