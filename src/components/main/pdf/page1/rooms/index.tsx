@@ -20,16 +20,14 @@ export const Rooms = () => {
 		setGarages(null); 
 	}
 
+	if (!roomsData || !dsvData) return <></>
+
 	return (
 		<div>
 			<Header onClick={onClick} rooms={rooms}/>
-			{
-				!dsvData || !roomsData ? 
-				<LoadingImage/> :
-				<div className="rooms-wrapper">
-					<Legend roomsData={roomsData} dsvData={dsvData}/>
-				</div>
-			}
+			<div className="rooms-wrapper">
+				<Legend roomsData={roomsData} dsvData={dsvData}/>
+			</div>
 		</div>
 	)
 } 

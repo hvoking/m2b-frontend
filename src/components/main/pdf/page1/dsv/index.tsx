@@ -7,13 +7,16 @@ import { useDsvApi } from '../../../context/api/imoveis/dsv';
 
 export const Dsv = () => {
 	const { dsvData } = useDsvApi();
+	if (!dsvData) return <></>
 	
 	return (
 		<div>
 			<div className="sidebar-sub-title">
 				Dormitórios-Suítes-Vagas (DSV)
 			</div>
-			{dsvData ? <Bars dsvData={dsvData}/> : <LoadingImage/>}
+			<div style={{display: "grid", width: "100%", height: "100%"}}>
+			<Bars dsvData={dsvData}/>
+			</div>
 		</div>
 	)
 } 
