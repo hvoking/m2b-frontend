@@ -11,11 +11,11 @@ export const Dsv = () => {
 	
 	return (
 		<div>
-			<div className="sidebar-sub-title">
+			<div style={{paddingTop: "10px"}}>
 				Dormitórios-Suítes-Vagas (DSV)
 			</div>
 			<div style={{display: "grid", width: "100%", height: "100%"}}>
-			<Bars dsvData={dsvData}/>
+				<Bars dsvData={dsvData}/>
 			</div>
 		</div>
 	)

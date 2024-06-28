@@ -26,7 +26,7 @@ export const Front = ({
 				y={innerWidth - yScale(currentPercent) - 20}
 				width={currentHeight - currentDifference}
 				height={yScale(currentPercent)}
-				stroke={currentType === item ? "rgba(255, 255, 255, 1)" : "rgba(126, 126, 132, 1)"}
+				stroke={currentType === item ? "rgba(0, 0, 0, 1)" : "rgba(126, 126, 132, 1)"}
 				strokeWidth={currentType === item ? "1" : "0"}
 				fill={
 					currentType === item ?

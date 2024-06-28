@@ -3,11 +3,9 @@ import './styles.scss';
 
 export const Header = ({ onClick, rooms}: any) => {
 	return (
-		<div className="property-type-header">
-			<div className="sidebar-sub-title">
+			<div style={{paddingLeft: "20px", paddingTop: "10px"}}>
 				Principais tipologias
 			</div>
-		</div>
 	)
 }
 

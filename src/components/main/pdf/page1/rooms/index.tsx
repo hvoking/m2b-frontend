@@ -25,7 +25,7 @@ export const Rooms = () => {
 	return (
 		<div>
 			<Header onClick={onClick} rooms={rooms}/>
-			<div className="rooms-wrapper">
+			<div className="pdf-rooms-wrapper">
 				<Legend roomsData={roomsData} dsvData={dsvData}/>
 			</div>
 		</div>
