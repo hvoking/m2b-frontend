@@ -13,7 +13,8 @@ export const Front = ({
 	onClick,
 	reducedCount,
 	sumOfCounts,
-	combinedColors
+	combinedColors,
+	yScale
 }: any) => {
 	const currentColor = rooms ? dsvData[`d${rooms}`]['colors'] : combinedColors;
 
@@ -21,10 +22,10 @@ export const Front = ({
 		<g>
 			<rect
 				key={item}
-				x={0}
-				y={totalHeight - currentHeight + currentGap}
-				width={innerWidth * currentPercent / 100}
-				height={currentHeight - currentDifference}
+				x={totalHeight - currentHeight + currentGap}
+				y={innerWidth - yScale(currentPercent) - 20}
+				width={currentHeight - currentDifference}
+				height={yScale(currentPercent)}
 				stroke={currentType === item ? "rgba(255, 255, 255, 1)" : "rgba(126, 126, 132, 1)"}
 				strokeWidth={currentType === item ? "1" : "0"}
 				fill={

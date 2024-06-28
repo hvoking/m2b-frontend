@@ -13,7 +13,7 @@ import * as d3 from 'd3';
 
 export const Bars = ({ dsvData }: any) => {
 	const { rooms, suites, garages, setRooms, setSuites, setGarages } = useEquipment();
-	const { innerWidth } = usePdfDsvSizes();
+	const { innerHeight } = usePdfDsvSizes();
 
 	const currentType = `${rooms},${suites},${garages}`;
 
@@ -44,7 +44,13 @@ export const Bars = ({ dsvData }: any) => {
 	const dsvCount = rooms ? dsvData[`d${rooms}`].counts : combinedCounts;
 	const sumOfCounts = dsvCount && d3.sum(Object.values(dsvCount));
 
-	const currentDsvCount = dsvCount &&  Object.keys(dsvCount).sort((a, b) => dsvCount[b] - dsvCount[a])
+	const currentDsvCount: any = dsvCount &&  Object.keys(dsvCount).sort((a, b) => dsvCount[b] - dsvCount[a]);
+	const maxCount: any = d3.max(Object.values(dsvCount))
+	const topDsvCount: any =  (maxCount / sumOfCounts) * 100;
+
+	const yScale: any = d3.scaleLinear()
+		.domain([0, topDsvCount])
+		.range([0, innerHeight - 20])
 		
 	return (
 		<SVGWrapper>
@@ -62,7 +68,7 @@ export const Bars = ({ dsvData }: any) => {
 							<>
 							<Front
 								item={item}
-								innerWidth={innerWidth}
+								innerWidth={innerHeight}
 								totalHeight={totalHeight}
 								currentHeight={currentHeight}
 								currentGap={currentGap}
@@ -76,6 +82,7 @@ export const Bars = ({ dsvData }: any) => {
 								reducedCount={dsvCount}
 								sumOfCounts={sumOfCounts}
 								combinedColors={combinedColors}
+								yScale={yScale}
 							/>
 							<DsvText
 								item={item}
@@ -83,15 +90,17 @@ export const Bars = ({ dsvData }: any) => {
 								currentHeight={currentHeight}
 								currentType={currentType}
 								onClick={onClick}
+								innerHeight={innerHeight}
 							/>
 							<PercentText
 								item={item}
-								innerWidth={innerWidth}
+								innerWidth={innerHeight}
 								totalHeight={totalHeight}
 								currentHeight={currentHeight}
 								currentType={currentType}
 								onClick={onClick}
 								currentPercent={currentPercent}
+								yScale={yScale}
 							/>
 						</>
 					}
