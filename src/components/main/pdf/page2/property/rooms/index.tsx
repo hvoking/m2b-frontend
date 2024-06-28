@@ -23,8 +23,8 @@ export const Rooms = () => {
 			<div 
 				className="input-group" 
 				style={{
-					borderRight: "1px solid rgba(0, 0, 0, 1)",
-					borderLeft: "1px solid rgba(0, 0, 0, 1)",
+					borderRight: "1px solid rgba(0, 0, 0, 0.4)",
+					borderLeft: "1px solid rgba(0, 0, 0, 0.4)",
 					height: "100%"
 				}}>
 				<div style={{paddingLeft: "10px"}}>Suítes</div>
