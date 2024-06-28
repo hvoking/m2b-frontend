@@ -3,42 +3,18 @@
 	padding-left: 20px;
 	padding-right: 20px;
 	padding-bottom: 10px;
+	display: grid;
+	grid-template-rows: min-content min-content;
+	grid-gap: 10px;
 }
 .pdf-header-title {
-	background-color: rgba(126, 126, 132, 1);
-	border: 1px solid rgba(23, 23, 32, 1);
-	padding: 10px;
-	font-size: 1.4em;
-	color: rgba(255, 255, 255, 1);
+	font-size: 1.6em;
 	font-weight: 700;
-	letter-spacing: 1px;
-	text-align: center;
+	letter-spacing: 1.2px;
+	padding-bottom: 5px;
 }
-.property-data-subtitle {
-	font-style: italic;
-	padding: 10px;
-	padding-top: 5px;
-	display: flex; 
-	flex-wrap: wrap;
-	white-space: nowrap;
-	gap: 3px;
-	overflow: hidden;
-}
-.header-items-wrapper {
-	display: grid;
-	grid-template-columns: min-content auto min-content;
-	white-space: nowrap;
-	padding-top: 20px; 
-	grid-gap: 20px;
-}
-// mobile-style
-@media screen and (max-width: 1000px) {
-	.pdf-header-wrapper {
-		padding-top: 5px;
-		padding-bottom: 5px;
-	}
-	.property-data-subtitle {
-		display: none;
-	}
-
+.pdf-header-subtitle {
+	font-size: 1.4em;
+	font-weight: 600;
+	letter-spacing: 0.8px;
 }

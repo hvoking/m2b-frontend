@@ -16,7 +16,7 @@ export const Address = () => {
 						alt="marker" 
 						width="10px"
 					/>
-					<div>Endereço</div>
+					<strong>Endereço:</strong>
 				</div>
 			</div>
 			<div>{currentAddress && currentAddress.replace(", Brasil", "")}</div>

@@ -1,6 +1,6 @@
 .pdf-body-page2 {
 	display: grid;
-	grid-template-rows: 3fr min-content 4fr min-content;
+	grid-template-rows: min-content 3fr min-content 4fr min-content;
 	position: relative;
 	overflow: hidden;
 }
@@ -21,4 +21,8 @@
 	background-color: rgba(0, 0, 0, 1);
 	color: rgba(255, 255, 255, 1);
 	border-radius: 5px;
+	cursor: pointer;
+}
+.pdf-button:hover {
+	background-color: rgba(126, 126, 132, 1)
 }

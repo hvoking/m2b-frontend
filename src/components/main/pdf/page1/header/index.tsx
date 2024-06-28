@@ -21,23 +21,7 @@ export const Header = () => {
 	return (
 		<div className="pdf-header-wrapper">
 			<div>{currentDate}</div>
-			<div className="header-items-wrapper">
-				<img 
-					src="static/logos/logoGenerativa.svg" 
-					alt="white-label-logo"
-					width="50px"
-				/>
-				<div>
-					<strong style={{fontSize: "1.2em", letterSpacing: "1px"}}>Generativa</strong>
-					<div>Rua Sete de Setembro</div>
-					<div>gus@ugeom.com</div>
-				</div>
-				<div style={{textAlign: "end"}}>
-					<strong style={{fontSize: "1.2em", letterSpacing: "1px"}}>Gustavo González</strong>
-					<div>(+595) 986 514-207</div>
-					<div>gus@ugeom.com</div>
-				</div>
-			</div>
+			<strong className="pdf-header-title">Relatório de Avaliação do Imóvel</strong>
 			{/*<div className="pdf-header-title">Avaliação Mercadológica</div>
 			<div className="property-data-subtitle">
 				<div>Estudo de mercado com base em imóveis cadastrados</div>

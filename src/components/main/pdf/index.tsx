@@ -7,7 +7,7 @@ import './styles.scss';
 import { usePdf } from '../context/filters/pdf';
 
 export const UserPdf = () => {
-	const { page1Ref, page2Ref, activePdf, setActivePdf } = usePdf();
+	const { page1Ref, page2Ref, printDocument, activePdf, setActivePdf } = usePdf();
 
 	let vh = window.innerHeight * 0.01;
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
@@ -29,7 +29,7 @@ export const UserPdf = () => {
 					tabIndex={0}
 				>
 					<Page1 page1Ref={page1Ref} setActivePdf={setActivePdf}/>	
-					<Page2 page2Ref={page2Ref} setActivePdf={setActivePdf}/>
+					<Page2 page2Ref={page2Ref} setActivePdf={setActivePdf} printDocument={printDocument}/>
 				</div>
 			}
 		</>
