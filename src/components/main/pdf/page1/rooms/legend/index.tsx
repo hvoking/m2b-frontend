@@ -31,7 +31,7 @@ export const Legend = ({ roomsData, dsvData }: any) => {
 		setGarages(null)
 	}
 
-	const sortedRooms = Object.keys(roomsData).sort((a, b) => roomsData[b] - roomsData[a]);
+	const sortedRooms = Object.keys(roomsData)
 	const currentX = innerWidth / (Object.keys(sortedRooms).length + 1);
 	const maxPercentage: any = d3.max(Object.values(roomsData));
 
@@ -55,7 +55,7 @@ export const Legend = ({ roomsData, dsvData }: any) => {
 								<rect
 									x={totalWidth}
 									y={innerHeight - yScale(currentPercent) - 20}
-									width={15}
+									width={20}
 									height={yScale(currentPercent)}
 									fill={
 										roomsData && String(rooms) === item ?
@@ -66,12 +66,12 @@ export const Legend = ({ roomsData, dsvData }: any) => {
 									}	
 								/>
 								<text
-									x={totalWidth + 3}
+									x={totalWidth + 10}
 									y={innerHeight - 10}
 									fill={String(rooms) === item ? 
 										"rgba(0, 0, 0, 1)" : 
 										"rgba(126, 126, 132, 1)"}
-									textAnchor="middle"											
+									textAnchor="middle"
 									alignmentBaseline="middle"
 									fontSize="0.8em"
 									fontWeight="500"
@@ -80,11 +80,12 @@ export const Legend = ({ roomsData, dsvData }: any) => {
 									{item} dorm
 								</text>
 								<text
-									x={totalWidth}
+									x={totalWidth + 10}
 									y={innerHeight - yScale(currentPercent) - 25}
 									fill={String(rooms) === item ? 
 											"rgba(0, 0, 0, 1)" : 
 											"rgba(126, 126, 132, 1)"}
+									textAnchor="middle"
 									alignmentBaseline="middle"
 									fontSize="0.8em"
 									fontWeight="500"

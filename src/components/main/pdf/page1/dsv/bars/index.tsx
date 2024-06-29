@@ -45,6 +45,20 @@ export const Bars = ({ dsvData }: any) => {
 	const sumOfCounts = dsvCount && d3.sum(Object.values(dsvCount));
 
 	const currentDsvCount: any = dsvCount &&  Object.keys(dsvCount).sort((a, b) => dsvCount[b] - dsvCount[a]);
+
+	currentDsvCount && currentDsvCount.sort((a: any, b: any) => {
+	    let [a1, a2, a3] = a.split(',').map(Number);
+	    let [b1, b2, b3] = b.split(',').map(Number);
+
+	    if (a1 !== b1) {
+	        return a1 - b1;
+	    } else if (a2 !== b2) {
+	        return a2 - b2;
+	    } else {
+	        return a3 - b3;
+	    }
+	});
+
 	const maxCount: any = d3.max(Object.values(dsvCount))
 	const topDsvCount: any =  (maxCount / sumOfCounts) * 100;
 
@@ -56,16 +70,17 @@ export const Bars = ({ dsvData }: any) => {
 		<SVGWrapper>
 			{sumOfCounts && currentDsvCount && currentDsvCount.map((item: any, index: number) => {
 				const currentPercent = (dsvCount[item] / sumOfCounts) * 100;
+
+				if (currentPercent < 3) return <></>
+
 				const currentHeight = 30;
 				const currentGap = 5;
-				const currentDifference = 15;
+				const currentDifference = 10;
 
 				totalHeight += currentHeight;
 
 				return (
 					<g key={index}>
-						{currentPercent > 2 && 
-							<>
 							<Front
 								item={item}
 								innerWidth={innerHeight}
@@ -102,8 +117,6 @@ export const Bars = ({ dsvData }: any) => {
 								currentPercent={currentPercent}
 								yScale={yScale}
 							/>
-						</>
-					}
 					</g>
 				)
 			})}
