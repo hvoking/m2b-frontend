@@ -25,7 +25,7 @@ export const Page1 = ({ page1Ref, setActivePdf }: any) => {
 				<Header/>
 				<Address/>
 				<PdfMaps/>
-				<div className="pdf-header-subtitle" style={{paddingLeft: "20px"}}>
+				<div className="pdf-header-subtitle" style={{paddingLeft: "20px", paddingTop: "5px"}}>
 					Informações Gerais
 				</div>
 				<div style={{display: "grid", gridTemplateColumns: "1fr 1fr"}}>

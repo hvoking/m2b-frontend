@@ -6,6 +6,7 @@ import { Pin } from './pin';
 import { Controllers } from './controllers';
 import { Clusters } from './clusters';
 import { Buildings } from './buildings';
+import { IsoPolygon } from './iso';
 
 // Context imports
 import { useMapbox } from '../../../context/maps/mapbox';
@@ -33,7 +34,7 @@ export const PdfMaps = () => {
 		<div style={{position: "relative"}}>
 		<Map
 			ref={pdfMapRef}
-			initialViewState={{...viewport, bearing: 0, pitch: 0}}
+			initialViewState={{...viewport, bearing: 0, pitch: 0, zoom: 13}}
 			mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN} 
 			mapStyle="mapbox://styles/mapbox/light-v10"
 			onDblClick={onDblClick}
@@ -41,6 +42,7 @@ export const PdfMaps = () => {
 			antialias={true}
 			preserveDrawingBuffer={true}
 		>
+			<IsoPolygon/>
 			<Buildings/>
 			<Pin/>
 			<Clusters/>
