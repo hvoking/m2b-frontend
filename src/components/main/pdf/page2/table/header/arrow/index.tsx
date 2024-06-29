@@ -10,12 +10,14 @@ export const Arrow = ({ fill, item, setSortKey, setCurrentDirection }: any) => {
 
 	useEffect(() => {
 		up ? setCurrentDirection("up") : setCurrentDirection("down");
-		setSortKey(item);
 	}, [up])
 
 	return (
 		<div 
-			onClick={() => setUp((prev: boolean) => !prev)}
+			onClick={() => {
+				setUp((prev: boolean) => !prev);
+				setSortKey(item);
+			}}
 			style={{
 				width: "10px", 
 				position: "absolute", 

@@ -75,8 +75,8 @@ export const Table = ({ linesData, pricesData }: any) => {
 	const filterById = filterPoints.filter((item: any) => !rejectedIds.includes(item.property_id));
 	
 	currentDirection === "up" ?
-	[...filterById].sort((a: any, b: any) => b[sortKey] - a[sortKey]) :
-	[...filterById].sort((a: any, b: any) => a[sortKey] - b[sortKey]);
+	filterById.sort((a: any, b: any) => b[sortKey] - a[sortKey]) :
+	filterById.sort((a: any, b: any) => a[sortKey] - b[sortKey]);
 
 	const iscUrl = "https://media.imoveis-sc.com.br/media/thumb-290-250/";
 
