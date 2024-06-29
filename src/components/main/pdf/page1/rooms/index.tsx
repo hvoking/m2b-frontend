@@ -2,7 +2,7 @@
 import { Header } from './header';
 import { LoadingImage } from '../../../utils/loading';
 import { Gauge } from './gauge';
-import { Legend } from './legend';
+import { Bars } from './bars';
 import './styles.scss';
 
 // Context imports
@@ -29,7 +29,7 @@ export const Rooms = () => {
 				<LoadingImage/> :
 				<div className="pdf-rooms-wrapper">
 					<Gauge roomsData={roomsData} dsvData={dsvData}/>
-					<Legend roomsData={roomsData} dsvData={dsvData}/>
+					<Bars roomsData={roomsData} dsvData={dsvData}/>
 				</div>
 			}
 		</div>
