@@ -7,18 +7,13 @@ export const Header = ({ onClick, rooms}: any) => {
 			<div className="sidebar-sub-title">
 				Principais tipologias
 			</div>
-			<input 
-				type="checkbox" 
-				name="tipologias" 
-				onChange={onClick} 
-				checked={rooms === null}
+			<img 
+				src="static/utils/refresh_white.svg" 
+				alt="refresh" 
+				width="17px" 
+				onClick={onClick}
+				style={{paddingTop: "2px", cursor: "pointer"}}
 			/>
-			<div 
-				onClick={onClick} 
-				style={{cursor: "default"}}
-			>
-				todas
-			</div>
 		</div>
 	)
 }

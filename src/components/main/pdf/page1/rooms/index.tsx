@@ -1,6 +1,7 @@
 // App imports
 import { Header } from './header';
 import { LoadingImage } from '../../../utils/loading';
+import { Gauge } from './gauge';
 import { Legend } from './legend';
 import './styles.scss';
 
@@ -20,14 +21,17 @@ export const Rooms = () => {
 		setGarages(null); 
 	}
 
-	if (!roomsData || !dsvData) return <></>
-
 	return (
-		<div>
+		<div style={{display: "grid", gridTemplateRows: "30px auto"}}>
 			<Header onClick={onClick} rooms={rooms}/>
-			<div className="pdf-rooms-wrapper">
-				<Legend roomsData={roomsData} dsvData={dsvData}/>
-			</div>
+			{
+				!dsvData || !roomsData ? 
+				<LoadingImage/> :
+				<div className="pdf-rooms-wrapper">
+					<Gauge roomsData={roomsData} dsvData={dsvData}/>
+					<Legend roomsData={roomsData} dsvData={dsvData}/>
+				</div>
+			}
 		</div>
 	)
 } 

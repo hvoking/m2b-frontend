@@ -1,13 +1,8 @@
 // App imports
-import { SVGWrapper } from '../svg';
 import './styles.scss';
 
 // Context imports
 import { useEquipment } from '../../../../context/filters/equipment';
-import { usePdfRoomsSizes } from '../../../../context/sizes/pdf/rooms';
-
-// Third-party imports
-import * as d3 from 'd3';
 
 const roomsColors: any = {
 	1: 'rgba(109, 86, 166, 1)',
@@ -19,7 +14,6 @@ const roomsColors: any = {
 
 export const Legend = ({ roomsData, dsvData }: any) => {
 	const { rooms, setRooms, setSuites, setGarages } = useEquipment();
-	const { innerWidth, innerHeight } = usePdfRoomsSizes();
 
 	const onClick = (item: any) => {
 		item && setRooms(item);
@@ -31,76 +25,57 @@ export const Legend = ({ roomsData, dsvData }: any) => {
 		setGarages(null)
 	}
 
-	const sortedRooms = Object.keys(roomsData)
-	const currentX = innerWidth / (Object.keys(sortedRooms).length + 1);
-	const maxPercentage: any = d3.max(Object.values(roomsData));
-
-	const yScale = d3.scaleLinear()
-		.domain([0, maxPercentage])
-		.range([0, innerHeight - 20]);
-
-	let totalWidth = 0;
+	const sortedRooms = Object.keys(roomsData);
 		
 	return (
-		<SVGWrapper>
+		<div className="rooms-legend-wrapper" style={{display: "flex", justifyContent: "space-around", paddingLeft: "20px", paddingRight: "20px"}}>
 			{
 				sortedRooms.map((item: any, index: number) => {
-					const currentPercent = roomsData[item] ? roomsData[item] : 0;
-					totalWidth += currentX;
-
+					const currentPercent = roomsData[item] ? roomsData[item] : 0
 					return (
-						<g key={index} onClick={() => onClick(item)}>
+						<div key={index} style={{display: "flex"}}>
 						{currentPercent > 1 && 
-							<>
-								<rect
-									x={totalWidth}
-									y={innerHeight - yScale(currentPercent) - 20}
-									width={20}
-									height={yScale(currentPercent)}
-									fill={
-										roomsData && String(rooms) === item ?
-										roomsColors[item] :
-										rooms === null ?
-										String(roomsColors[item]) :
-										String(roomsColors[item]).replace('1)', '0.4)')
-									}	
-								/>
-								<text
-									x={totalWidth + 10}
-									y={innerHeight - 10}
-									fill={String(rooms) === item ? 
-										"rgba(0, 0, 0, 1)" : 
-										"rgba(126, 126, 132, 1)"}
-									textAnchor="middle"
-									alignmentBaseline="middle"
-									fontSize="0.8em"
-									fontWeight="500"
-									style={{cursor: "pointer"}}
-								>
-									{item} dorm
-								</text>
-								<text
-									x={totalWidth + 10}
-									y={innerHeight - yScale(currentPercent) - 25}
-									fill={String(rooms) === item ? 
+							<div className="pdf-rooms-legend-item-wrapper" onClick={() => onClick(item)}>
+								<div
+									className="rooms-legend-text"
+									style={{
+										color: 
+											String(rooms) === item || rooms === null ? 
 											"rgba(0, 0, 0, 1)" : 
-											"rgba(126, 126, 132, 1)"}
-									textAnchor="middle"
-									alignmentBaseline="middle"
-									fontSize="0.8em"
-									fontWeight="500"
-									style={{cursor: "pointer"}}
+											"rgba(126, 126, 132, 1)",
+									}}
 								>
 									{Math.round(currentPercent)}%
-								</text>
-
-							</>
-								
+								</div>
+								<div
+									className="rooms-legend-item"
+									style={{
+										backgroundColor: 
+											roomsData && String(rooms) === item ?
+											roomsColors[item] :
+											rooms === null ?
+											String(roomsColors[item]) :
+											String(roomsColors[item]).replace('1)', '0.4)')
+									}}
+								>
+								</div>
+								<div
+									className="rooms-legend-text"
+									style={{
+										color: 
+											String(rooms) === item || rooms === null ? 
+											"rgba(0, 0, 0, 1)" : 
+											"rgba(126, 126, 132, 1)",
+									}}
+								>
+									{item} dorm
+								</div>
+							</div>
 						}
-					</g>
+					</div>
 				)
 			})}
-		</SVGWrapper>
+		</div>
 	)
 }
 

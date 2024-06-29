@@ -10,11 +10,11 @@ export const Dsv = () => {
 	if (!dsvData) return <></>
 	
 	return (
-		<div>
+		<div style={{display: "grid", gridTemplateRows: "30px auto"}}>
 			<div style={{paddingTop: "10px"}}>
 				Dormitórios-Suítes-Vagas (DSV)
 			</div>
-			<div style={{display: "grid", width: "100%", height: "100%"}}>
+			<div style={{display: "grid", overflow: "hidden"}}>
 				<Bars dsvData={dsvData}/>
 			</div>
 		</div>
