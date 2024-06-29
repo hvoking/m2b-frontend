@@ -31,33 +31,34 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 	}
 
 	const sortedRooms = Object.keys(roomsData);
-	const roomsLength = Object.keys(sortedRooms).length;
+	const roomsLength = sortedRooms.length;
 
-	const currentX = innerWidth / roomsLength;
+	const currentY = innerHeight / roomsLength;
 	const maxPercentage: any = d3.max(Object.values(roomsData));
 
-	const yScale = d3.scaleLinear()
+	const xScale = d3.scaleLinear()
 		.domain([0, maxPercentage])
-		.range([0, innerHeight - 20]);
+		.range([0, 20]);
 
-	let totalWidth = 0;
+	let totalHeight = 0;
 		
 	return (
 		<SVGWrapper>
 			{
 				sortedRooms.map((item: any, index: number) => {
 					const currentPercent = roomsData[item] ? roomsData[item] : 0;
-					totalWidth += index > 0 ? currentX : currentX / roomsLength;
+					totalHeight += index > 0 ? currentY : currentY / roomsLength;
 
 					return (
 						<g key={index} onClick={() => onClick(item)}>
 						{currentPercent > 1 && 
 							<>
 								<rect
-									x={totalWidth}
-									y={innerHeight - yScale(currentPercent) - 20}
-									width={20}
-									height={yScale(currentPercent)}
+									x={0}
+									y={totalHeight - 10}
+							
+									width={xScale(currentPercent)}
+									height={20}
 									fill={
 										roomsData && String(rooms) === item ?
 										roomsColors[item] :
@@ -66,13 +67,14 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 										String(roomsColors[item]).replace('1)', '0.4)')
 									}	
 								/>
+								
 								<text
-									x={totalWidth + 10}
-									y={innerHeight - 10}
+									x={-40}
+									y={totalHeight}
 									fill={String(rooms) === item ? 
 										"rgba(0, 0, 0, 1)" : 
 										"rgba(126, 126, 132, 1)"}
-									textAnchor="middle"
+									textAnchor="start"
 									alignmentBaseline="middle"
 									fontSize="0.8em"
 									fontWeight="500"
@@ -81,12 +83,12 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 									{item} dorm
 								</text>
 								<text
-									x={totalWidth + 10}
-									y={innerHeight - yScale(currentPercent) - 26}
+									x={22}
+									y={totalHeight}
 									fill={String(rooms) === item ? 
 											"rgba(0, 0, 0, 1)" : 
 											"rgba(126, 126, 132, 1)"}
-									textAnchor="middle"
+									textAnchor="start"
 									alignmentBaseline="middle"
 									fontSize="0.8em"
 									fontWeight="500"

@@ -28,8 +28,8 @@ export const Rooms = () => {
 				!dsvData || !roomsData ? 
 				<LoadingImage/> :
 				<div className="pdf-rooms-wrapper">
-					<Gauge roomsData={roomsData} dsvData={dsvData}/>
 					<Bars roomsData={roomsData} dsvData={dsvData}/>
+					<Gauge roomsData={roomsData} dsvData={dsvData}/>
 				</div>
 			}
 		</div>
