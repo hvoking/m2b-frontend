@@ -10,7 +10,7 @@ import * as d3 from 'd3';
 
 export const Bars = ({ dsvData }: any) => {
 	const { rooms, suites, garages, setRooms, setSuites, setGarages } = useEquipment();
-	const { innerHeight } = usePdfDsvSizes();
+	const { innerWidth } = usePdfDsvSizes();
 
 	const currentType = `${rooms},${suites},${garages}`;
 
@@ -61,7 +61,7 @@ export const Bars = ({ dsvData }: any) => {
 
 	const yScale: any = d3.scaleLinear()
 		.domain([0, topDsvCount])
-		.range([0, innerHeight - 20])
+		.range([0, innerWidth - 20])
 		
 	return (
 		<SVGWrapper>
@@ -70,66 +70,88 @@ export const Bars = ({ dsvData }: any) => {
 
 				if (currentPercent < 3) return <></>
 
-				const currentHeight = 30;
-				const currentGap = 5;
-				const currentDifference = 10;
+				const currentHeight = 23;
 
-				totalHeight += currentHeight;
+				totalHeight += index > 0 ? currentHeight : 10;
 
 				const currentColor = rooms ? dsvData[`d${rooms}`]['colors'] : combinedColors;
 
 				return (
 					<g key={index}>
-							<g>
-								<rect
-									key={item}
-									x={totalHeight - currentHeight + currentGap}
-									y={innerHeight - yScale(currentPercent) - 20}
-									width={currentHeight - currentDifference}
-									height={yScale(currentPercent)}
-									stroke={currentType === item ? "rgba(0, 0, 0, 1)" : "rgba(126, 126, 132, 1)"}
-									strokeWidth={currentType === item ? "1" : "0"}
-									fill={
-										currentType === item ?
-										currentColor[item] :
-										suites === null ?
-										String(currentColor[item]) :
-										String(currentColor[item]).replace('1)', '0.4)')
-									}
-									style={{cursor: "pointer"}}
-									onClick={() => onClick(item)}
-								>
-									<title>
-										{Math.round(dsvCount[item]/sumOfCounts * 100)}%
-									</title>
-								</rect>
-							</g>
-							<text
-								key={item}
-								x={totalHeight - currentHeight + currentHeight/2 - 3}
-								y={innerHeight - 10}
-								fill={currentType === item ? "rgba(0, 0, 0, 1)" : "rgba(126, 126, 132, 1)"}
-								textAnchor="middle"
-								alignmentBaseline="middle"
-								fontSize="0.8em"
-								onClick={() => onClick(item)}
-								style={{cursor: "pointer"}}
-							>
-								{item}
-							</text>
-							<text
-								key={item}
-								x={totalHeight - currentHeight + currentHeight/2}
-								y={innerHeight - yScale(currentPercent) - 23}
-								fill={currentType === item ? "rgba(0, 0, 0, 1)" : "rgba(126, 126, 132, 1)"}
-								textAnchor="middle"
-								fontSize="0.8em"
-								fontWeight="500"
-								onClick={() => onClick(item)}
-								style={{cursor: "pointer"}}
-							>
-								{Math.round(currentPercent)}%
-							</text>
+						<rect
+							x={yScale(currentPercent)}
+							y={totalHeight - 10}
+							width={innerWidth - yScale(currentPercent) + 20}
+							height={20}
+							stroke={
+								currentType === item ? 
+								"rgba(0, 0, 0, 1)" : 
+								"rgba(255, 255, 255, 1)"
+							}
+							strokeWidth={currentType === item ? "1" : "0"}
+							fill="rgba(240, 240, 240, 1)"
+							style={{cursor: "pointer"}}
+							onClick={() => onClick(item)}
+						/>
+						<rect
+							x={-40}
+							y={totalHeight - 10}
+							width={40 + yScale(currentPercent)}
+							height={20}
+							stroke={
+								currentType === item ? 
+								"rgba(0, 0, 0, 1)" : 
+								"rgba(255, 255, 255, 1)"
+							}
+							strokeWidth={currentType === item ? "1" : "0"}
+							fill={
+								currentType === item ?
+								currentColor[item] :
+								suites === null ?
+								String(currentColor[item]) :
+								String(currentColor[item]).replace('1)', '0.4)')
+							}
+							style={{cursor: "pointer"}}
+							onClick={() => onClick(item)}
+						>
+							<title>
+								{Math.round(dsvCount[item]/sumOfCounts * 100)}%
+							</title>
+						</rect>
+						<text
+							x={-35}
+							y={totalHeight}
+							fill={
+								rooms === null ?
+								"rgba(255, 255, 255, 1)" : 
+								currentType === item ? 
+								"rgba(255, 255, 255, 1)" : 
+								"rgba(255, 255, 255, 1)"}
+							textAnchor="start"
+							alignmentBaseline="middle"
+							fontWeight="600"
+							onClick={() => onClick(item)}
+							style={{cursor: "pointer"}}
+						>
+							{item}
+						</text>
+						<text
+							x={innerWidth + 15}
+							y={totalHeight}
+							fill={
+								rooms === null ?
+								"rgba(0, 0, 0, 1)" : 
+								currentType === item ? 
+								"rgba(0, 0, 0, 1)" : 
+								"rgba(255, 255, 255, 1)"}
+							textAnchor="end"
+							alignmentBaseline="middle"
+							fontWeight="600"
+							onClick={() => onClick(item)}
+							style={{cursor: "pointer"}}
+						>
+							{Math.round(currentPercent)}%
+						</text>
 					</g>
 				)
 			})}

@@ -48,16 +48,14 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 				sortedRooms.map((item: any, index: number) => {
 					const currentPercent = roomsData[item] ? roomsData[item] : 0;
 					totalHeight += index > 0 ? currentY : currentY / roomsLength;
-
 					return (
 						<g key={index} onClick={() => onClick(item)}>
 						{currentPercent > 1 && 
 							<>
 								<rect
-									x={0}
+									x={-40}
 									y={totalHeight - 10}
-							
-									width={xScale(currentPercent)}
+									width={40 + xScale(currentPercent)}
 									height={20}
 									fill={
 										roomsData && String(rooms) === item ?
@@ -67,39 +65,37 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 										String(roomsColors[item]).replace('1)', '0.4)')
 									}	
 								/>
-								
 								<text
-									x={-40}
+									x={-35}
 									y={totalHeight}
 									fill={
 										String(rooms) === item ?
-										"rgba(0, 0, 0, 1)" :
+										"rgba(255, 255, 255, 1)" :
 										rooms === null ?
-										"rgba(0, 0, 0, 1)" :
-										"rgba(126, 126, 132, 1)"
+										"rgba(255, 255, 255, 1)" :
+										"rgba(255, 255, 255, 1)"
 										}
 									textAnchor="start"
 									alignmentBaseline="middle"
-									fontSize="0.8em"
-									fontWeight="500"
+									fontWeight="600"
 									style={{cursor: "pointer"}}
 								>
 									{item} dorm
 								</text>
 								<text
-									x={innerWidth + 20}
+									x={xScale(currentPercent) + 3}
 									y={totalHeight}
 									fill={
 										String(rooms) === item ?
 										"rgba(0, 0, 0, 1)" :
 										rooms === null ?
 										"rgba(0, 0, 0, 1)" :
-										"rgba(126, 126, 132, 1)"
+										"rgba(255, 255, 255, 1)"
 										}
-									textAnchor="end"
+									textAnchor="start"
 									alignmentBaseline="middle"
+									fontWeight="600"
 									fontSize="0.8em"
-									fontWeight="500"
 									style={{cursor: "pointer"}}
 								>
 									{Math.round(currentPercent)}%

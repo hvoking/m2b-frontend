@@ -13,7 +13,7 @@ export const GaugeSizesProvider = ({children}: any) => {
 	const [ width, setWidth ] = useState<any>(null);
 	const [ height, setHeight ] = useState<any>(null);
 
-	const margin = { top: 0, bottom: 0, right: 10, left: 20 }
+	const margin = { top: 0, bottom: 0, right: 10, left: 10 }
 
 	const innerWidth = width - margin.right - margin.left;
 	const innerHeight = height - margin.top - margin.bottom;
