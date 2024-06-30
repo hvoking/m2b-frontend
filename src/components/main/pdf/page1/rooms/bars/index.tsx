@@ -71,9 +71,13 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 								<text
 									x={-40}
 									y={totalHeight}
-									fill={String(rooms) === item ? 
-										"rgba(0, 0, 0, 1)" : 
-										"rgba(126, 126, 132, 1)"}
+									fill={
+										String(rooms) === item ?
+										"rgba(0, 0, 0, 1)" :
+										rooms === null ?
+										"rgba(0, 0, 0, 1)" :
+										"rgba(126, 126, 132, 1)"
+										}
 									textAnchor="start"
 									alignmentBaseline="middle"
 									fontSize="0.8em"
@@ -83,12 +87,16 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 									{item} dorm
 								</text>
 								<text
-									x={22}
+									x={innerWidth + 20}
 									y={totalHeight}
-									fill={String(rooms) === item ? 
-											"rgba(0, 0, 0, 1)" : 
-											"rgba(126, 126, 132, 1)"}
-									textAnchor="start"
+									fill={
+										String(rooms) === item ?
+										"rgba(0, 0, 0, 1)" :
+										rooms === null ?
+										"rgba(0, 0, 0, 1)" :
+										"rgba(126, 126, 132, 1)"
+										}
+									textAnchor="end"
 									alignmentBaseline="middle"
 									fontSize="0.8em"
 									fontWeight="500"
