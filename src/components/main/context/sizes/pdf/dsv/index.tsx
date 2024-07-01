@@ -1,36 +1,15 @@
-// React imports
-import { useState, useContext, createContext } from 'react';
+// App imports
+import { GaugeSizesProvider } from './gauge';
+import { BarsSizesProvider } from './bars';
 
-const PdfDsvSizesContext: React.Context<any> = createContext(null)
-
-export const usePdfDsvSizes = () => {
+export const PdfDsvSizesProvider = ({ children }: any) => {
 	return (
-		useContext(PdfDsvSizesContext)
-	)
-}
-
-export const PdfDsvSizesProvider = ({children}: any) => {
-	const [ width, setWidth ] = useState<any>(null);
-	const [ height, setHeight ] = useState<any>(null);
-
-	const margin = { top: 0, bottom: 0, right: 20, left: 40 }
-
-	const innerWidth = width - margin.right - margin.left;
-	const innerHeight = height - margin.top - margin.bottom;
-
-	return (
-		<PdfDsvSizesContext.Provider value={{
-			margin,
-			width,
-			height,
-			setWidth,
-			setHeight,
-			innerWidth,
-			innerHeight,
-		}}>
+		<BarsSizesProvider>
+		<GaugeSizesProvider>
 			{children}
-		</PdfDsvSizesContext.Provider>
+		</GaugeSizesProvider>
+		</BarsSizesProvider>
 	)
 }
 
-PdfDsvSizesContext.displayName = "PdfDsvSizesContext";
+PdfDsvSizesProvider.displayName="PdfDsvSizesProvider";

@@ -3,7 +3,6 @@ import { SVGWrapper } from './svg';
 
 // Context imports
 import { useEquipment } from '../../../../../context/filters/equipment';
-import { useBarsSizes } from '../../../../../context/sizes/pdf/rooms/bars';
 
 // Third-party imports
 import * as d3 from 'd3';
@@ -18,7 +17,6 @@ const roomsColors: any = {
 
 export const Bars = ({ roomsData, dsvData }: any) => {
 	const { rooms, setRooms, setSuites, setGarages } = useEquipment();
-	const { innerWidth, innerHeight } = useBarsSizes();
 
 	const onClick = (item: any) => {
 		item && setRooms(item);
@@ -31,8 +29,6 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 	}
 
 	const sortedRooms = Object.keys(roomsData);
-	const roomsLength = sortedRooms.length;
-
 	
 	const maxPercentage: any = d3.max(Object.values(roomsData));
 

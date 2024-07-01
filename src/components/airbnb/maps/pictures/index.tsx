@@ -1,6 +1,3 @@
-// React imports
-import { useState } from 'react';
-
 // App imports
 import { ImagesHeader } from './header';
 import { ImagesFooter } from './footer';

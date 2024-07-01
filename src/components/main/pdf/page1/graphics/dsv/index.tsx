@@ -1,13 +1,16 @@
 // App imports
+import { Gauge } from './gauge';
 import { Bars } from './bars';
-import { LoadingImage } from '../../../../utils/loading'
+import './styles.scss';
 
 // Context imports
 import { useDsvApi } from '../../../../context/api/imoveis/dsv';
+import { useRoomsApi } from '../../../../context/api/imoveis/rooms';
 
 export const Dsv = () => {
 	const { dsvData } = useDsvApi();
-	if (!dsvData) return <></>
+	const { roomsData } = useRoomsApi();
+	if (!dsvData || !roomsData) return <></>
 	
 	return (
 		<div 
@@ -17,7 +20,10 @@ export const Dsv = () => {
 				paddingRight: "20px",
 			}}>
 			<div style={{paddingTop: "5px"}}>Dormitórios-Suítes-Vagas</div>
-			<Bars dsvData={dsvData}/>
+			<div className="pdf-dsv-wrapper">
+				<Bars dsvData={dsvData}/>
+				<Gauge roomsData={roomsData} dsvData={dsvData}/>
+			</div>
 		</div>
 	)
 } 

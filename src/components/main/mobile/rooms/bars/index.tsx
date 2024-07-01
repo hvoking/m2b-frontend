@@ -3,7 +3,6 @@ import { SVGWrapper } from './svg';
 
 // Context imports
 import { useEquipment } from '../../../context/filters/equipment';
-import { useBarsSizes } from '../../../context/sizes/bottom/rooms/bars';
 
 // Third-party imports
 import * as d3 from 'd3';
@@ -18,7 +17,6 @@ const roomsColors: any = {
 
 export const Bars = ({ roomsData, dsvData }: any) => {
 	const { rooms, setRooms, setSuites, setGarages } = useEquipment();
-	const { innerWidth, innerHeight } = useBarsSizes();
 
 	const onClick = (item: any) => {
 		item && setRooms(item);
@@ -31,9 +29,6 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 	}
 
 	const sortedRooms = Object.keys(roomsData);
-	const roomsLength = sortedRooms.length;
-
-	const currentY = innerHeight / roomsLength;
 	const maxPercentage: any = d3.max(Object.values(roomsData));
 
 	const xScale = d3.scaleLinear()
@@ -41,13 +36,18 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 		.range([0, 20]);
 
 	let totalHeight = 0;
+	const currentHeight = 23;
+
+	let startFlag = false;
 		
 	return (
 		<SVGWrapper>
 			{
 				sortedRooms.map((item: any, index: number) => {
 					const currentPercent = roomsData[item] ? roomsData[item] : 0;
-					totalHeight += index > 0 ? currentY : currentY / roomsLength;
+					totalHeight += startFlag ? currentHeight : 10;
+					startFlag = true;
+
 					return (
 						<g key={index} onClick={() => onClick(item)}>
 						{currentPercent > 1 && 
@@ -66,7 +66,7 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 									}	
 								/>
 								<text
-									x={-35}
+									x={-36}
 									y={totalHeight}
 									fill={
 										String(rooms) === item ?
