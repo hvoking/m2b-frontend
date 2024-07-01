@@ -15,6 +15,7 @@ export const Bars = ({ dsvData }: any) => {
 	const currentType = `${rooms},${suites},${garages}`;
 
 	let totalHeight = 0;
+	const currentHeight = 23;
 
 	const onClick = (item: any) => {
 		const newItem = item.split(",")
@@ -61,20 +62,20 @@ export const Bars = ({ dsvData }: any) => {
 
 	const yScale: any = d3.scaleLinear()
 		.domain([0, topDsvCount])
-		.range([0, innerWidth - 20])
+		.range([0, innerWidth - 20]);
+
+	let startFlag = false;
 		
 	return (
 		<SVGWrapper>
 			{sumOfCounts && currentDsvCount && currentDsvCount.map((item: any, index: number) => {
 				const currentPercent = (dsvCount[item] / sumOfCounts) * 100;
+				const currentColor = rooms ? dsvData[`d${rooms}`]['colors'] : combinedColors;
 
 				if (currentPercent < 3) return <></>
 
-				const currentHeight = 23;
-
-				totalHeight += index > 0 ? currentHeight : 10;
-
-				const currentColor = rooms ? dsvData[`d${rooms}`]['colors'] : combinedColors;
+				totalHeight += startFlag ? currentHeight : 10;
+				startFlag = true
 
 				return (
 					<g key={index}>

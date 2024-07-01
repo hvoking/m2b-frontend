@@ -14,13 +14,10 @@ export const Dsv = () => {
 			style={{
 				display: "grid", 
 				gridTemplateRows: "30px auto", 
+				paddingRight: "20px",
 			}}>
-			<div style={{paddingTop: "10px"}}>
-				Dormitórios-Suítes-Vagas (DSV)
-			</div>
-			<div style={{maxWidth: "100%", height: "100%", display: "grid", paddingRight: "20px"}}>
-				<Bars dsvData={dsvData}/>
-			</div>
+			<div style={{paddingTop: "5px"}}>Dormitórios-Suítes-Vagas</div>
+			<Bars dsvData={dsvData}/>
 		</div>
 	)
 } 

@@ -14,7 +14,7 @@ export const Rooms = () => {
 
 	return (
 		<div style={{display: "grid", gridTemplateRows: "30px auto"}}>
-			<div className="sidebar-sub-title">
+			<div style={{paddingLeft: "20px", paddingTop: "5px"}}>
 				Número de Dormitórios
 			</div>
 			{

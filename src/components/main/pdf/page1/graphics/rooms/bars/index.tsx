@@ -33,7 +33,7 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 	const sortedRooms = Object.keys(roomsData);
 	const roomsLength = sortedRooms.length;
 
-	const currentY = innerHeight / roomsLength;
+	
 	const maxPercentage: any = d3.max(Object.values(roomsData));
 
 	const xScale = d3.scaleLinear()
@@ -41,49 +41,53 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 		.range([0, 20]);
 
 	let totalHeight = 0;
+	const currentHeight = 23;
+
+	let startFlag = false;
 		
 	return (
 		<SVGWrapper>
 			{
 				sortedRooms.map((item: any, index: number) => {
 					const currentPercent = roomsData[item] ? roomsData[item] : 0;
-					totalHeight += index > 0 ? currentY : currentY / roomsLength;
+					if (currentPercent < 3) return <></> 
+					
+					totalHeight += startFlag ? currentHeight : 10;
+					startFlag = true;
+
 					return (
 						<g key={index} onClick={() => onClick(item)}>
-						{currentPercent > 1 && 
-							<>
-								<rect
-									x={-40}
-									y={totalHeight - 10}
-									width={40 + xScale(currentPercent)}
-									height={20}
-									fill={
-										roomsData && String(rooms) === item ?
-										roomsColors[item] :
-										rooms === null ?
-										String(roomsColors[item]) :
-										String(roomsColors[item]).replace('1)', '0.4)')
-									}	
-								/>
-								<text
-									x={-35}
-									y={totalHeight}
-									fill={
-										String(rooms) === item ?
-										"rgba(255, 255, 255, 1)" :
-										rooms === null ?
-										"rgba(255, 255, 255, 1)" :
-										"rgba(255, 255, 255, 0.4)"
-										}
-									textAnchor="start"
-									alignmentBaseline="middle"
-									fontWeight="600"
-									style={{cursor: "pointer"}}
-								>
-									{item} dorm
-								</text>
-							</>
-						}
+							<rect
+								x={-40}
+								y={totalHeight - 10}
+								width={40 + xScale(currentPercent)}
+								height={20}
+								fill={
+									roomsData && String(rooms) === item ?
+									roomsColors[item] :
+									rooms === null ?
+									String(roomsColors[item]) :
+									String(roomsColors[item]).replace('1)', '0.4)')
+								}	
+							/>
+							<text
+								x={-36}
+								y={totalHeight}
+								fill={
+									String(rooms) === item ?
+									"rgba(255, 255, 255, 1)" :
+									rooms === null ?
+									"rgba(255, 255, 255, 1)" :
+									"rgba(255, 255, 255, 0.4)"
+									}
+								textAnchor="start"
+								alignmentBaseline="middle"
+								fontWeight="600"
+								fontSize="0.8em"
+								style={{cursor: "pointer"}}
+							>
+								{item} dorm
+							</text>
 					</g>
 				)
 			})}

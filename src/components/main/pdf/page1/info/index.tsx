@@ -4,6 +4,8 @@ import { useReverseGeocodingApi } from '../../../context/api/google/reverse';
 export const Info = () => {
 	const { currentAddress } = useReverseGeocodingApi();
 
+	if (!currentAddress) return <></>
+
 	const cidade = currentAddress[3].long_name;
 	const bairro = currentAddress[2].long_name;
 	const estado = currentAddress[4].long_name;

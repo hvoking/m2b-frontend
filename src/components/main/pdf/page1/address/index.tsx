@@ -6,6 +6,8 @@ import { useReverseGeocodingApi } from '../../../context/api/google/reverse';
 
 export const Address = () => {
 	const { currentAddress } = useReverseGeocodingApi();
+	if (!currentAddress) return <></>
+		
 	const addressNumber = currentAddress[0].long_name;
 	const addressStreet = currentAddress[1].long_name;
 	const addressName = addressStreet + ", " + addressNumber;

@@ -7,6 +7,7 @@ import { Controllers } from './controllers';
 import { Clusters } from './clusters';
 import { Buildings } from './buildings';
 import { IsoPolygon } from './iso';
+import './styles.scss';
 
 // Context imports
 import { useMapbox } from '../../../context/maps/mapbox';
@@ -32,22 +33,44 @@ export const PdfMaps = () => {
 
 	return (
 		<div style={{position: "relative"}}>
-		<Map
-			ref={pdfMapRef}
-			initialViewState={{...viewport, bearing: 0, pitch: 0, zoom: 13}}
-			mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN} 
-			mapStyle="mapbox://styles/mapbox/light-v10"
-			onDblClick={onDblClick}
-			doubleClickZoom={false}
-			antialias={true}
-			preserveDrawingBuffer={true}
-		>
-			<IsoPolygon/>
-			<Buildings/>
-			<Pin/>
-			<Clusters/>
-			<Controllers/>
-		</Map>
+			<Map
+				ref={pdfMapRef}
+				initialViewState={{...viewport, bearing: 0, pitch: 0, zoom: 13}}
+				mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN} 
+				mapStyle="mapbox://styles/mapbox/light-v10"
+				onDblClick={onDblClick}
+				doubleClickZoom={false}
+				antialias={true}
+				preserveDrawingBuffer={true}
+			>
+				<IsoPolygon/>
+				<Buildings/>
+				<Pin/>
+				<Clusters/>
+				<Controllers/>
+			</Map>
+			<div 
+				style={{
+					position: "absolute", 
+					top: "10px", 
+					left: "20px", 
+					display: "grid", 
+					gridGap: "5px",
+					gridTemplateColumns: "min-content min-content min-content 100px 100px 100px"
+				}}>
+					<div className="boundary-controller">
+						<img src="static/components/pdf/maps/icons/pencil.svg" alt="pencil" width="100%"/>
+					</div>
+					<div className="boundary-controller">
+						<img src="static/components/pdf/maps/icons/polygon.svg" alt="polygon" width="100%"/>
+					</div>
+					<div className="boundary-controller">
+						<img src="static/components/pdf/maps/icons/circle.svg" alt="circle" width="100%"/>
+					</div>
+					<div></div>
+					<div></div>
+					<div></div>
+				</div>
 		</div>
 	)
 }
