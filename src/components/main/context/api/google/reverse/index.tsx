@@ -28,8 +28,8 @@ export const ReverseGeocodingApiProvider = ({children}: any) => {
 	    const url = tempUrl.replace(/\s/g, '');
 	    const res = await fetch(url);
 	    const receivedData = await res.json();
-	    const placeName = receivedData.formatted_address;
-	    setCurrentAddress(placeName);
+	    const placeInformation = receivedData.address_components;
+	    setCurrentAddress(placeInformation);
 	  }
 	  polygonData && fetchData();
 	}, [ polygonData ]);

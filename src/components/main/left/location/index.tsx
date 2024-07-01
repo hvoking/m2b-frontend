@@ -11,7 +11,9 @@ export const Location = () => {
 		* Exclusivamente para municipios de SC, Brasil
 	</div>
 
-	const addressInfo = currentAddress.replace(" - SC", "").split(",").slice(0, -2);
+	const addressNumber = currentAddress[0].long_name;
+	const addressStreet = currentAddress[1].long_name;
+	const addressName = addressStreet + ", " + addressNumber;
 
 	return (
 		<div className="location-wrapper">
@@ -20,7 +22,7 @@ export const Location = () => {
 					src="static/components/maps/marker.svg" 
 					alt="pin-location"
 			     />
-				<div>{addressInfo.join(",")}</div>
+				<div>{addressName}</div>
 		</div>
 	)
 }

@@ -4,6 +4,7 @@ import { Footer } from '../footer';
 import { PdfMaps } from './maps';
 import { Address } from './address';
 import { Graphics } from './graphics';
+import { Info } from './info';
 import { Title } from './title';
 import { CancelCross } from './cross';
 import './styles.scss';
@@ -20,6 +21,7 @@ export const Page1 = ({ page1Ref, setActivePdf }: any) => {
 				<Header/>
 				<Address/>
 				<PdfMaps/>
+				<Info/>
 				<Title/>
 				<Graphics/>
 			</div>

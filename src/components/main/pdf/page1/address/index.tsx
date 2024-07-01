@@ -6,6 +6,9 @@ import { useReverseGeocodingApi } from '../../../context/api/google/reverse';
 
 export const Address = () => {
 	const { currentAddress } = useReverseGeocodingApi();
+	const addressNumber = currentAddress[0].long_name;
+	const addressStreet = currentAddress[1].long_name;
+	const addressName = addressStreet + ", " + addressNumber;
 
 	return (
 		<div className="address-wrapper">
@@ -19,7 +22,7 @@ export const Address = () => {
 					<strong>Endereço:</strong>
 				</div>
 			</div>
-			<div>{currentAddress && currentAddress.replace(", Brasil", "")}</div>
+			<div>{addressName}</div>
 		</div>
 	)
 }

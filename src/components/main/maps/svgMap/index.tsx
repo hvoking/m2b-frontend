@@ -22,7 +22,7 @@ export const SvgMap = () => {
 	const { innerWidth, innerHeight } = useSvgMapSizes();
 	const { setPlaceCoordinates } = useGeo();
 
-	if (!isoPolygonData || !polygonData || !polygonData[0].city_geom) return (<></>)
+	if (!isoPolygonData || !polygonData || !polygonData[0] || !polygonData[0].city_geom) return (<></>)
 
 	const city = polygonData[0].city_geom[0];
 	const polygon = isoPolygonData.features[0].geometry;
