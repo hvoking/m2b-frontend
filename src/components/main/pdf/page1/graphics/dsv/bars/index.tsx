@@ -72,7 +72,7 @@ export const Bars = ({ dsvData }: any) => {
 				const currentPercent = (dsvCount[item] / sumOfCounts) * 100;
 				const currentColor = rooms ? dsvData[`d${rooms}`]['colors'] : combinedColors;
 
-				if (currentPercent < 3) return <></>
+				if (currentPercent < 5) return <></>
 
 				totalHeight += startFlag ? currentHeight : 10;
 				startFlag = true
