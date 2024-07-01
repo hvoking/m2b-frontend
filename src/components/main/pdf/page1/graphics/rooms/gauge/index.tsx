@@ -3,8 +3,8 @@ import { SVGWrapper } from './svg';
 import { Circle } from './circle';
 
 // Context imports
-import { useEquipment } from '../../../context/filters/equipment';
-import { useGaugeSizes } from '../../../context/sizes/bottom/rooms/gauge';
+import { useEquipment } from '../../../../../context/filters/equipment';
+import { useGaugeSizes } from '../../../../../context/sizes/pdf/rooms/gauge';
 
 // Third party imports
 import * as d3 from 'd3';
@@ -80,7 +80,6 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 								textAnchor="middle"
 								alignmentBaseline="middle"
 								fontWeight="600"
-								fontSize="0.8em"
 								style={{cursor: "pointer"}}
 							>
 								{Math.round(currentPercent)}%

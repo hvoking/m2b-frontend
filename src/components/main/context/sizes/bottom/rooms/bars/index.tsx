@@ -1,25 +1,25 @@
 // React imports
 import { useState, useContext, createContext } from 'react';
 
-const GaugeSizesContext: React.Context<any> = createContext(null)
+const BarsSizesContext: React.Context<any> = createContext(null)
 
-export const useGaugeSizes = () => {
+export const useBarsSizes = () => {
 	return (
-		useContext(GaugeSizesContext)
+		useContext(BarsSizesContext)
 	)
 }
 
-export const GaugeSizesProvider = ({children}: any) => {
+export const BarsSizesProvider = ({children}: any) => {
 	const [ width, setWidth ] = useState<any>(null);
 	const [ height, setHeight ] = useState<any>(null);
 
-	const margin = { top: 0, bottom: 0, right: 0, left: 0 }
+	const margin = { top: 0, bottom: 0, right: 0, left: 40 }
 
 	const innerWidth = width - margin.right - margin.left;
 	const innerHeight = height - margin.top - margin.bottom;
 
 	return (
-		<GaugeSizesContext.Provider value={{
+		<BarsSizesContext.Provider value={{
 			margin,
 			width,
 			height,
@@ -29,8 +29,8 @@ export const GaugeSizesProvider = ({children}: any) => {
 			innerHeight,
 		}}>
 			{children}
-		</GaugeSizesContext.Provider>
+		</BarsSizesContext.Provider>
 	)
 }
 
-GaugeSizesContext.displayName = "GaugeSizesContext";
+BarsSizesContext.displayName = "BarsSizesContext";

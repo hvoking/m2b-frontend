@@ -2,10 +2,10 @@
 import { useCallback, Children, cloneElement } from 'react';
 
 // Context imports
-import { useGaugeSizes } from '../../../../context/sizes/bottom/rooms/gauge';
+import { usePdfDsvSizes } from '../../../../../../context/sizes/pdf/dsv';
 
 export const SVGWrapper = ({ children }: any) => {
-	const { width, height, setWidth, setHeight, margin } = useGaugeSizes();
+	const { width, height, setWidth, setHeight, margin } = usePdfDsvSizes();
 
 	const parentRef = useCallback((node: any) => {
 		if (node) {
@@ -15,7 +15,7 @@ export const SVGWrapper = ({ children }: any) => {
 	}, []);
 
 	return (
-		<div style={{width: "100%", height: "100%"}} ref={parentRef}>
+		<div ref={parentRef} style={{width: "100%", height: "auto"}}>
 			{width &&
 				<svg viewBox={`0 0 ${width} ${height}`} preserveAspectRatio="none">
 					<g transform={`translate(${margin.left}, ${margin.top})`}>

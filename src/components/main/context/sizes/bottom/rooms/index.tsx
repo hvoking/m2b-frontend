@@ -1,36 +1,15 @@
-// React imports
-import { useState, useContext, createContext } from 'react';
+// App imports
+import { GaugeSizesProvider } from './gauge';
+import { BarsSizesProvider } from './bars';
 
-const RoomsGaugeSizesContext: React.Context<any> = createContext(null)
-
-export const useRoomsGaugeSizes = () => {
+export const RoomsSizesProvider = ({ children }: any) => {
 	return (
-		useContext(RoomsGaugeSizesContext)
-	)
-}
-
-export const RoomsSizesProvider = ({children}: any) => {
-	const [ width, setWidth ] = useState<any>(null);
-	const [ height, setHeight ] = useState<any>(null);
-
-	const margin = { top: 10, bottom: 10, right: 40, left: 20 }
-
-	const innerWidth = width - margin.right - margin.left;
-	const innerHeight = height - margin.top - margin.bottom;
-
-	return (
-		<RoomsGaugeSizesContext.Provider value={{
-			margin,
-			width,
-			height,
-			setWidth,
-			setHeight,
-			innerWidth,
-			innerHeight,
-		}}>
+		<BarsSizesProvider>
+		<GaugeSizesProvider>
 			{children}
-		</RoomsGaugeSizesContext.Provider>
+		</GaugeSizesProvider>
+		</BarsSizesProvider>
 	)
 }
 
-RoomsGaugeSizesContext.displayName = "RoomsGaugeSizesContext";
+RoomsSizesProvider.displayName="RoomsSizesProvider";

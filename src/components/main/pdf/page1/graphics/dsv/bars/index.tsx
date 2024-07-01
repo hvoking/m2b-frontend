@@ -1,9 +1,9 @@
 // App imports
-import { SVGWrapper } from '../svg';
+import { SVGWrapper } from './svg';
 
 // Context imports
-import { useEquipment } from '../../../../context/filters/equipment';
-import { usePdfDsvSizes } from '../../../../context/sizes/pdf/dsv';
+import { useEquipment } from '../../../../../context/filters/equipment';
+import { usePdfDsvSizes } from '../../../../../context/sizes/pdf/dsv';
 
 // Third party imports
 import * as d3 from 'd3';

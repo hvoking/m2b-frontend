@@ -1,9 +1,9 @@
 // App imports
 import { Bars } from './bars';
-import { LoadingImage } from '../../../utils/loading'
+import { LoadingImage } from '../../../../utils/loading'
 
 // Context imports
-import { useDsvApi } from '../../../context/api/imoveis/dsv';
+import { useDsvApi } from '../../../../context/api/imoveis/dsv';
 
 export const Dsv = () => {
 	const { dsvData } = useDsvApi();

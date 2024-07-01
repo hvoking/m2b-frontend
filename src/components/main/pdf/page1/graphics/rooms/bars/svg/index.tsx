@@ -2,10 +2,10 @@
 import { useCallback, Children, cloneElement } from 'react';
 
 // Context imports
-import { useGaugeSizes } from '../../../../../context/sizes/pdf/rooms/gauge';
+import { useBarsSizes } from '../../../../../../context/sizes/pdf/rooms/bars';
 
 export const SVGWrapper = ({ children }: any) => {
-	const { width, height, setWidth, setHeight, margin } = useGaugeSizes();
+	const { width, height, setWidth, setHeight, margin } = useBarsSizes();
 
 	const parentRef = useCallback((node: any) => {
 		if (node) {

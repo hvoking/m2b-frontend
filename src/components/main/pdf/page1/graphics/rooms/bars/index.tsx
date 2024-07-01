@@ -2,8 +2,8 @@
 import { SVGWrapper } from './svg';
 
 // Context imports
-import { useEquipment } from '../../../../context/filters/equipment';
-import { useBarsSizes } from '../../../../context/sizes/pdf/rooms/bars';
+import { useEquipment } from '../../../../../context/filters/equipment';
+import { useBarsSizes } from '../../../../../context/sizes/pdf/rooms/bars';
 
 // Third-party imports
 import * as d3 from 'd3';
@@ -73,7 +73,7 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 										"rgba(255, 255, 255, 1)" :
 										rooms === null ?
 										"rgba(255, 255, 255, 1)" :
-										"rgba(255, 255, 255, 1)"
+										"rgba(255, 255, 255, 0.4)"
 										}
 									textAnchor="start"
 									alignmentBaseline="middle"
@@ -82,27 +82,7 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 								>
 									{item} dorm
 								</text>
-								<text
-									x={xScale(currentPercent) + 3}
-									y={totalHeight}
-									fill={
-										String(rooms) === item ?
-										"rgba(0, 0, 0, 1)" :
-										rooms === null ?
-										"rgba(0, 0, 0, 1)" :
-										"rgba(255, 255, 255, 1)"
-										}
-									textAnchor="start"
-									alignmentBaseline="middle"
-									fontWeight="600"
-									fontSize="0.8em"
-									style={{cursor: "pointer"}}
-								>
-									{Math.round(currentPercent)}%
-								</text>
-
 							</>
-								
 						}
 					</g>
 				)

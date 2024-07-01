@@ -6,10 +6,9 @@ export const Circle = ({
 	item,
 	roomsCounter,
 	strokeWidth,
-	currentCircunference,
+	currentCircumference,
 	circumference,
-	totalCircunference,
-	onClick,
+	totalCircumference,
 }: any) => {
 	return (
 		<circle
@@ -25,9 +24,8 @@ export const Circle = ({
 				roomsCounter[item].replace('1)', '0.4)')
 			}
 			strokeWidth= {strokeWidth}
-			strokeDasharray={`${currentCircunference} ${circumference - currentCircunference}`}
-			strokeDashoffset={-(totalCircunference - currentCircunference)}
-			onClick={() => onClick(item)}
+			strokeDasharray={`${currentCircumference} ${circumference - currentCircumference}`}
+			strokeDashoffset={-(totalCircumference - currentCircumference)}
 			style={{cursor: "pointer"}}
 		/>
 	)

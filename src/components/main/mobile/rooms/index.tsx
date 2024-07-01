@@ -1,6 +1,6 @@
 // App imports
-import { RoomsGauge } from './gauge';
-import { RoomsLegend } from './legend';
+import { Gauge } from './gauge';
+import { Bars } from './bars';
 import './styles.scss';
 
 // Context imports
@@ -21,35 +21,17 @@ export const Rooms = () => {
 
 	return (
 		<div className="bottom-item-wrapper">
-			<div className="property-type-header">
-				<div className="sidebar-sub-title">
-					Principais tipologias
-				</div>
-				<input 
-					type="checkbox" 
-					name="tipologias" 
-					onChange={onClick} 
-					checked={rooms === null}
-				/>
-				<div onClick={onClick}>
-					todas
-				</div>
-			</div>
+			<div className="sidebar-sub-title">Anúncios por Número de Dormitórios</div>
 			{
 				!dsvData || !roomsData ? 
 				<img 
 					src="static/components/sidebar/loading.gif" 
 					alt="loading" 
-					style={{margin: "auto", width: "20%"}}/> :
-				<div className="rooms-wrapper">
-					<RoomsLegend 
-						roomsData={roomsData} 
-						dsvData={dsvData}
-					/>
-					<RoomsGauge 
-						roomsData={roomsData} 
-						dsvData={dsvData}
-					/>
+					style={{margin: "auto", width: "20%"}}
+				/> :
+				<div className="mobile-rooms-wrapper">
+					<Bars roomsData={roomsData} dsvData={dsvData}/>
+					<Gauge roomsData={roomsData} dsvData={dsvData}/>
 				</div>
 			}
 		</div>
