@@ -93,7 +93,7 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 
 
 				return (
-					<g key={item}>
+					<g key={item} onClick={() => onClick(item)}>
 						{currentCircumference && combinedColors[item] &&
 							<>
 								<Circle
@@ -117,9 +117,9 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 										"rgba(255, 255, 255, 0)" :
 										currentType === item ?
 										"rgba(255, 255, 255, 1)" :
-										rooms === null ?
+										suites === null ?
 										"rgba(255, 255, 255, 1)" :
-										"rgba(255, 255, 255, 0.4)"
+										"rgba(255, 255, 255, 0.6)"
 										}
 									textAnchor="middle"
 									alignmentBaseline="middle"

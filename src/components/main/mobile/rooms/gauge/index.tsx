@@ -1,5 +1,6 @@
 // App imports
 import { SVGWrapper } from './svg';
+import { Text } from './text';
 import { Circle } from './circle';
 
 // Context imports
@@ -17,14 +18,14 @@ const roomsCounter: any = {
 	1: 'rgba(109, 86, 166, 1)',
 }
 
-export const Gauge = ({ roomsData, dsvData }: any) => {
+export const RoomsGauge = ({ roomsData, dsvData }: any) => {
 	const { rooms, setRooms, setSuites, setGarages } = useEquipment();
 	const { innerWidth, innerHeight } = useGaugeSizes();
 
-	let totalCircumference = 0;
+	let totalCircunference = 0;
 
 	const radius = d3.min([innerWidth, innerHeight]) / 2;
-	const strokeWidth = radius*0.4;
+	const strokeWidth = radius * 0.3;
 	const innerRadius = radius - ( strokeWidth / 2 );
 
 	const circumference = innerRadius * 2 * Math.PI;
@@ -37,24 +38,23 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 		
 	return (
 		<SVGWrapper>
-			{Object.keys(roomsData).map((item: any) => {
-				const currentPercent = roomsData[item] ? roomsData[item] : 0;
-				const currentCircumference = Math.round(circumference * currentPercent / 100);
+			{Object.keys(roomsData).map((item: any, index: number) => {
+				const currentPercent = roomsData[item] ? roomsData[item] : 0
+				const currentCircunference = Math.round(circumference * currentPercent / 100)
 
-				if (currentCircumference) {
-					totalCircumference += currentCircumference;
+				if (currentCircunference) {
+					totalCircunference += currentCircunference;
 				}
 
-				// Calculate the angle for the text
-                const angle = (totalCircumference - currentCircumference / 2) * (360 / circumference);
-                const radians = angle * (Math.PI / 180);
-                const textX = innerWidth / 2 + (radius*0.8) * Math.cos(radians);
-                const textY = innerHeight / 2 + (radius*0.8) * Math.sin(radians);
-
 				return (
-					<g key={item} onClick={() => onClick(item)}>
-						{currentCircumference && roomsCounter[item] &&
-							<>
+					<g key={index}>
+						<Text 
+							innerWidth={innerWidth}
+							innerHeight={innerHeight}
+							rooms={rooms}
+							roomsData={roomsData}
+						/>
+						{currentCircunference && roomsCounter[item] &&
 							<Circle
 								innerWidth={innerWidth}
 								innerHeight={innerHeight}
@@ -63,29 +63,11 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 								item={item}
 								roomsCounter={roomsCounter}
 								strokeWidth={strokeWidth}
-								currentCircumference={currentCircumference}
+								currentCircunference={currentCircunference}
 								circumference={circumference}
-								totalCircumference={totalCircumference}
+								totalCircunference={totalCircunference}
+								onClick={onClick}
 							/>
-							<text
-								x={textX}
-								y={textY}
-								fill={
-									String(rooms) === item ?
-									"rgba(255, 255, 255, 1)" :
-									rooms === null ?
-									"rgba(255, 255, 255, 1)" :
-									"rgba(255, 255, 255, 0.4)"
-									}
-								textAnchor="middle"
-								alignmentBaseline="middle"
-								fontWeight="600"
-								fontSize="0.8em"
-								style={{cursor: "pointer"}}
-							>
-								{Math.round(currentPercent)}%
-							</text>
-							</>
 						 }
 					</g>
 				)
@@ -94,4 +76,4 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 	)
 }
 
-Gauge.displayName="Gauge";
+RoomsGauge.displayName="RoomsGauge";

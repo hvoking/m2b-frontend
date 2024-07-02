@@ -108,11 +108,11 @@ export const Bars = ({ dsvData }: any) => {
 							x={-37}
 							y={totalHeight}
 							fill={
-								rooms === null ?
+								suites === null ?
 								"rgba(255, 255, 255, 1)" : 
 								currentType === item ? 
 								"rgba(255, 255, 255, 1)" : 
-								"rgba(255, 255, 255, 1)"}
+								"rgba(255, 255, 255, 0.6)"}
 							textAnchor="start"
 							alignmentBaseline="middle"
 							fontWeight="600"
