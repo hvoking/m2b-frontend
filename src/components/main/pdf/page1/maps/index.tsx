@@ -7,6 +7,7 @@ import { Controllers } from './controllers';
 import { Clusters } from './clusters';
 import { Buildings } from './buildings';
 import { IsoPolygon } from './iso';
+import { Points } from './points';
 import './styles.scss';
 
 // Context imports
@@ -47,6 +48,7 @@ export const PdfMaps = () => {
 				<Buildings/>
 				<Pin/>
 				<Clusters/>
+				<Points/>
 				<Controllers/>
 			</Map>
 			<div 

@@ -24,14 +24,17 @@ export const Clustered = ({ id, currentPoints, color }: any) => {
 	    id: id,
 	    type: 'circle',
 	    source: `${id}Source`,
+	    minzoom: 13,
+	    maxzoom: 15,
 	    paint: {
 		'circle-radius': [
 			'step', ['get', 'point_count'], 
-			12, 50, 
-			14, 100, 
-			16, 200,
-			18, 300,
-			20
+			12, 20, 
+			14, 40, 
+			16, 60,
+			18, 80,
+			20, 100,
+			22
 		],
 	      'circle-color': color,
 	    },
@@ -40,12 +43,18 @@ export const Clustered = ({ id, currentPoints, color }: any) => {
 	const textLayer: any = {
 		id: `${id}Source`,
 		type: 'symbol',
+		minzoom: 13,
+		maxzoom: 15,
 		source: `${id}-clusters`,
 		filter: ['has', 'point_count'],
 		layout: {
 			'text-field': '{point_count_abbreviated}',
-			'text-size': 12
-		}
+			'text-size': 12,
+			'text-font': ['Montserrat Bold'],
+		},
+		paint: {
+        	'text-color': '#FFFFFF'
+    	}
 	};
 
 	return (

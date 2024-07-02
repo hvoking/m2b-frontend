@@ -21,6 +21,13 @@ export const Clusters = () => {
 		"min":  'rgba(255, 0, 0, 1)'
 	}
 
+	const roomsColors: any = {
+		"rooms_4": 'rgba(254, 162, 90, 1)',
+		"rooms_3": 'rgba(65, 145, 198, 1)',
+		"rooms_2": 'rgba(84, 181, 103, 1)',
+		"rooms_1": 'rgba(109, 86, 166, 1)',
+	}
+
 	const classifiedPoints: any = filterPoints.reduce((total: any, item: any) => {
 		if (item[currentPriceString] >= topLimit) {
 	        total.high.push(item);
@@ -32,14 +39,29 @@ export const Clusters = () => {
 		return total
 	}, { high: [], min: [], mean: [] });
 
+	const classifiedPointsByRooms: any = filterPoints.reduce((total: any, item: any) => {
+		if (item.rooms === 1) {
+	        total.rooms_1.push(item);
+	    } else if (item.rooms === 2) {
+	        total.rooms_2.push(item);
+	    } 
+	    else if (item.rooms === 3) {
+	        total.rooms_3.push(item);
+	    } 
+	    else if (item.rooms === 4){
+	        total.rooms_4.push(item);
+	    }
+		return total
+	}, { rooms_1: [],  rooms_2: [], rooms_3: [], rooms_4: [] });
+
 	return (
 		<>
-			{Object.keys(classifiedPoints).map((item: any) => {
+			{Object.keys(classifiedPointsByRooms).map((item: any) => {
 				return (
 					<Clustered 
 						id={item}
-						currentPoints={classifiedPoints[item]} 
-						color={colors[item]}
+						currentPoints={classifiedPointsByRooms[item]} 
+						color={roomsColors[item]}
 					/>
 				)
 			})}
