@@ -25,7 +25,7 @@ export const Circle = ({
 				String(combinedColors[item]).replace('1)', '0.4)')
 			}
 			strokeWidth= {strokeWidth}
-			strokeDasharray={`${currentCircumference} ${circumference - currentCircumference}`}
+			strokeDasharray={`${currentCircumference + 0.5} ${circumference - currentCircumference}`}
 			strokeDashoffset={-(totalCircumference - currentCircumference)}
 			style={{cursor: "pointer"}}
 		/>

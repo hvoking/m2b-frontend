@@ -13,13 +13,8 @@ export const Dsv = () => {
 	if (!dsvData || !roomsData) return <></>
 	
 	return (
-		<div 
-			style={{
-				display: "grid", 
-				gridTemplateRows: "30px auto", 
-				paddingRight: "20px",
-			}}>
-			<div style={{paddingTop: "5px"}}>Dormitórios-Suítes-Vagas</div>
+		<div className="pdf-graphics-item-wrapper">
+			<div>Dormitórios-Suítes-Vagas</div>
 			<div className="pdf-dsv-wrapper">
 				<Bars dsvData={dsvData}/>
 				<Gauge roomsData={roomsData} dsvData={dsvData}/>

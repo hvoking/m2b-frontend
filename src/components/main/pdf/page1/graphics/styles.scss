@@ -6,3 +6,8 @@
   overflow: hidden;
   grid-gap: 20px;
 }
+.pdf-graphics-item-wrapper {
+  display: grid;
+  grid-template-rows: 30px auto;
+  align-items: center;
+}

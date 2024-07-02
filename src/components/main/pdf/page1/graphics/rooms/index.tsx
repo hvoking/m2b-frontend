@@ -13,8 +13,8 @@ export const Rooms = () => {
 	const { dsvData } = useDsvApi();
 
 	return (
-		<div style={{display: "grid", gridTemplateRows: "30px auto"}}>
-			<div style={{paddingLeft: "20px", paddingTop: "5px"}}>
+		<div className="pdf-graphics-item-wrapper">
+			<div style={{paddingLeft: "20px"}}>
 				Número de Dormitórios
 			</div>
 			{

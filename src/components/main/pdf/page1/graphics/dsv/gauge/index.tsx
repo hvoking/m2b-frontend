@@ -113,6 +113,7 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 									textAnchor="middle"
 									alignmentBaseline="middle"
 									fontWeight="600"
+									fontSize="0.8em"
 									style={{cursor: "pointer"}}
 								>
 									{Math.round(currentPercent)}%

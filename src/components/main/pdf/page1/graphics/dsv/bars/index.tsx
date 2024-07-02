@@ -118,7 +118,7 @@ export const Bars = ({ dsvData }: any) => {
 							fontWeight="600"
 							fontSize="0.8em"
 							onClick={() => onClick(item)}
-							style={{cursor: "pointer"}}
+							style={{cursor: "pointer", letterSpacing: "1px"}}
 						>
 							{item}
 						</text>

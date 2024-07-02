@@ -55,35 +55,38 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 					<g key={item} onClick={() => onClick(item)}>
 						{currentCircumference && roomsCounter[item] &&
 							<>
-							<Circle
-								innerWidth={innerWidth}
-								innerHeight={innerHeight}
-								innerRadius={innerRadius}
-								rooms={rooms}
-								item={item}
-								roomsCounter={roomsCounter}
-								strokeWidth={strokeWidth}
-								currentCircumference={currentCircumference}
-								circumference={circumference}
-								totalCircumference={totalCircumference}
-							/>
-							<text
-								x={textX}
-								y={textY}
-								fill={
-									String(rooms) === item ?
-									"rgba(255, 255, 255, 1)" :
-									rooms === null ?
-									"rgba(255, 255, 255, 1)" :
-									"rgba(255, 255, 255, 0.4)"
-									}
-								textAnchor="middle"
-								alignmentBaseline="middle"
-								fontWeight="600"
-								style={{cursor: "pointer"}}
-							>
-								{Math.round(currentPercent)}%
-							</text>
+								<Circle
+									innerWidth={innerWidth}
+									innerHeight={innerHeight}
+									innerRadius={innerRadius}
+									rooms={rooms}
+									item={item}
+									roomsCounter={roomsCounter}
+									strokeWidth={strokeWidth}
+									currentCircumference={currentCircumference}
+									circumference={circumference}
+									totalCircumference={totalCircumference}
+								/>
+								<text
+									x={textX}
+									y={textY}
+									fill={
+										currentPercent < 3 ?
+										"rgba(255, 255, 255, 0)" :
+										String(rooms) === item ?
+										"rgba(255, 255, 255, 1)" :
+										rooms === null ?
+										"rgba(255, 255, 255, 1)" :
+										"rgba(255, 255, 255, 0.4)"
+										}
+									textAnchor="middle"
+									alignmentBaseline="middle"
+									fontWeight="600"
+									fontSize="0.8em"
+									style={{cursor: "pointer"}}
+								>
+									{Math.round(currentPercent)}%
+								</text>
 							</>
 						 }
 					</g>
