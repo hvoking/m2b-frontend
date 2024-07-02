@@ -68,7 +68,9 @@ export const Pictures = ({ linesData, pricesData }: any) => {
 	    activePoints :
 	    filterByDates
 	
-	const filterById = filterPoints.filter((item: any) => !rejectedIds.includes(item.property_id))
+	const filterById = filterPoints.filter((item: any) => !rejectedIds.includes(item.property_id));
+
+	filterById.sort((a: any, b: any) => a["distance"] - b["distance"]);
 
 	useEffect(() => {
 		setSamplesPrices(filterById.slice(0, nearest).map((item: any) => item[currentPriceString]));

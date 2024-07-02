@@ -9,14 +9,6 @@ import { useGaugeSizes } from '../../../../../context/sizes/pdf/dsv/gauge';
 // Third party imports
 import * as d3 from 'd3';
 
-const roomColors: any = {
-	5: 'rgba(254, 0, 23, 1)',
-	4: 'rgba(254, 162, 90, 1)',
-	3: 'rgba(65, 145, 198, 1)',
-	2: 'rgba(84, 181, 103, 1)',
-	1: 'rgba(109, 86, 166, 1)',
-}
-
 export const Gauge = ({ roomsData, dsvData }: any) => {
 	const { rooms, suites, garages, setRooms, setSuites, setGarages } = useEquipment();
 	const { innerWidth, innerHeight } = useGaugeSizes();
@@ -71,9 +63,6 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 	        return a3 - b3;
 	    }
 	});
-
-	const maxCount: any = d3.max(Object.values(dsvCount))
-	const topDsvCount: any =  (maxCount / sumOfCounts) * 100;
 
 	return (
 		<SVGWrapper>
