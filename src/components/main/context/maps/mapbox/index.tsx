@@ -29,7 +29,6 @@ export const MapboxProvider = ({children}: any) => {
 
     pdfMapRef.current?.flyTo({
       center: [ viewport.longitude, viewport.latitude ],
-      zoom: viewport.zoom,
       duration: 3000, 
       essential: true,
     });
