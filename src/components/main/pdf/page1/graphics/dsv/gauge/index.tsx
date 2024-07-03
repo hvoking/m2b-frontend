@@ -13,7 +13,7 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 	const { rooms, suites, garages, setRooms, setSuites, setGarages } = useEquipment();
 	const { innerWidth, innerHeight } = useGaugeSizes();
 
-	const currentType = `${rooms},${suites},${garages}`;
+	const currentDsv = `${rooms},${suites},${garages}`;
 
 	let totalCircumference = 0;
 
@@ -46,10 +46,9 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 		}
 	}
 
-	const dsvCount = rooms ? dsvData[`d${rooms}`].counts : combinedCounts;
-	const sumOfCounts = dsvCount && d3.sum(Object.values(dsvCount));
+	const sumOfCounts = combinedCounts && d3.sum(Object.values(combinedCounts));
 
-	const sortedDsvCount: any = dsvCount &&  Object.keys(dsvCount).sort((a, b) => dsvCount[b] - dsvCount[a]);
+	const sortedDsvCount: any = combinedCounts &&  Object.keys(combinedCounts).sort((a, b) => combinedCounts[b] - combinedCounts[a]);
 
 	sortedDsvCount && sortedDsvCount.sort((a: any, b: any) => {
 	    let [a1, a2, a3] = a.split(',').map(Number);
@@ -67,7 +66,7 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 	return (
 		<SVGWrapper>
 			{sortedDsvCount.map((item: any) => {
-				const currentPercent = (dsvCount[item] / sumOfCounts) * 100;
+				const currentPercent = (combinedCounts[item] / sumOfCounts) * 100;
 				const currentCircumference = Math.round(circumference * currentPercent / 100);
 
 				if (currentCircumference) {
@@ -89,13 +88,14 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 									innerWidth={innerWidth}
 									innerHeight={innerHeight}
 									innerRadius={innerRadius}
-									rooms={currentType}
+									currentDsv={currentDsv}
 									item={item}
 									combinedColors={combinedColors}
 									strokeWidth={strokeWidth}
 									currentCircumference={currentCircumference}
 									circumference={circumference}
 									totalCircumference={totalCircumference}
+									rooms={rooms}
 									suites={suites}
 								/>
 								<text
@@ -104,7 +104,7 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 									fill={
 										currentPercent < 5 ?
 										"rgba(255, 255, 255, 0)" :
-										currentType === item ?
+										currentDsv === item ?
 										"rgba(255, 255, 255, 1)" :
 										suites === null ?
 										"rgba(255, 255, 255, 1)" :

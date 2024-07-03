@@ -2,15 +2,17 @@ export const Circle = ({
 	innerWidth,
 	innerHeight,
 	innerRadius,
-	rooms,
+	currentDsv,
 	item,
 	combinedColors,
 	strokeWidth,
 	currentCircumference,
 	circumference,
 	totalCircumference,
+	rooms,
 	suites
 }: any) => {
+
 	return (
 		<circle
 			cx={innerWidth/2}
@@ -18,8 +20,12 @@ export const Circle = ({
 			fill="none"
 			r={innerRadius}
 			stroke={
-				rooms === item ?
-				combinedColors[item] :
+				rooms === null ?
+				String(combinedColors[item]) :
+				currentDsv === item ?
+				String(combinedColors[item]) :
+				currentDsv[0] !== item[0] ?
+				String(combinedColors[item]).replace('1)', '0.4)') :
 				suites === null ?
 				String(combinedColors[item]) :
 				String(combinedColors[item]).replace('1)', '0.4)')
