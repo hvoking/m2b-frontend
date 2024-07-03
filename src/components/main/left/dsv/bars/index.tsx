@@ -1,6 +1,5 @@
 // App imports
 import { SVGWrapper } from './svg';
-import { Background } from './background';
 import { Front } from './front';
 import { DsvText } from './text/dsv';
 import { PercentText } from './text/percent';
@@ -53,7 +52,7 @@ export const Bars = ({ dsvData }: any) => {
 				const currentPercent = (dsvCount[item] / sumOfCounts) * 100;
 				const currentHeight = 30;
 				const currentGap = 5;
-				const currentDifference = 15;
+				const currentDifference = 10;
 
 				totalHeight += currentHeight;
 
@@ -61,17 +60,6 @@ export const Bars = ({ dsvData }: any) => {
 					<g key={index}>
 						{currentPercent > 2 && 
 							<>
-							<Background
-								item={item}
-								currentPercent={currentPercent}
-								innerWidth={innerWidth}
-								totalHeight={totalHeight}
-								currentHeight={currentHeight}
-								currentGap={currentGap}
-								currentDifference={currentDifference}
-								currentType={currentType}
-								onClick={onClick}
-							/>
 							<Front
 								item={item}
 								innerWidth={innerWidth}

@@ -1,6 +1,7 @@
 // App imports
 import { SVGWrapper } from './svg';
 import { Circle } from './circle';
+import { Text } from './text';
 
 // Context imports
 import { useEquipment } from '../../../context/filters/equipment';
@@ -26,7 +27,7 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 	}
 
 	const radius = d3.min([innerWidth, innerHeight]) / 2;
-	const strokeWidth = radius*0.4;
+	const strokeWidth = radius*0.3;
 	const innerRadius = radius - ( strokeWidth / 2 );
 
 	const circumference = innerRadius * 2 * Math.PI;
@@ -63,8 +64,18 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 	    }
 	});
 
+	const test = (combinedCounts[currentDsv] / sumOfCounts) * 100;
+	console.log(currentDsv)
+	console.log(test)
+
 	return (
 		<SVGWrapper>
+			<Text 
+				innerWidth={innerWidth}
+				innerHeight={innerHeight}
+				currentDsv={currentDsv}
+				currentPercent={(combinedCounts[currentDsv] / sumOfCounts) * 100}
+			/>
 			{sortedDsvCount.map((item: any) => {
 				const currentPercent = (combinedCounts[item] / sumOfCounts) * 100;
 				const currentCircumference = Math.round(circumference * currentPercent / 100);
@@ -79,46 +90,23 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
                 const textX = innerWidth / 2 + (radius*0.8) * Math.cos(radians);
                 const textY = innerHeight / 2 + (radius*0.8) * Math.sin(radians);
 
-
 				return (
 					<g key={item} onClick={() => onClick(item)}>
 						{currentCircumference && combinedColors[item] &&
-							<>
-								<Circle
-									innerWidth={innerWidth}
-									innerHeight={innerHeight}
-									innerRadius={innerRadius}
-									currentDsv={currentDsv}
-									item={item}
-									combinedColors={combinedColors}
-									strokeWidth={strokeWidth}
-									currentCircumference={currentCircumference}
-									circumference={circumference}
-									totalCircumference={totalCircumference}
-									rooms={rooms}
-									suites={suites}
-								/>
-								<text
-									x={textX}
-									y={textY}
-									fill={
-										currentPercent < 5 ?
-										"rgba(255, 255, 255, 0)" :
-										currentDsv === item ?
-										"rgba(255, 255, 255, 1)" :
-										suites === null ?
-										"rgba(255, 255, 255, 1)" :
-										"rgba(255, 255, 255, 0.6)"
-										}
-									textAnchor="middle"
-									alignmentBaseline="middle"
-									fontWeight="600"
-									fontSize="0.8em"
-									style={{cursor: "pointer"}}
-								>
-									{Math.round(currentPercent)}%
-								</text>
-							</>
+							<Circle
+								innerWidth={innerWidth}
+								innerHeight={innerHeight}
+								innerRadius={innerRadius}
+								currentDsv={currentDsv}
+								item={item}
+								combinedColors={combinedColors}
+								strokeWidth={strokeWidth}
+								currentCircumference={currentCircumference}
+								circumference={circumference}
+								totalCircumference={totalCircumference}
+								rooms={rooms}
+								suites={suites}
+							/>
 						}
 					</g>
 				)

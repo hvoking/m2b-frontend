@@ -2,7 +2,7 @@ export const PercentText = ({ item, innerWidth,	totalHeight, currentHeight,	curr
 	return (
 		<text
 			key={item}
-			x={innerWidth + 40}
+			x={80}
 			y={totalHeight - currentHeight + currentHeight/2}
 			fill={
 				suites === null ?
@@ -11,7 +11,7 @@ export const PercentText = ({ item, innerWidth,	totalHeight, currentHeight,	curr
 				"rgba(255, 255, 255, 1)" : 
 				"rgba(255, 255, 255, 0.6)"
 			}
-			textAnchor="end"
+			textAnchor="start"
 			alignmentBaseline="middle"
 			fontSize="0.8em"
 			fontWeight="500"

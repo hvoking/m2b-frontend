@@ -21,9 +21,9 @@ export const Front = ({
 		<g>
 			<rect
 				key={item}
-				x={0}
+				x={50}
 				y={totalHeight - currentHeight + currentGap}
-				width={innerWidth * currentPercent / 100}
+				width={20}
 				height={currentHeight - currentDifference}
 				stroke={currentType === item ? "rgba(255, 255, 255, 1)" : "rgba(126, 126, 132, 1)"}
 				strokeWidth={currentType === item ? "1" : "0"}

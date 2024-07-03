@@ -13,7 +13,7 @@ export const RoomsGaugeSizesProvider = ({children}: any) => {
 	const [ width, setWidth ] = useState<any>(null);
 	const [ height, setHeight ] = useState<any>(null);
 
-	const margin = { top: 10, bottom: 10, right: 40, left: 20 }
+	const margin = { top: 10, bottom: 10, right: 20, left: 20 }
 
 	const innerWidth = width - margin.right - margin.left;
 	const innerHeight = height - margin.top - margin.bottom;

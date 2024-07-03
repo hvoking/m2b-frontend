@@ -2,7 +2,7 @@ export const DsvText = ({ item,	totalHeight, currentHeight,	currentType, onClick
 	return (
 		<text
 			key={item}
-			x={-40}
+			x={0}
 			y={totalHeight - currentHeight + currentHeight/2}
 			fill={
 				suites === null ?
@@ -15,9 +15,9 @@ export const DsvText = ({ item,	totalHeight, currentHeight,	currentType, onClick
 			alignmentBaseline="middle"
 			fontSize="0.8em"
 			onClick={() => onClick(item)}
-			style={{cursor: "pointer"}}
+			style={{cursor: "pointer", letterSpacing: "3px"}}
 		>
-			{item}
+			{item.split(",").join(".")}
 		</text>
 	)
 }
