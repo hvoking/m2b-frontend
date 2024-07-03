@@ -95,7 +95,7 @@ export const Bars = ({ dsvData }: any) => {
 								currentHeight={currentHeight}
 								currentType={currentType}
 								onClick={onClick}
-								rooms={rooms}
+								suites={suites}
 							/>
 							<PercentText
 								item={item}
@@ -105,7 +105,7 @@ export const Bars = ({ dsvData }: any) => {
 								currentType={currentType}
 								onClick={onClick}
 								currentPercent={currentPercent}
-								rooms={rooms}
+								suites={suites}
 							/>
 						</>
 					}

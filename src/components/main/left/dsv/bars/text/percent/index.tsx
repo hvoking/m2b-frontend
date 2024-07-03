@@ -1,10 +1,16 @@
-export const PercentText = ({ item, innerWidth,	totalHeight, currentHeight,	currentType, onClick, currentPercent, rooms }: any) => {
+export const PercentText = ({ item, innerWidth,	totalHeight, currentHeight,	currentType, onClick, currentPercent, suites }: any) => {
 	return (
 		<text
 			key={item}
 			x={innerWidth + 40}
 			y={totalHeight - currentHeight + currentHeight/2}
-			fill={currentType === item || rooms === null ? "rgba(255, 255, 255, 1)" : "rgba(126, 126, 132, 1)"}
+			fill={
+				suites === null ?
+				"rgba(255, 255, 255, 1)" : 
+				currentType === item ? 
+				"rgba(255, 255, 255, 1)" : 
+				"rgba(255, 255, 255, 0.6)"
+			}
 			textAnchor="end"
 			alignmentBaseline="middle"
 			fontSize="0.8em"
