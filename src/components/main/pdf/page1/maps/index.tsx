@@ -4,7 +4,6 @@ import { useState, useCallback } from 'react';
 // App imports
 import { Pin } from './pin';
 import { Controllers } from './controllers';
-import { Clusters } from './clusters';
 import { Buildings } from './buildings';
 import { IsoPolygon } from './iso';
 import { Points } from './points';
@@ -14,15 +13,28 @@ import './styles.scss';
 import { useMapbox } from '../../../context/maps/mapbox';
 import { useGeo } from '../../../context/filters/geo';
 import { useIsoPolygonApi } from '../../../context/api/isoPolygon';
+import { useIconLayer } from '../../../context/maps/layers/icon';
 
 // Third-party imports
-import { Map } from 'react-map-gl';
+import { DeckProps } from '@deck.gl/core/typed';
+import { MapboxOverlay } from '@deck.gl/mapbox/typed';
+import { Map, useControl } from 'react-map-gl';
 import 'mapbox-gl/dist/mapbox-gl.css';
+
+const DeckGLOverlay = (props: DeckProps) => {
+  const deck = useControl<any>(() => new MapboxOverlay(props));
+  deck.setProps(props);
+  return null;
+}
+
 
 export const PdfMaps = () => {
 	const { pdfMapRef } = useMapbox();
 	const { viewport, setMarker, setPlaceCoordinates } = useGeo();
 	const { setInitialMarker } = useIsoPolygonApi();
+	const { iconLayer } = useIconLayer();
+
+	const layers: any = [ iconLayer ];
 
 	const onDblClick = useCallback((event: any) => {
 		const lng = event.lngLat.lng;
@@ -44,11 +56,13 @@ export const PdfMaps = () => {
 				antialias={true}
 				preserveDrawingBuffer={true}
 			>
+				<DeckGLOverlay 
+					layers={layers} 
+					glOptions={{preserveDrawingBuffer: true}}
+				/>
 				<IsoPolygon/>
 				<Buildings/>
 				<Pin/>
-				<Clusters/>
-				<Points/>
 				<Controllers/>
 			</Map>
 			<div 
