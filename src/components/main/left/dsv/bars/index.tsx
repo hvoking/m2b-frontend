@@ -1,5 +1,5 @@
 // App imports
-import { SVGWrapper } from '../svg';
+import { SVGWrapper } from './svg';
 import { Background } from './background';
 import { Front } from './front';
 import { DsvText } from './text/dsv';
@@ -7,14 +7,14 @@ import { PercentText } from './text/percent';
 
 // Context imports
 import { useEquipment } from '../../../context/filters/equipment';
-import { useDsvSizes } from '../../../context/sizes/dsv';
+import { useBarsSizes } from '../../../context/sizes/dsv/bars';
 
 // Third party imports
 import * as d3 from 'd3';
 
 export const Bars = ({ dsvData }: any) => {
 	const { rooms, suites, garages, setRooms, setSuites, setGarages } = useEquipment();
-	const { innerWidth } = useDsvSizes();
+	const { innerWidth } = useBarsSizes();
 
 	const currentType = `${rooms},${suites},${garages}`;
 
@@ -95,6 +95,7 @@ export const Bars = ({ dsvData }: any) => {
 								currentHeight={currentHeight}
 								currentType={currentType}
 								onClick={onClick}
+								rooms={rooms}
 							/>
 							<PercentText
 								item={item}
@@ -104,6 +105,7 @@ export const Bars = ({ dsvData }: any) => {
 								currentType={currentType}
 								onClick={onClick}
 								currentPercent={currentPercent}
+								rooms={rooms}
 							/>
 						</>
 					}

@@ -28,6 +28,8 @@ export const Front = ({
 				stroke={currentType === item ? "rgba(255, 255, 255, 1)" : "rgba(126, 126, 132, 1)"}
 				strokeWidth={currentType === item ? "1" : "0"}
 				fill={
+					rooms === null ?
+					String(currentColor[item]) :
 					currentType === item ?
 					currentColor[item] :
 					suites === null ?

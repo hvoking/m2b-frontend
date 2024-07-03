@@ -6,7 +6,6 @@ import { Pin } from './pin';
 import { Controllers } from './controllers';
 import { Buildings } from './buildings';
 import { IsoPolygon } from './iso';
-import { Points } from './points';
 import './styles.scss';
 
 // Context imports
@@ -48,7 +47,7 @@ export const PdfMaps = () => {
 		<div style={{position: "relative"}}>
 			<Map
 				ref={pdfMapRef}
-				initialViewState={{...viewport, bearing: 0, pitch: 0, zoom: 13}}
+				initialViewState={{...viewport}}
 				mapboxAccessToken={process.env.REACT_APP_MAPBOX_TOKEN} 
 				mapStyle="mapbox://styles/mapbox/light-v10"
 				onDblClick={onDblClick}

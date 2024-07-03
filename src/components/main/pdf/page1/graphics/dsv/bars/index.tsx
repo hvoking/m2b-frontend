@@ -84,12 +84,6 @@ export const Bars = ({ dsvData }: any) => {
 							y={totalHeight - 10}
 							width={40 + yScale(currentPercent)}
 							height={20}
-							stroke={
-								currentType === item ? 
-								"rgba(0, 0, 0, 1)" : 
-								"rgba(255, 255, 255, 1)"
-							}
-							strokeWidth={currentType === item ? "1" : "0"}
 							fill={
 								currentType === item ?
 								currentColor[item] :
