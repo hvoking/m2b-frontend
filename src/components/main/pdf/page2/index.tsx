@@ -3,6 +3,7 @@ import { Footer } from '../footer';
 import { Table } from './table'
 import { Property } from './property';
 import { Prices } from './prices';
+import { CTA } from './cta';
 import { priceFormat } from '../../utils/constants';
 import './styles.scss';
 
@@ -58,10 +59,7 @@ export const Page2 = ({ page2Ref, printDocument, setActivePdf }: any) => {
 				<Property/>
 				<Prices/>
 				<Table linesData={linesData} pricesData={pricesData}/>
-				<div className="pdf-cta">
-					<div>Valor de avaliação sugerido R$ {meanPrice}</div>
-					<div className="pdf-button" onClick={printDocument}>Gerar relatório</div>
-				</div>
+				<CTA printDocument={printDocument} meanPrice={meanPrice}/>
 			</div>
 			<Footer/>
 		</div>

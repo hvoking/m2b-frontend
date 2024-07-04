@@ -25,9 +25,11 @@ export const Body = ({ item, setRejectedIds, currentImage, setCurrentPropertyId,
 		setCurrentPropertyId(item.property_id);
 	}
 
+	if (validImages[item.property_id] === false) return <></>
+
 	return (
 		<div className="airbnb-description-wrapper" onMouseOver={(e: any) => onMouseOver(e, item)}>
-			 {validImages[item.property_id] !== false && (<div className="listing-container" style={{backgroundColor: backgroundColor}}>
+			 <div className="listing-container" style={{backgroundColor: backgroundColor}}>
 			 	<div style={{position: "relative"}}>
 			 		<img 
 			 		 	src={currentImage}
@@ -67,7 +69,6 @@ export const Body = ({ item, setRejectedIds, currentImage, setCurrentPropertyId,
 			        <div className="listing-price" style={{color: textColor}}>{item.price} € night</div>
 			    </div>
 			</div>
-			)}
 		</div>
 	)
 }
