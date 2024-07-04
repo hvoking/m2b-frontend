@@ -106,9 +106,13 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 										"rgba(255, 255, 255, 0)" :
 										currentDsv === item ?
 										"rgba(255, 255, 255, 1)" :
+										rooms === null ?
+										"rgba(255, 255, 255, 1)" :
+										currentDsv[0] !== item[0] ?
+										"rgba(255, 255, 255, 0.4)" :
 										suites === null ?
 										"rgba(255, 255, 255, 1)" :
-										"rgba(255, 255, 255, 0.6)"
+										"rgba(255, 255, 255, 0.4)"
 										}
 									textAnchor="middle"
 									alignmentBaseline="middle"
