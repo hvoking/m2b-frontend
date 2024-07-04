@@ -65,8 +65,6 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 	});
 
 	const test = (combinedCounts[currentDsv] / sumOfCounts) * 100;
-	console.log(currentDsv)
-	console.log(test)
 
 	return (
 		<SVGWrapper>

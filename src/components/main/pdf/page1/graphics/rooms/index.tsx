@@ -15,7 +15,7 @@ export const Rooms = () => {
 	return (
 		<div className="pdf-graphics-item-wrapper">
 			<div>
-				Número de Dormitórios
+				Anúncios por Número de Dormitórios
 			</div>
 			{
 				!dsvData || !roomsData ? 
