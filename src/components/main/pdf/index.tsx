@@ -27,6 +27,7 @@ export const UserPdf = () => {
 
 	const handleStart = (e: any) => {
 		e.stopPropagation()
+		e.preventDefault()
         offsetY.current = (e.clientY || e.touches[0].clientY) - draggableRef.current.getBoundingClientRect().top;
         isDragging.current = true;
 
