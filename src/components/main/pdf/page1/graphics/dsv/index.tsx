@@ -16,8 +16,8 @@ export const Dsv = () => {
 		<div className="pdf-graphics-item-wrapper">
 			<div>Dormitórios-Suítes-Vagas</div>
 			<div className="pdf-dsv-wrapper">
-				<Bars dsvData={dsvData}/>
 				<Gauge roomsData={roomsData} dsvData={dsvData}/>
+				<Bars dsvData={dsvData}/>
 			</div>
 		</div>
 	)

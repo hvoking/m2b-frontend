@@ -80,7 +80,7 @@ export const Bars = ({ dsvData }: any) => {
 				return (
 					<g key={index}>
 						<rect
-							x={-40}
+							x={-yScale(currentPercent)-20}
 							y={totalHeight - 10}
 							width={40 + yScale(currentPercent)}
 							height={20}
@@ -99,7 +99,7 @@ export const Bars = ({ dsvData }: any) => {
 							</title>
 						</rect>
 						<text
-							x={-37}
+							x={15}
 							y={totalHeight}
 							fill={
 								suites === null ?
@@ -107,7 +107,7 @@ export const Bars = ({ dsvData }: any) => {
 								currentType === item ? 
 								"rgba(255, 255, 255, 1)" : 
 								"rgba(255, 255, 255, 0.6)"}
-							textAnchor="start"
+							textAnchor="end"
 							alignmentBaseline="middle"
 							fontWeight="600"
 							fontSize="0.8em"

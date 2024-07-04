@@ -1,10 +1,10 @@
 .pdf-graphics-wrapper {
   display: grid; 
   grid-template-columns: 1fr 1fr; 
-  width: 100%; 
-  height: 100%;
   overflow: hidden;
   grid-gap: 20px;
+  padding-right: 20px;
+  padding-left: 20px;
 }
 .pdf-graphics-item-wrapper {
   display: grid;

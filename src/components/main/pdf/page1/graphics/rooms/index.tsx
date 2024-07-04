@@ -14,7 +14,7 @@ export const Rooms = () => {
 
 	return (
 		<div className="pdf-graphics-item-wrapper">
-			<div style={{paddingLeft: "20px"}}>
+			<div>
 				Número de Dormitórios
 			</div>
 			{
