@@ -48,7 +48,7 @@ export const Bars = ({ dsvData }: any) => {
 		
 	return (
 		<SVGWrapper>
-			{sumOfCounts && currentDsvCount && currentDsvCount.map((item: any, index: number) => {
+			{sumOfCounts && currentDsvCount && currentDsvCount.slice(0, 5).map((item: any, index: number) => {
 				const currentPercent = (dsvCount[item] / sumOfCounts) * 100;
 				const currentHeight = 30;
 				const currentGap = 5;
@@ -58,45 +58,41 @@ export const Bars = ({ dsvData }: any) => {
 
 				return (
 					<g key={index}>
-						{currentPercent > 2 && 
-							<>
-							<Front
-								item={item}
-								innerWidth={innerWidth}
-								totalHeight={totalHeight}
-								currentHeight={currentHeight}
-								currentGap={currentGap}
-								currentPercent={currentPercent}
-								currentDifference={currentDifference}
-								currentType={currentType}
-								dsvData={dsvData}
-								rooms={rooms}
-								suites={suites}
-								onClick={onClick}
-								reducedCount={dsvCount}
-								sumOfCounts={sumOfCounts}
-								combinedColors={combinedColors}
-							/>
-							<DsvText
-								item={item}
-								totalHeight={totalHeight}
-								currentHeight={currentHeight}
-								currentType={currentType}
-								onClick={onClick}
-								suites={suites}
-							/>
-							<PercentText
-								item={item}
-								innerWidth={innerWidth}
-								totalHeight={totalHeight}
-								currentHeight={currentHeight}
-								currentType={currentType}
-								onClick={onClick}
-								currentPercent={currentPercent}
-								suites={suites}
-							/>
-						</>
-					}
+						<Front
+							item={item}
+							innerWidth={innerWidth}
+							totalHeight={totalHeight}
+							currentHeight={currentHeight}
+							currentGap={currentGap}
+							currentPercent={currentPercent}
+							currentDifference={currentDifference}
+							currentType={currentType}
+							dsvData={dsvData}
+							rooms={rooms}
+							suites={suites}
+							onClick={onClick}
+							reducedCount={dsvCount}
+							sumOfCounts={sumOfCounts}
+							combinedColors={combinedColors}
+						/>
+						<DsvText
+							item={item}
+							totalHeight={totalHeight}
+							currentHeight={currentHeight}
+							currentType={currentType}
+							onClick={onClick}
+							suites={suites}
+						/>
+						<PercentText
+							item={item}
+							innerWidth={innerWidth}
+							totalHeight={totalHeight}
+							currentHeight={currentHeight}
+							currentType={currentType}
+							onClick={onClick}
+							currentPercent={currentPercent}
+							suites={suites}
+						/>
 					</g>
 				)
 			})}

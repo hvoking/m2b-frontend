@@ -35,7 +35,6 @@ export const Legend = ({ roomsData, dsvData }: any) => {
 
 					return (
 						<div key={index}>
-						{currentPercent > 1 && 
 							<div className="rooms-legend-item-wrapper">
 								<div
 									className="rooms-legend-text"
@@ -75,7 +74,6 @@ export const Legend = ({ roomsData, dsvData }: any) => {
 									{Math.round(currentPercent)}%
 								</div>
 							</div>
-						}
 					</div>
 				)
 			})}
