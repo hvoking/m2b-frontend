@@ -5,7 +5,6 @@ import { useCallback } from 'react';
 import { Controllers } from './controllers';
 import { Pin } from './pin';
 import { Tooltip } from './tooltip';
-import { Buildings } from './buildings';
 import { Layers } from './layers';
 import { IsoPolygon } from './iso';
 import { HeatmapLayer } from './heatmap';
@@ -47,7 +46,6 @@ export const MapContainer = () => {
 			<HeatmapLayer/>
 			<Layers/>
 			<Pin/>
-			<Buildings/>
 			<Controllers/>
 			<Tooltip/>
 		</Map>
