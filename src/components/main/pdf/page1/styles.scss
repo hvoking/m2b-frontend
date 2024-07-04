@@ -1,6 +1,14 @@
 .pdf-body {
   display: grid;
-  grid-template-rows: min-content min-content 2fr min-content min-content 2fr;
+  grid-template-rows: 1fr 1fr;
   overflow: hidden;
   position: relative;
+}
+.page1-top {
+  display: grid;
+  grid-template-rows: min-content min-content 2fr
+}
+.page1-bottom {
+  display: grid;
+  grid-template-rows:  min-content min-content 2fr;
 }

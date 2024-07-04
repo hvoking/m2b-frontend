@@ -18,12 +18,16 @@ export const Page1 = ({ page1Ref, setActivePdf }: any) => {
 		>
 			<div className="pdf-body">
 				<CancelCross setActivePdf={setActivePdf}/>
-				<Header/>
-				<Address/>
-				<PdfMaps/>
-				<Info/>
-				<Title/>
-				<Graphics/>
+				<div className="page1-top">
+					<Header/>
+					<Address/>
+					<PdfMaps/>
+				</div>
+				<div className="page1-bottom">
+					<Info/>
+					<Title/>
+					<Graphics/>
+				</div>
 			</div>
 			<Footer/>
 		</div>

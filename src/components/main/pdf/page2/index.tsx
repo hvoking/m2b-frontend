@@ -5,6 +5,8 @@ import { Property } from './property';
 import { Prices } from './prices';
 import { CTA } from './cta';
 import { priceFormat } from '../../utils/constants';
+import { CancelCross } from '../page1/cross';
+import { Header } from './header';
 import './styles.scss';
 
 
@@ -35,8 +37,6 @@ export const Page2 = ({ page2Ref, printDocument, setActivePdf }: any) => {
 
 	const meanPrice = samplesPrices && priceFormat(Math.round(mean(samplesPrices)));
 
-	const currentDate = new Date().toLocaleDateString('pt-BR');
-	
 	return (
 		<div 
 			ref={page2Ref} 
@@ -44,18 +44,8 @@ export const Page2 = ({ page2Ref, printDocument, setActivePdf }: any) => {
 			onClick={(e: any) => onClick(e)}
 		>
 			<div className="pdf-body-page2">
-				<img
-					className="pdf-exit-cancel-cross"
-					src="static/logos/cancel_search.svg" 
-					alt="search-icon"
-					onClick={() => setActivePdf(false)}
-				/>
-				<div className="pdf-header-wrapper">
-					<div>{currentDate}</div>
-					<div className="pdf-header-subtitle">
-						Características do Imóvel
-					</div>
-				</div>
+				<CancelCross setActivePdf={setActivePdf}/>
+				<Header/>
 				<Property/>
 				<Prices/>
 				<Table linesData={linesData} pricesData={pricesData}/>
