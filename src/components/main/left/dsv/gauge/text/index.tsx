@@ -11,7 +11,7 @@ export const Text = ({ innerWidth, innerHeight, currentPercent, currentDsv }: an
 					${innerHeight/2}
 				)`}
 			>
-				{currentDsv[0] === "n" ? "total" : currentDsv[2] === "n" ? currentDsv[0] : currentDsv.replaceAll(",", ".")}
+				{currentDsv[0] === "n" ? "total" : currentDsv[2] === "n" ? currentDsv[0] : currentDsv.replaceAll(",", "-")}
 			</text>
 			<text
 				fill="rgba(255, 255, 255, 1)"

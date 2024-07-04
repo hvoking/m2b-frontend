@@ -17,7 +17,7 @@ export const DsvText = ({ item,	totalHeight, currentHeight,	currentType, onClick
 			onClick={() => onClick(item)}
 			style={{cursor: "pointer", letterSpacing: "3px"}}
 		>
-			{item.split(",").join(".")}
+			{item.split(",").join("-")}
 		</text>
 	)
 }

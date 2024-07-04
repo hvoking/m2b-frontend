@@ -112,9 +112,9 @@ export const Bars = ({ dsvData }: any) => {
 							fontWeight="600"
 							fontSize="0.8em"
 							onClick={() => onClick(item)}
-							style={{cursor: "pointer", letterSpacing: "1px"}}
+							style={{cursor: "pointer", letterSpacing: "2px"}}
 						>
-							{item}
+							{item.replaceAll(",", "-")}
 						</text>
 					</g>
 				)
