@@ -25,19 +25,21 @@ export const UserPdf = () => {
 		document.documentElement.style.setProperty('--vh', `${vh}px`);
 	});
 
-	const handleMouseDown = (e: any) => {
+	const handleStart = (e: any) => {
 		e.stopPropagation()
-        offsetY.current = e.clientY - draggableRef.current.getBoundingClientRect().top;
-
+        offsetY.current = (e.clientY || e.touches[0].clientY) - draggableRef.current.getBoundingClientRect().top;
         isDragging.current = true;
 
-        document.addEventListener('mousemove', handleMouseMove);
-        document.addEventListener('mouseup', handleMouseUp);
+        document.addEventListener('mousemove', handleMove);
+        document.addEventListener('mouseup', handleEnd);
+        document.addEventListener('touchmove', handleMove);
+        document.addEventListener('touchend', handleEnd);
     };
 
-    const handleMouseMove = (e: any) => {
+    const handleMove = (e: any) => {
         if (isDragging.current) {
-        	const offset = e.clientY - offsetY.current;
+        	const clientY = e.clientY || e.touches[0].clientY;
+        	const offset = clientY - offsetY.current;
             const newTop = offset < 60 ? 60 : offset;
             if (newTop) {
                 requestAnimationFrame(() => {
@@ -47,10 +49,12 @@ export const UserPdf = () => {
         }
     };
 
-    const handleMouseUp = () => {
-    	isDragging.current = false;
-        document.removeEventListener('mousemove', handleMouseMove);
-        document.removeEventListener('mouseup', handleMouseUp);
+    const handleEnd = () => {
+        isDragging.current = false;
+        document.removeEventListener('mousemove', handleMove);
+        document.removeEventListener('mouseup', handleEnd);
+        document.removeEventListener('touchmove', handleMove);
+        document.removeEventListener('touchend', handleEnd);
     };
 
 	return (
@@ -61,7 +65,8 @@ export const UserPdf = () => {
 					onClick={() => setActivePdf(false)}
 					tabIndex={0}
 					ref={draggableRef} 
-					onMouseDown={handleMouseDown}
+					onMouseDown={handleStart} 
+					onTouchStart={handleStart}
 				>
 					<Page1 page1Ref={page1Ref} setActivePdf={setActivePdf}/>	
 					<Page2 page2Ref={page2Ref} setActivePdf={setActivePdf} printDocument={printDocument}/>
