@@ -1,11 +1,7 @@
 // App Imports
-import { Header } from './header';
+import { Top } from './top';
+import { Bottom } from './bottom';
 import { Footer } from '../footer';
-import { PdfMaps } from './maps';
-import { Address } from './address';
-import { Graphics } from './graphics';
-import { Info } from './info';
-import { Title } from './title';
 import { CancelCross } from './cross';
 import './styles.scss';
 
@@ -18,16 +14,8 @@ export const Page1 = ({ page1Ref, setActivePdf }: any) => {
 		>
 			<div className="pdf-body">
 				<CancelCross setActivePdf={setActivePdf}/>
-				<div className="page1-top">
-					<Header/>
-					<Address/>
-					<PdfMaps/>
-				</div>
-				<div className="page1-bottom">
-					<Info/>
-					<Title/>
-					<Graphics/>
-				</div>
+				<Top/>
+				<Bottom/>
 			</div>
 			<Footer/>
 		</div>

@@ -1,14 +1,24 @@
 // App imports
 import './styles.scss';
 
-export const Header = ({ onClick, rooms}: any) => {
+// Context imports
+import { useEquipment } from '../../../context/filters/equipment';
+
+export const Header = () => {
+	const { rooms, setRooms, setSuites, setGarages } = useEquipment();
+
+	const onClick = () => {
+		setRooms(null);
+		setSuites(null);
+		setGarages(null); 
+	}
 	return (
 		<div className="property-type-header">
 			<div className="sidebar-sub-title">
 				Principais tipologias
 			</div>
 			<img 
-				src="static/utils/refresh_white.svg" 
+				src={rooms !== null ? "static/utils/refresh_white.svg" : "static/utils/refresh_gray.svg"}
 				alt="refresh" 
 				width="17px" 
 				onClick={onClick}

@@ -24,7 +24,6 @@ export const PointsApiProvider = ({children}: any) => {
 	const { propertyTypeId, businessTypeId } = usePropertyType();
 	const { rooms, suites, garages } = useEquipment();
 	const { dates } = useDates();
-	const { cityId } = useGeo();
 	
 	const [ pointsData, setPointsData ] = useState<any>(null);
 	
@@ -32,8 +31,7 @@ export const PointsApiProvider = ({children}: any) => {
 	  const fetchData = async () => {
 	  	const tempUrl = `
 	    	${process.env.REACT_APP_API_URL}/
-	    	points_api/
-	    	${cityId}
+	    	points_api
 			?business_type_id=${businessTypeId}
 	    	&property_type_id=${propertyTypeId}
 	    	&rooms=${rooms}
