@@ -20,7 +20,7 @@ export const usePricesApi = () => {
 
 export const PricesApiProvider = ({children}: any) => {
 	const { polygonData } = usePolygonApi();
-	const { businessTypeId, propertyTypeId, nearest } = usePropertyType();
+	const { businessTypeId, propertyTypeId } = usePropertyType();
 	const { rooms, suites, garages } = useEquipment();
 	const { dates } = useDates();
 
@@ -36,7 +36,6 @@ export const PricesApiProvider = ({children}: any) => {
 		    	&rooms=${rooms}
 		    	&suites=${suites}
 		    	&garages=${garages}
-		    	&k=${nearest}
 		    	&start_date=${datesFormat(dates[0])}
 	    		&final_date=${datesFormat(dates[1])}
 		    `
@@ -49,8 +48,7 @@ export const PricesApiProvider = ({children}: any) => {
 	}, [
 		polygonData,
 		businessTypeId, propertyTypeId, 
-		rooms, suites, garages,
-		nearest
+		rooms, suites, garages
 	]);
 
 	return (
