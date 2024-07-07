@@ -43,8 +43,8 @@ export const IconLayerProvider = ({children}: any) => {
   		!info.object && setCurrentPropertyId(null);
   	}
 
-	const iconMapping = 'static/components/pdf/maps/location-icon-mapping.json';
-	const iconAtlas = 'static/components/pdf/maps/location-icon-atlas.png';
+	const iconMapping = 'static/main/pdf/maps/location-icon-mapping.json';
+	const iconAtlas = 'static/main/pdf/maps/location-icon-atlas.png';
 
 	const iconLayer = filterPoints &&
 		new IconLayer({

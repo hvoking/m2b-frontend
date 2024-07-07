@@ -74,13 +74,13 @@ export const PdfMaps = () => {
 					gridTemplateColumns: "min-content min-content min-content 100px 100px 100px"
 				}}>
 					<div className="boundary-controller">
-						<img src="static/components/pdf/maps/icons/pencil.svg" alt="pencil" width="100%"/>
+						<img src="static/main/pdf/maps/icons/pencil.svg" alt="pencil" width="100%"/>
 					</div>
 					<div className="boundary-controller">
-						<img src="static/components/pdf/maps/icons/polygon.svg" alt="polygon" width="100%"/>
+						<img src="static/main/pdf/maps/icons/polygon.svg" alt="polygon" width="100%"/>
 					</div>
 					<div className="boundary-controller">
-						<img src="static/components/pdf/maps/icons/circle.svg" alt="circle" width="100%"/>
+						<img src="static/main/pdf/maps/icons/circle.svg" alt="circle" width="100%"/>
 					</div>
 					<div></div>
 					<div></div>

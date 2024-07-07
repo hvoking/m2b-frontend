@@ -76,15 +76,7 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 				const currentPercent = (combinedCounts[item] / sumOfCounts) * 100;
 				const currentCircumference = Math.round(circumference * currentPercent / 100);
 
-				if (currentCircumference) {
-					totalCircumference += currentCircumference;
-				}
-
-				// Calculate the angle for the text
-                const angle = (totalCircumference - currentCircumference / 2) * (360 / circumference);
-                const radians = angle * (Math.PI / 180);
-                const textX = innerWidth / 2 + (radius * 0.8) * Math.cos(radians);
-                const textY = innerHeight / 2 + (radius * 0.8) * Math.sin(radians);
+				if (currentCircumference) {totalCircumference += currentCircumference}
 
 				return (
 					<g key={item} onClick={() => onClick(item)}>

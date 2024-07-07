@@ -14,7 +14,7 @@ export const Title = () => {
 				Características da Região
 			</div>
 			<img 
-				src="static/utils/refresh_black.svg" 
+				src="static/main/refresh/refresh_black.svg" 
 				alt="refresh" 
 				width="15px" 
 				onClick={onClick}

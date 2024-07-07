@@ -68,57 +68,57 @@ export const Bars = ({ dsvData }: any) => {
 		
 	return (
 		<SVGWrapper>
-			{sumOfCounts && currentDsvCount && currentDsvCount.map((item: any, index: number) => {
-				const currentPercent = (dsvCount[item] / sumOfCounts) * 100;
-				const currentColor = rooms ? dsvData[`d${rooms}`]['colors'] : combinedColors;
+			<>
+				{sumOfCounts && currentDsvCount && currentDsvCount.map((item: any, index: number) => {
+					const currentPercent = (dsvCount[item] / sumOfCounts) * 100;
+					const currentColor = rooms ? dsvData[`d${rooms}`]['colors'] : combinedColors;
 
-				if (currentPercent < 5) return <></>
+					totalHeight += startFlag ? currentHeight : 10;
+					startFlag = true
 
-				totalHeight += startFlag ? currentHeight : 10;
-				startFlag = true
-
-				return (
-					<g key={index}>
-						<rect
-							x={-yScale(currentPercent)-20}
-							y={totalHeight - 10}
-							width={40 + yScale(currentPercent)}
-							height={20}
-							fill={
-								currentType === item ?
-								currentColor[item] :
-								suites === null ?
-								String(currentColor[item]) :
-								String(currentColor[item]).replace('1)', '0.4)')
-							}
-							style={{cursor: "pointer"}}
-							onClick={() => onClick(item)}
-						>
-							<title>
-								{Math.round(dsvCount[item]/sumOfCounts * 100)}%
-							</title>
-						</rect>
-						<text
-							x={15}
-							y={totalHeight}
-							fill={
-								suites === null ?
-								"rgba(255, 255, 255, 1)" : 
-								currentType === item ? 
-								"rgba(255, 255, 255, 1)" : 
-								"rgba(255, 255, 255, 0.6)"}
-							textAnchor="end"
-							alignmentBaseline="middle"
-							fontWeight="600"
-							fontSize="0.8em"
-							onClick={() => onClick(item)}
-							style={{cursor: "pointer", letterSpacing: "2px"}}
-						>
-							{item.replaceAll(",", "-")}
-						</text>
-					</g>
-				)
-			})}
+					return (
+						<g key={item}>
+							<rect
+								x={-yScale(currentPercent)-20}
+								y={totalHeight - 10}
+								width={40 + yScale(currentPercent)}
+								height={20}
+								fill={
+									currentType === item ?
+									currentColor[item] :
+									suites === null ?
+									String(currentColor[item]) :
+									String(currentColor[item]).replace('1)', '0.4)')
+								}
+								style={{cursor: "pointer"}}
+								onClick={() => onClick(item)}
+							>
+								<title>
+									{Math.round(dsvCount[item]/sumOfCounts * 100)}%
+								</title>
+							</rect>
+							<text
+								x={15}
+								y={totalHeight}
+								fill={
+									suites === null ?
+									"rgba(255, 255, 255, 1)" : 
+									currentType === item ? 
+									"rgba(255, 255, 255, 1)" : 
+									"rgba(255, 255, 255, 0.6)"}
+								textAnchor="end"
+								alignmentBaseline="middle"
+								fontWeight="600"
+								fontSize="0.8em"
+								onClick={() => onClick(item)}
+								style={{cursor: "pointer", letterSpacing: "2px"}}
+							>
+								{item.replaceAll(",", "-")}
+							</text>
+						</g>
+					)
+				})}
+			</>
 		</SVGWrapper>
 	)
 }

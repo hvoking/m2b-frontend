@@ -3,7 +3,7 @@ export const Middle = () => {
 		<div className="page2-item">
 			<img
 				className="page2-image"
-				src="static/components/landing/page2/logo_pc.svg" 
+				src="static/landing/page2/logo_pc.svg" 
 				alt="logo_in_pc" 
 			/>
 			<div>

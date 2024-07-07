@@ -9,7 +9,7 @@ export const ReCenter = ({ setViewport, viewport, placeCoordinates }: any) => {
 	return (
 		<img 
 			className="airbnb-recenter-image" 
-			src="static/components/maps/reCenter.svg" 
+			src="static/main/maps/reCenter.svg" 
 			alt="reCenter" 
 			onClick={reCenter}
 		/>

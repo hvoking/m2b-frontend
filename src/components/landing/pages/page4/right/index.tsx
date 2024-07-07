@@ -23,7 +23,7 @@ export const Right = () => {
 		>
 			{width && height && <img
 				className="page4-image"
-				src="static/components/landing/devices/mobile.gif" 
+				src="static/landing/devices/mobile.gif" 
 				alt="mobile" 
 				style={{maxHeight: d3.min([width / 1.2, height / 1.2])}}
 			/>}

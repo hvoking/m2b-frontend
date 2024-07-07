@@ -19,7 +19,7 @@ export const Location = () => {
 		<div className="location-wrapper">
 				<img 
 					style={{width: "12px", height: "17px"}} 
-					src="static/components/maps/marker.svg" 
+					src="static/main/maps/marker.svg" 
 					alt="pin-location"
 			     />
 				<div>{addressName}</div>

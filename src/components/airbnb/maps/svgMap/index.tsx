@@ -51,7 +51,7 @@ export const SvgMap = () => {
 						  y={pinCoordinates[1] - 10}
 						  width={6}
 						  height={10}
-						  href="static/components/maps/marker.svg"
+						  href="static/main/maps/marker.svg"
 						  className="pin-marker"
 						/>
 					</g>

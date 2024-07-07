@@ -6,7 +6,7 @@ export const Location = ({ currentAddress }: any) => {
 		<div className="airbnb-location-wrapper">
 			<img 
 				className="location-pin" 
-				src="static/components/maps/marker.svg" 
+				src="static/main/maps/marker.svg" 
 				alt="pin-location"
 		     />
 			<div>{currentAddress}</div>

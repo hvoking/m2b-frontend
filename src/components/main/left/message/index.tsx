@@ -9,7 +9,7 @@ export const UserMessage = () => {
 			</div>
 			<img 
 				className="m2b-starting-gif" 
-				src="static/components/sidebar/marker_move.gif" 
+				src="static/main/gif/marker_move.gif" 
 				alt="marker_move"
 			/>
 		</div>

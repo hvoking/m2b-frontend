@@ -46,13 +46,12 @@ export const Bars = ({ roomsData, dsvData }: any) => {
 			{
 				sortedRooms.map((item: any, index: number) => {
 					const currentPercent = roomsData[item] ? roomsData[item] : 0;
-					if (currentPercent < 3) return <></> 
 					
 					totalHeight += startFlag ? currentHeight : 10;
 					startFlag = true;
 
 					return (
-						<g key={index} onClick={() => onClick(item)}>
+						<g key={item} onClick={() => onClick(item)}>
 							<rect
 								x={-40}
 								y={totalHeight - 10}

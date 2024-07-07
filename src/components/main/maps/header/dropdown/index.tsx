@@ -23,8 +23,8 @@ export const Dropdown = () => {
 	const { categoryDict, currentView, setCategoryId } = useCategory();
 
 	const transportListOfValues: any = {
-		"walking": "static/components/maps/header/walking-active.svg",
-		"driving": "static/components/maps/header/driving-active.svg"
+		"walking": "static/main/maps/header/walking-active.svg",
+		"driving": "static/main/maps/header/driving-active.svg"
 	}
 
 	const minutesDict: any = {

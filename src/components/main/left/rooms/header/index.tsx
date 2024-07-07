@@ -18,7 +18,7 @@ export const Header = () => {
 				Principais tipologias
 			</div>
 			<img 
-				src={rooms !== null ? "static/utils/refresh_white.svg" : "static/utils/refresh_gray.svg"}
+				src={rooms !== null ? "static/main/refresh/refresh_white.svg" : "static/main/refresh/refresh_gray.svg"}
 				alt="refresh" 
 				width="17px" 
 				onClick={onClick}

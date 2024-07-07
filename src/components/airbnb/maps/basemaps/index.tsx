@@ -11,7 +11,7 @@ export const BasemapsSelectors = () => {
 		<div className="basemaps-parent-wrapper">
 			<img 
 				className="basemaps-image"
-				src="static/components/maps/globe.svg"
+				src="static/main/maps/globe.svg"
 				alt="dark"
 				onClick={() => {
 					currentBasemap === "mapbox://styles/generativa/clhqor7c101lh01pe52myfwik" ?

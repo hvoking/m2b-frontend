@@ -39,7 +39,7 @@ export const Pin = () => {
 	    >
 	      <img 
 		      style={{width: "25px"}} 
-		      src="static/components/maps/marker.svg" 
+		      src="static/main/maps/marker.svg" 
 		      alt="marker"
 	     />
 	    </Marker>

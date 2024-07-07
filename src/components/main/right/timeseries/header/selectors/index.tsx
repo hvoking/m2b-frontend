@@ -14,7 +14,7 @@ export const Selectors = () => {
         const [ currentTooltip, setCurrentTooltip ] = useState<any>(null);
         const { activeEquipment, setActiveEquipment } = usePropertyType();
 
-        const imagePath = "static/components/prices/header/";
+        const imagePath = "static/main/prices/header/";
 
         return (
                 <div className="right-selector-wrapper">

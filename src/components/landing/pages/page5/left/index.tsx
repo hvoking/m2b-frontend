@@ -23,7 +23,7 @@ export const Left = () => {
 		>
 			<img
 				className="page5-image"
-				src="static/components/landing/devices/pc.png"
+				src="static/landing/devices/pc.png"
 				alt="pc" 
 				style={{ maxHeight: d3.min([width, height]) }}
 			/>

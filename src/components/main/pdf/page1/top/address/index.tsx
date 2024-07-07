@@ -17,7 +17,7 @@ export const Address = () => {
 			<div>
 				<div style={{display: "flex", gap: "5px"}}>
 					<img 
-						src="static/components/maps/marker.svg" 
+						src="static/main/maps/marker.svg" 
 						alt="marker" 
 						width="10px"
 					/>

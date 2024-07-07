@@ -2,7 +2,7 @@ export const Left = () => {
 	return (
 		<img
 			className="page-image"
-			src="static/components/landing/devices/monitor.gif" 
+			src="static/landing/devices/monitor.gif" 
 			alt="on-demand" 
 		/>
 	)

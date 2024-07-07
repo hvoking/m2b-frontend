@@ -3,7 +3,7 @@ export const Left = () => {
 		<div className="page2-item">
 			<img
 				className="page2-image"
-				src="static/components/landing/page2/layers.svg" 
+				src="static/landing/page2/layers.svg" 
 				alt="layers" 
 			/>
 			<div>

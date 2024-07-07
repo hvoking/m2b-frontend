@@ -16,7 +16,7 @@ export const Footer = () => {
 				>
 					<img
 						className="imoveis-sc-logo"
-						src='static/components/pdf/isc_logo.svg'
+						src='static/main/pdf/isc_logo.svg'
 						alt="imoveis-sc-logo"
 					/>
 				</a>

@@ -26,7 +26,7 @@ export const Right = () => {
 		>
 			{height && <img 
 				height={d3.min([width, height])}
-				src="static/components/landing/gif/m2b_landing.gif"
+				src="static/landing/gif/m2b_landing.gif"
 				alt="m2b-landing"
 			/>}
 		</div>

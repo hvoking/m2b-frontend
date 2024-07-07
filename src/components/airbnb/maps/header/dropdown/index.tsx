@@ -10,9 +10,9 @@ export const Dropdown = () => {
 	const { routingProfile, setRoutingProfile, contoursMinutes, setContoursMinutes } = useIsoPolygonApi();
 
 	const transportListOfValues: any = {
-		"walking": "static/components/maps/header/walking-active.svg",
-		"cycling": "static/components/maps/header/cycling-active.svg",
-		"driving": "static/components/maps/header/driving-active.svg"
+		"walking": "static/main/maps/header/walking-active.svg",
+		"cycling": "static/main/maps/header/cycling-active.svg",
+		"driving": "static/main/maps/header/driving-active.svg"
 	}
 
 	const minutesDict: any = {
