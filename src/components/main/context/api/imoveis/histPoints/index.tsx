@@ -5,7 +5,6 @@ import { useState, useEffect, useContext, createContext } from 'react';
 import { usePolygonApi } from '../../polygon';
 import { usePropertyType } from '../../../filters/property';
 import { useEquipment } from '../../../filters/equipment';
-import { useGeo } from '../../../filters/geo';
 import { useCategory } from '../../../filters/category';
 
 const HistPointsApiContext: React.Context<any> = createContext(null)
@@ -20,7 +19,6 @@ export const HistPointsApiProvider = ({children}: any) => {
 	const { polygonData } = usePolygonApi();
 	const { propertyTypeId, businessTypeId } = usePropertyType();
 	const { rooms, suites, garages } = useEquipment();
-	const { cityId } = useGeo();
 	const { categoryId } = useCategory();
 	
 	const [ histPointsData, setHistPointsData ] = useState<any>(null);
@@ -29,8 +27,7 @@ export const HistPointsApiProvider = ({children}: any) => {
 	  const fetchData = async () => {
 	  	const tempUrl = `
 	    	${process.env.REACT_APP_API_URL}/
-	    	hist_points_api/
-	    	${cityId}
+	    	hist_points_api
 			?business_type_id=${businessTypeId}
 	    	&property_type_id=${propertyTypeId}
 	    	&rooms=${rooms}
@@ -45,7 +42,7 @@ export const HistPointsApiProvider = ({children}: any) => {
 	  polygonData && categoryId === 2 && fetchData();
 	}, [ 
 		polygonData,
-		categoryId, cityId,
+		categoryId,
 		businessTypeId, propertyTypeId, 
 		rooms, suites, garages
 	]);
