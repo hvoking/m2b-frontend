@@ -27,13 +27,15 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 	}
 
 	const radius = d3.min([innerWidth, innerHeight]) / 2;
-	const strokeWidth = radius*0.3;
+	const strokeWidth = radius * 0.3;
 	const innerRadius = radius - ( strokeWidth / 2 );
 
 	const circumference = innerRadius * 2 * Math.PI;
 
 	const combinedCounts: any = {};
 	const combinedColors: any = {};
+
+	console.log(dsvData)
 
 	if (dsvData) {
 		for (const key in dsvData) {
@@ -83,8 +85,8 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 				// Calculate the angle for the text
                 const angle = (totalCircumference - currentCircumference / 2) * (360 / circumference);
                 const radians = angle * (Math.PI / 180);
-                const textX = innerWidth / 2 + (radius*0.8) * Math.cos(radians);
-                const textY = innerHeight / 2 + (radius*0.8) * Math.sin(radians);
+                const textX = innerWidth / 2 + (radius * 0.8) * Math.cos(radians);
+                const textY = innerHeight / 2 + (radius * 0.8) * Math.sin(radians);
 
 				return (
 					<g key={item} onClick={() => onClick(item)}>
