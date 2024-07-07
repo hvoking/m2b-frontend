@@ -1,11 +1,7 @@
 export const Front = ({
 	item,
-	innerWidth,
 	totalHeight,
 	currentHeight,
-	currentGap,
-	currentPercent,
-	currentDifference,
 	currentType,
 	dsvData,
 	rooms,
@@ -16,6 +12,8 @@ export const Front = ({
 	combinedColors
 }: any) => {
 	const currentColor = rooms ? dsvData[`d${rooms}`]['colors'] : combinedColors;
+	const currentGap = 5;
+	const currentDifference = 10;
 
 	return (
 		<g>

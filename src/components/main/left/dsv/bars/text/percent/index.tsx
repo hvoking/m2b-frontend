@@ -1,4 +1,4 @@
-export const PercentText = ({ item, innerWidth,	totalHeight, currentHeight,	currentType, onClick, currentPercent, suites }: any) => {
+export const PercentText = ({ item,	totalHeight, currentHeight,	currentType, onClick, currentPercent, suites }: any) => {
 	return (
 		<text
 			key={item}

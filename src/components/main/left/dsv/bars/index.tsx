@@ -51,8 +51,7 @@ export const Bars = ({ dsvData }: any) => {
 			{sumOfCounts && currentDsvCount && currentDsvCount.slice(0, 5).map((item: any, index: number) => {
 				const currentPercent = (dsvCount[item] / sumOfCounts) * 100;
 				const currentHeight = 30;
-				const currentGap = 5;
-				const currentDifference = 10;
+				
 
 				totalHeight += currentHeight;
 
@@ -60,12 +59,8 @@ export const Bars = ({ dsvData }: any) => {
 					<g key={index}>
 						<Front
 							item={item}
-							innerWidth={innerWidth}
 							totalHeight={totalHeight}
 							currentHeight={currentHeight}
-							currentGap={currentGap}
-							currentPercent={currentPercent}
-							currentDifference={currentDifference}
 							currentType={currentType}
 							dsvData={dsvData}
 							rooms={rooms}
@@ -85,7 +80,6 @@ export const Bars = ({ dsvData }: any) => {
 						/>
 						<PercentText
 							item={item}
-							innerWidth={innerWidth}
 							totalHeight={totalHeight}
 							currentHeight={currentHeight}
 							currentType={currentType}

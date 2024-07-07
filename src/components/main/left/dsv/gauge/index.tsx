@@ -35,8 +35,6 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
 	const combinedCounts: any = {};
 	const combinedColors: any = {};
 
-	console.log(dsvData)
-
 	if (dsvData) {
 		for (const key in dsvData) {
 		  if (dsvData.hasOwnProperty(key)) {

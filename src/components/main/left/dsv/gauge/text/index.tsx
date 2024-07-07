@@ -1,5 +1,4 @@
 export const Text = ({ innerWidth, innerHeight, currentPercent, currentDsv }: any) => {
-	console.log()
 	return (
 		<>
 			<text

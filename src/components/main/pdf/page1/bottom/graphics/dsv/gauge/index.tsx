@@ -79,7 +79,6 @@ export const Gauge = ({ roomsData, dsvData }: any) => {
                 const textX = innerWidth / 2 + (radius*0.8) * Math.cos(radians);
                 const textY = innerHeight / 2 + (radius*0.8) * Math.sin(radians);
 
-
 				return (
 					<g key={item} onClick={() => onClick(item)}>
 						{currentCircumference && combinedColors[item] &&
