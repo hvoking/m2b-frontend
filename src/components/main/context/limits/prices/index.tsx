@@ -53,7 +53,7 @@ export const PricesLimitsProvider = ({children}: any) => {
         activeEquipment === "new" || 
         activeEquipment === "status"?
         activePoints :
-        filteredByAreas
+        filteredByDates;
 
     return (
         <PricesLimitsContext.Provider value={{filterPrices}}>
