@@ -5,29 +5,22 @@ import './styles.scss';
 
 // Context imports
 import { useIsoPolygonApi } from '../context/api/isoPolygon';
-import { useLinesApi } from '../context/api/imoveis/lines';
 import { usePricesApi } from '../context/api/imoveis/prices';
 
-export const Left = () => {
+export const Graphics = () => {
 	const { initialMarker } = useIsoPolygonApi();
-	const { linesData } = useLinesApi();
 	const { pricesData } = usePricesApi();
 
 	return (
-		<div className="left">
 		<div className="airbnb-message-wrapper">
-			{!initialMarker && linesData && pricesData &&
+			{!initialMarker && pricesData &&
 				<div className="airbnb-sidebar-items">
-					<Prices 
-						linesData={linesData} 
-						pricesData={pricesData}
-					/>
+					<Prices pricesData={pricesData}/>
 					<Timeseries/>
 				</div>
 			}
 		</div>
-		</div>
 	)
 }
 
-Left.displayName="Left";
+Graphics.displayName="Graphics";

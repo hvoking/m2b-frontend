@@ -19,11 +19,11 @@ import { useLinesLimits } from '../../context/limits/lines';
 // Third party imports
 import * as d3 from 'd3';
 
-export const Prices = ({ linesData, pricesData }: any) => {
+export const Prices = ({ pricesData }: any) => {
 	const { margin, innerWidth, innerHeight } = usePricesSizes();
 	const { setPriceMin, setPriceMax, leftPosition, setLeftPosition, rightPosition, setRightPosition } = usePrices();
 	const { startDate, finalDate } = useDates();
-	const { bottomLimit, topLimit, minLine, meanLine, maxLine } = useLinesLimits();
+	const { bottomLimit, topLimit, minLine, maxLine } = useLinesLimits();
 
 	const startDateParts = startDate.split("-");
 	const currentStartDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);

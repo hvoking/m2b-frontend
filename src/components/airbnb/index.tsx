@@ -1,8 +1,7 @@
 // App imports
 import { Wrapper } from './wrapper';
-import { Left } from './left';
+import { Graphics } from './graphics';
 import { Right } from './right';
-import { Mobile } from './mobile';
 import { Maps } from './maps';
 import './styles.scss';
 
@@ -13,9 +12,8 @@ export const Airbnb = () => {
 				<Right/>
 				<div style={{display: "grid", gridTemplateRows: "8fr 3fr", height: "calc(100vh - 70px)"}}>
 					<Maps/>
-					<Left/>
+					<Graphics/>
 				</div>
-				<Mobile/>
 			</div>
 		</Wrapper>
 	)

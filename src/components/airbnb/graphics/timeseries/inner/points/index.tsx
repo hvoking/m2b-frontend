@@ -1,5 +1,4 @@
 // Context imports
-import { usePrices } from '../../../../context/filters/prices';
 import { useTooltip } from '../../../../context/maps/tooltip';
 import { useLinesLimits } from '../../../../context/limits/lines';
 import { usePricesLimits } from '../../../../context/limits/prices';
