@@ -13,16 +13,19 @@ import { VerticalRef } from './vertical';
 import { yAxisTickFormat } from '../../../utils/constants';
 
 // Context imports
+import { usePricesApi } from '../../../context/api/imoveis/prices';
 import { usePricesLimits } from '../../../context/limits/prices';
 import { useDates } from '../../../context/filters/dates';
 import { usePrices } from '../../../context/filters/prices';
 import { useLinesLimits } from '../../../context/limits/lines';
+
 
 // Third-party imports
 import * as d3 from 'd3';
 
 export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
   const { filterPrices } = usePricesLimits();
+  const { pricesData } = usePricesApi();
   const { formatedStartDate, formatedFinalDate } = useDates();
   const { unitPrice } = usePrices();
   const { bottomLimit, topLimit } = useLinesLimits();
@@ -45,7 +48,7 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
     setActiveTooltip(false)
   }
 
-  const pricesArray = filterPrices.map((items: any) => 
+  const pricesArray = pricesData.map((items: any) => 
       unitPrice === "price" ? 
       items.price : 
       items.unit_price

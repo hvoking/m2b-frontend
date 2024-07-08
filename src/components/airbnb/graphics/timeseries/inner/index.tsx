@@ -14,6 +14,7 @@ import { yAxisTickFormat } from '../../../utils/constants';
 
 // Context imports
 import { useLinesApi } from '../../../context/api/imoveis/lines';
+import { usePricesApi } from '../../../context/api/imoveis/prices';
 import { useDates } from '../../../context/filters/dates';
 import { useLinesLimits } from '../../../context/limits/lines';
 import { usePricesLimits } from '../../../context/limits/prices';
@@ -23,6 +24,7 @@ import * as d3 from 'd3';
 
 export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
   const { linesData } = useLinesApi();
+  const { pricesData } = usePricesApi();
   const { formatedStartDate, formatedFinalDate } = useDates();
   const { bottomLimit, topLimit } = useLinesLimits();
   const { filterPoints } = usePricesLimits();
@@ -47,7 +49,7 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
 
   if (!filterPoints) return <></>
 
-  const pricesArray = filterPoints.map((items: any) => items.price);
+  const pricesArray = pricesData.map((items: any) => items.price);
 
   const maxPoint = d3.max(pricesArray);
   const minPoint = d3.min(pricesArray);
