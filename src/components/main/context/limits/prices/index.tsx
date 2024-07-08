@@ -5,63 +5,61 @@ import { useContext, createContext } from 'react';
 import { usePricesApi } from '../../api/imoveis/prices';
 import { useAreas } from '../../filters/areas';
 import { usePrices } from '../../filters/prices';
+import { useDates } from '../../filters/dates';
 import { usePropertyType } from '../../filters/property';
  
 const PricesLimitsContext: React.Context<any> = createContext(null)
 
 export const usePricesLimits = () => {
-	return (
-		useContext(PricesLimitsContext)
-	)
+    return (
+        useContext(PricesLimitsContext)
+    )
 }
 
 export const PricesLimitsProvider = ({children}: any) => {
-	const { pricesData } = usePricesApi();
-	const { areaMin, areaMax } = useAreas();
-	const { unitPrice, leftPosition, rightPosition } = usePrices();
-	const { activeEquipment } = usePropertyType();
+    const { pricesData } = usePricesApi();
+    const { areaMin, areaMax } = useAreas();
+    const { unitPrice, leftPosition, rightPosition } = usePrices();
+    const { startDate, finalDate } = useDates();
+    const { activeEquipment } = usePropertyType();
 
-	const currentPriceString = 
-  		unitPrice === "price" ? 
-  		"price" : 
-  		"unit_price";
+    const currentPriceString = 
+        unitPrice === "price" ? 
+        "price" : 
+        "unit_price";
 
-	const filterByAreas = pricesData && pricesData.filter((d: any) => {
-        return (areaMin < d.processed_area && d.processed_area < areaMax)
-    })
+    const startDateParts = startDate.split("-");
+    const currentStartDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);
 
-    const filterByPrices = pricesData && filterByAreas.filter((d: any) => {
-        return (leftPosition < d[currentPriceString] && d[currentPriceString] < rightPosition)
-    })
+    const finalDateParts = finalDate.split("-");
+    const currentFinalDate = new Date(`${finalDateParts[2]}-${finalDateParts[1]}-${finalDateParts[0]}`);
 
-    const activePoints = pricesData && filterByPrices.filter((item: any) => {
-        if (item.furnished === 1 && activeEquipment === "furnished") {
-            return item
-        }
-        else if (item.pool === 1 && activeEquipment === "pool") {
-            return item
-        }
-        else if (item.new === 1 && activeEquipment === "new") {
-            return item
-        }
-        else if (item.status === 1 && activeEquipment === "status") {
-            return item
-        }
+    const filteredByAreas = pricesData?.filter((d: any) =>
+        areaMin < d.processed_area &&
+        d.processed_area < areaMax &&
+        leftPosition < d[currentPriceString] &&
+        d[currentPriceString] < rightPosition &&
+        currentStartDate < new Date(d.start_date) &&
+        new Date(d.start_date) < currentFinalDate
+    );
+
+    const activePoints = filteredByAreas?.filter((item: any) => {
+        return item[activeEquipment] === 1;
     });
 
     const filterPrices = 
         activeEquipment === "furnished" || 
         activeEquipment === "pool" || 
         activeEquipment === "new" || 
-        activeEquipment === "status" ?
+        activeEquipment === "status"?
         activePoints :
-        filterByPrices
+        filteredByAreas
 
-	return (
-		<PricesLimitsContext.Provider value={{filterPrices}}>
-			{children}
-		</PricesLimitsContext.Provider>
-	)
+    return (
+        <PricesLimitsContext.Provider value={{filterPrices}}>
+            {children}
+        </PricesLimitsContext.Provider>
+    )
 }
 
 PricesLimitsContext.displayName = "PricesLimitsContext";

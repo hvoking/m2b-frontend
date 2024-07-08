@@ -2,7 +2,6 @@
 import { AreasApiProvider } from './areas';
 import { DsvApiProvider } from './dsv';
 import { RoomsApiProvider } from './rooms';
-import { PointsApiProvider } from './points';
 import { PricesApiProvider } from './prices';
 import { LinesApiProvider } from './lines';
 import { HistApiProvider } from './hist';
@@ -16,7 +15,6 @@ export const ImoveisApiProvider = ({children}: any) => {
     <RoomsApiProvider>
     <DsvApiProvider>
     <HistApiProvider>
-    <PointsApiProvider>
     <HistPointsApiProvider>
     <LinesApiProvider>
     <PricesApiProvider>
@@ -28,7 +26,6 @@ export const ImoveisApiProvider = ({children}: any) => {
     </PricesApiProvider>
     </LinesApiProvider>
     </HistPointsApiProvider>
-    </PointsApiProvider>
     </HistApiProvider>
     </DsvApiProvider>
     </RoomsApiProvider>

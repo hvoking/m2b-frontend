@@ -6,7 +6,7 @@ import { useTooltip } from '../../../maps/tooltip';
 import { usePrices } from '../../../filters/prices';
 import { usePropertyType } from '../../../filters/property';
 import { useLinesLimits } from '../../../limits/lines';
-import { usePointsLimits } from '../../../limits/points';
+import { usePricesLimits } from '../../../limits/prices';
 
 // Third party imports
 // @ts-ignore
@@ -26,7 +26,7 @@ export const IconLayerProvider = ({children}: any) => {
 	const { setPropertyInfo, setActivePropertyInfo } = useTooltip();
 	const { currentPropertyId, setCurrentPropertyId } = usePropertyType();
 	const { bottomLimit, topLimit } = useLinesLimits();
-	const { filterPoints } = usePointsLimits();
+	const { filterPrices } = usePricesLimits();
 
 	const currentPriceString = 
   		unitPrice === "price" ? 
@@ -46,10 +46,10 @@ export const IconLayerProvider = ({children}: any) => {
 	const iconMapping = 'static/main/pdf/maps/location-icon-mapping.json';
 	const iconAtlas = 'static/main/pdf/maps/location-icon-atlas.png';
 
-	const iconLayer = filterPoints &&
+	const iconLayer = filterPrices &&
 		new IconLayer({
 			id: 'price-icon',
-			data: filterPoints,
+			data: filterPrices,
 			pickable: true,
 			getPosition: (d: any) => d.geometry.coordinates,
 			iconAtlas,

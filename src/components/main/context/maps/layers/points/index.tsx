@@ -7,7 +7,7 @@ import { usePrices } from '../../../filters/prices';
 import { usePropertyType } from '../../../filters/property';
 import { useCategory } from '../../../filters/category';
 import { useLinesLimits } from '../../../limits/lines';
-import { usePointsLimits } from '../../../limits/points';
+import { usePricesLimits } from '../../../limits/prices';
 
 // Third party imports
 // @ts-ignore
@@ -28,7 +28,7 @@ export const PointsLayerProvider = ({children}: any) => {
 	const { categoryId } = useCategory();
 	const { setPropertyHoverInfo, setPropertyInfo, setActivePropertyInfo } = useTooltip();
 	const { businessTypeId, currentPropertyId, setCurrentPropertyId } = usePropertyType();
-	const { filterPoints } = usePointsLimits();
+	const { filterPrices } = usePricesLimits();
 
 	const currentPriceString = 
   		unitPrice === "price" ? 
@@ -46,10 +46,10 @@ export const PointsLayerProvider = ({children}: any) => {
   		setPropertyHoverInfo(info);
   	}
 
-	const pointsLayer = categoryId === 1 && filterPoints &&
+	const pointsLayer = categoryId === 1 && filterPrices &&
 		new GridCellLayer({
 		    id: 'prices-layer',
-		    data: filterPoints,
+		    data: filterPrices,
 		    cellSize: 10,
 		    pickable: true,
 		    getPosition: (d: any) => d.geometry.coordinates,
