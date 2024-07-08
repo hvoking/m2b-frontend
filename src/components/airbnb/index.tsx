@@ -10,10 +10,8 @@ export const Airbnb = () => {
 		<Wrapper>
 			<div className="airbnb-wrapper">
 				<Listing/>
-				<div style={{display: "grid", gridTemplateRows: "8fr 3fr", height: "calc(100vh - 70px)"}}>
-					<Maps/>
-					<Graphics/>
-				</div>
+				<Maps/>
+				<Graphics/>
 			</div>
 		</Wrapper>
 	)

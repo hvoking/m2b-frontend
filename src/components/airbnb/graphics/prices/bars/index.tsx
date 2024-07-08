@@ -11,7 +11,6 @@ export const Bars = ({
     innerWidth, innerHeight, 
     leftPosition, setLeftPosition, 
     rightPosition, setRightPosition,
-    priceFormat,
     bottomLimit, topLimit,
 }: any) => {
     const currentDragRef = useRef<any>(null);

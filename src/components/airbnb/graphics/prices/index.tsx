@@ -13,49 +13,50 @@ import { Header } from './header';
 // Context imports
 import { usePricesSizes } from '../../context/sizes/prices';
 import { usePrices } from '../../context/filters/prices';
+import { usePricesApi } from '../../context/api/imoveis/prices';
 import { useDates } from '../../context/filters/dates';
 import { useLinesLimits } from '../../context/limits/lines';
+import { usePricesLimits } from '../../context/limits/prices';
 
 // Third party imports
 import * as d3 from 'd3';
 
-export const Prices = ({ pricesData }: any) => {
-	const { margin, innerWidth, innerHeight } = usePricesSizes();
+export const Prices = () => {
+	const { innerWidth, innerHeight } = usePricesSizes();
 	const { setPriceMin, setPriceMax, leftPosition, setLeftPosition, rightPosition, setRightPosition } = usePrices();
-	const { startDate, finalDate } = useDates();
+	const { filterPoints } = usePricesLimits();
 	const { bottomLimit, topLimit, minLine, maxLine } = useLinesLimits();
-
-	const startDateParts = startDate.split("-");
-	const currentStartDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);
-
-	const finalDateParts = finalDate.split("-");
-	const currentFinalDate = new Date(`${finalDateParts[2]}-${finalDateParts[1]}-${finalDateParts[0]}`);
-
-	const filterByDates = pricesData.filter((d: any) => {  		
-  		return currentStartDate < new Date(d.start_date) && new Date(d.start_date) < currentFinalDate
-  	});
-
-	const filterPoints = filterByDates.map((item: any) => {
-		return item['price']
-	});
 
 	const minBound: any = d3.max([minLine - (maxLine + minLine) * 0.2, 0]); 
     const maxBound = maxLine + (maxLine + minLine) * 0.2;
+
+    useEffect(() => {
+    	setLeftPosition(minBound);
+    	setPriceMin(minBound);
+    }, [minBound]);
+
+    useEffect(() => {
+    	setRightPosition(maxBound);
+    	setPriceMax(maxBound);
+    }, [maxBound]);
+
+    if (!filterPoints) return <></>
+
     const divisions: number = 12;
+	const filterPrices = filterPoints.map((item: any) => {if (item.price > 0) { return item.price }});
 
     const pricesCounts = createJsonFromArray(
-		filterPoints.filter((item: any) => item > 0),
+		filterPrices,
 		minBound,
 		maxBound,
 		divisions
 	);
-	
+
+	const pricesKeys = Object.keys(pricesCounts);
     const pricesValues: any = Object.values(pricesCounts);
 
     const minValue: any = d3.min(pricesValues);
     const maxValue: any = d3.max(pricesValues);
-    
-    const pricesKeys = Object.keys(pricesCounts);
 
 	const xScale: any = d3.scaleLinear()
 		.domain([0, divisions])
@@ -68,16 +69,6 @@ export const Prices = ({ pricesData }: any) => {
 	const xPriceScale: any = d3.scaleLinear()
 		.domain([minBound, maxBound])
 		.range([0, innerWidth]);
-
-	useEffect(() => {
-		setLeftPosition(minBound);
-		setPriceMin(minBound);
-	}, [minBound]);
-
-	useEffect(() => {
-		setRightPosition(maxBound);
-		setPriceMax(maxBound);
-	}, [maxBound]);
 
 	return (
 		<div className="right-item-wrapper">
@@ -99,14 +90,12 @@ export const Prices = ({ pricesData }: any) => {
 					yScale={yScale}
 					pricesArray={pricesValues}
 					pricesKeys={pricesKeys}
-					margin={margin}
 					innerWidth={innerWidth}
 					innerHeight={innerHeight}
 					setLeftPosition={setLeftPosition}
 					setRightPosition={setRightPosition}
 					leftPosition={leftPosition}
 					rightPosition={rightPosition}
-					priceFormat={priceFormat}
 					minBound={minBound}
 					maxBound={maxBound}
 					bottomLimit={bottomLimit}

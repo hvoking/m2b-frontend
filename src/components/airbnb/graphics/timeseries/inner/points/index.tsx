@@ -9,6 +9,8 @@ export const Points = ({ linesData, pricesData, xScale, yScale }: any) => {
     const { filterPoints } = usePricesLimits();
 
     const currentPropertyId = propertyHoverInfo && propertyHoverInfo.object && propertyHoverInfo.object.property_id;
+
+    if (!filterPoints) return <></>
     
     return (
         filterPoints.map((item: any, i: number) => {

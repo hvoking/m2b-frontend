@@ -8,7 +8,7 @@ import './styles.scss';
 
 export const Maps = () => {
 	return (
-		<div className="map-wrapper">
+		<div className="airbnb-map">
 			<MapHeader/>
 			<SvgMap/>
 			<MapContainer/>

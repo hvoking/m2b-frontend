@@ -3,19 +3,27 @@
   overflow: hidden;
   display: grid;
   grid-template-columns: 13fr 8fr;
+  grid-template-rows: 8fr 3fr;
+  grid-template-areas: 
+    "ls ma"
+    "ls gr";
   padding: 5px;
   grid-gap: 5px;
+}
+
+.airbnb-maps {
+  grid-area: ma;
+}
+.airbnb-graphics {
+  grid-area: gr;
+}
+.airbnb-listing {
+  grid-area: ls;
 }
 // mobile-style
 @media screen and (max-width: 1000px) {
   .airbnb-wrapper {
     grid-template-columns: auto;
     grid-template-rows: 2fr 1fr;
-  }
-}
-
-@media screen and (max-width: 1000px) {
-  .airbnb-right {
-    display: none;
   }
 }
