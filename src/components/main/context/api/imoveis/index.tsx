@@ -7,7 +7,6 @@ import { LinesApiProvider } from './lines';
 import { HistApiProvider } from './hist';
 import { HistPointsApiProvider } from './histPoints';
 import { ImagesApiProvider } from './images';
-import { MeanApiProvider } from './mean';
 
 export const ImoveisApiProvider = ({children}: any) => {
   return (
@@ -19,9 +18,7 @@ export const ImoveisApiProvider = ({children}: any) => {
     <LinesApiProvider>
     <PricesApiProvider>
     <ImagesApiProvider>
-    <MeanApiProvider>
       {children}
-    </MeanApiProvider>
     </ImagesApiProvider>
     </PricesApiProvider>
     </LinesApiProvider>

@@ -4,7 +4,6 @@ import { useState } from 'react';
 // App imports
 import { Lines } from './topLine';
 import { Left } from './left';
-import { Mean } from './mean';
 import { Points } from './points';
 import { Range } from './range';
 import { Refs } from './refs';
@@ -107,19 +106,14 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         pricesData={pricesData} 
       />
       <Refs innerWidth={innerWidth} yScale={yScale}/>
-      <Mean
-        unitPrice={unitPrice}
-        yScale={yScale} 
-        innerWidth={innerWidth} 
-      />
       <rect 
         x={xScale(currentStartDate)} 
         y={0} 
         width={xScale(currentFinalDate) - xScale(currentStartDate)} 
         height={innerHeight} 
-        fill="rgba(126, 126, 132, 0.4)"
+        fill="rgba(126, 126, 132, 0.2)"
         stroke="rgba(126, 126, 132, 1)"
-        strokeWidth={0.4}
+        strokeWidth={0.1}
       />
       <Tooltip
         activeTooltip={

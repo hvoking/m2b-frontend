@@ -5,7 +5,6 @@ import { VerticalRef } from './vertical';
 import { Lines } from './topLine';
 import { Range } from './range';
 import { Left } from './left';
-import { Mean } from './mean';
 import { Refs } from './refs';
 
 // Context imports
@@ -82,11 +81,6 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
         pricesData={pricesData} 
       />
       <Refs innerWidth={innerWidth} yScale={yScale}/>
-      <Mean
-        unitPrice={unitPrice}
-        yScale={yScale} 
-        innerWidth={innerWidth} 
-      />
       <rect 
         x={xScale(currentStartDate)} 
         width={xScale(currentFinalDate) - xScale(currentStartDate)} 

@@ -5,7 +5,6 @@ import { useContext, createContext } from 'react';
 import { useTooltip } from '../../../maps/tooltip';
 import { usePrices } from '../../../filters/prices';
 import { usePropertyType } from '../../../filters/property';
-import { useLinesLimits } from '../../../limits/lines';
 import { usePricesLimits } from '../../../limits/prices';
 
 // Third party imports
@@ -25,13 +24,7 @@ export const IconLayerProvider = ({children}: any) => {
 	const { unitPrice } = usePrices();
 	const { setPropertyInfo, setActivePropertyInfo } = useTooltip();
 	const { currentPropertyId, setCurrentPropertyId } = usePropertyType();
-	const { bottomLimit, topLimit } = useLinesLimits();
 	const { filterPrices } = usePricesLimits();
-
-	const currentPriceString = 
-  		unitPrice === "price" ? 
-  		"price" : 
-  		"unit_price";
 
   	const onClick = (info: any) => {
   		setActivePropertyInfo(true);
