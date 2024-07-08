@@ -3,7 +3,6 @@ import { Header } from './header';
 import { Inner } from './inner';
 import { SVGWrapper } from './svg';
 import { Wrapper } from './wrapper';
-import './styles.scss';
 
 // Context imports
 import { useDates } from '../../context/filters/dates';
@@ -35,7 +34,7 @@ export const Timeseries = () => {
     .range([0, innerHeight]);    
       
   return (
-      <div className="timeseries-wrapper">
+      <div className="airbnb-right-item-wrapper">
         <Header/>
         <SVGWrapper>
           <Wrapper

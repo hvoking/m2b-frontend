@@ -8,3 +8,11 @@
 	grid-gap: 5px;
   	color: rgba(255, 255, 255, 1);
 }
+.right-item-wrapper {
+	display: grid;
+	grid-template-rows: 30px auto min-content;
+	background-color: rgba(33, 33, 43, 1);
+	border-radius: 20px;
+	overflow: hidden;
+	color: rgba(255, 255, 255, 1);
+}

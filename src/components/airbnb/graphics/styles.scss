@@ -4,19 +4,10 @@
 	grid-gap: 5px;
 	overflow: hidden;
 	color: rgba(255, 255, 255, 1);
-	height: 100%;
 }
-.right-item-wrapper {
+.airbnb-right-item-wrapper {
 	display: grid;
-	grid-template-rows: 30px auto min-content;
+	grid-template-rows: 30px auto;
 	background-color: rgba(33, 33, 43, 1);
-	border-radius: 20px;
 	overflow: hidden;
-	color: rgba(255, 255, 255, 1);
-}
-.airbnb-message-wrapper {
-	display: grid; 
-	height: 100%;
-	grid-template-rows: auto;
-	grid-gap: 10px;
 }

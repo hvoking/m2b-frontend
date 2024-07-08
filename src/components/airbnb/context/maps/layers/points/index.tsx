@@ -5,7 +5,7 @@ import { useContext, createContext } from 'react';
 import { useTooltip } from '../../../maps/tooltip';
 import { usePropertyType } from '../../../filters/property';
 import { useLinesLimits } from '../../../limits/lines';
-import { usePointsLimits } from '../../../limits/points';
+import { usePricesLimits } from '../../../limits/prices';
 
 // Third party imports
 // @ts-ignore
@@ -24,7 +24,7 @@ export const PointsLayerProvider = ({children}: any) => {
 	const { bottomLimit, topLimit } = useLinesLimits();
 	const { setPropertyHoverInfo, setPropertyInfo, setActivePropertyInfo } = useTooltip();
 	const { currentPropertyId, setCurrentPropertyId } = usePropertyType();
-	const { filterPoints } = usePointsLimits();
+	const { filterPoints } = usePricesLimits();
 
   	const onClick = (info: any) => {
   		setActivePropertyInfo(true);

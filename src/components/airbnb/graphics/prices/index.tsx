@@ -68,7 +68,7 @@ export const Prices = () => {
 		.range([0, innerWidth]);
 
 	return (
-		<div className="right-item-wrapper">
+		<div className="airbnb-right-item-wrapper">
 			<Header/>
 			<SVGWrapper>
 				<Legend 
