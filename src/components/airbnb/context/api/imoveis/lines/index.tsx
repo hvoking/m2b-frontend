@@ -6,7 +6,6 @@ import { datesFormat } from '../../../../utils/constants';
 
 // Context imports
 import { usePolygonApi } from '../../polygon';
-import { usePropertyType } from '../../../filters/property';
 import { useEquipment } from '../../../filters/equipment';
 import { useDates } from '../../../filters/dates';
 import { usePrices } from '../../../filters/prices';
@@ -21,7 +20,6 @@ export const useLinesApi = () => {
 
 export const LinesApiProvider = ({children}: any) => {
 	const { polygonData } = usePolygonApi();
-	const { nearest } = usePropertyType();
 	const { rooms } = useEquipment();
 	const { dates } = useDates();
 
@@ -35,7 +33,6 @@ export const LinesApiProvider = ({children}: any) => {
 		    	?rooms=${rooms}
 		    	&start_date=${datesFormat(dates[0])}
 		    	&final_date=${datesFormat(dates[1])}
-		    	&k=${nearest}
 		    `
 		    const url = tempUrl.replace(/\s/g, '');
 		    const res = await fetch(url);
@@ -43,7 +40,7 @@ export const LinesApiProvider = ({children}: any) => {
 			setLinesData(receivedData[0]);
 		}
 		polygonData && fetchData();
-	}, [ polygonData, rooms, nearest, dates ]);
+	}, [ polygonData, rooms, dates ]);
 
 	return (
 		<LinesApiContext.Provider value={{ linesData }}>

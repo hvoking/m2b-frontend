@@ -5,16 +5,13 @@ import { useEffect } from 'react';
 import { SVGWrapper } from './svg';
 import { Bars } from './bars';
 import { Marker } from './marker';
-import { createJsonFromArray } from '../../utils/createArr';
-import { priceFormat } from '../../utils/constants';
+import { createJsonFromArray } from './createArr';
 import { Legend } from './legend';
 import { Header } from './header';
 
 // Context imports
 import { usePricesSizes } from '../../context/sizes/prices';
 import { usePrices } from '../../context/filters/prices';
-import { usePricesApi } from '../../context/api/imoveis/prices';
-import { useDates } from '../../context/filters/dates';
 import { useLinesLimits } from '../../context/limits/lines';
 import { usePricesLimits } from '../../context/limits/prices';
 
