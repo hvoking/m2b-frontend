@@ -13,8 +13,7 @@ import { VerticalRef } from './vertical';
 import { yAxisTickFormat } from '../../../utils/constants';
 
 // Context imports
-import { useLinesApi } from '../../../context/api/imoveis/lines';
-import { usePricesApi } from '../../../context/api/imoveis/prices';
+import { usePricesLimits } from '../../../context/limits/prices';
 import { useDates } from '../../../context/filters/dates';
 import { usePrices } from '../../../context/filters/prices';
 import { useLinesLimits } from '../../../context/limits/lines';
@@ -23,21 +22,14 @@ import { useLinesLimits } from '../../../context/limits/lines';
 import * as d3 from 'd3';
 
 export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
-  const { linesData } = useLinesApi();
-  const { pricesData } = usePricesApi();
-  const { startDate, finalDate } = useDates();
+  const { filterPrices } = usePricesLimits();
+  const { formatedStartDate, formatedFinalDate } = useDates();
   const { unitPrice } = usePrices();
   const { bottomLimit, topLimit } = useLinesLimits();
 
   const [ activeTooltip, setActiveTooltip ] = useState(false);
   const [ cursorPosition, setCursorPosition ] = useState({x: 0, y: 0})
   const [ cursorPrice, setCursorPrice ] = useState(null);
-
-  const startDateParts = startDate.split("-");
-  const currentStartDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);
-
-  const finalDateParts = finalDate.split("-");
-  const currentFinalDate = new Date(`${finalDateParts[2]}-${finalDateParts[1]}-${finalDateParts[0]}`);
 
   const onMouseMove = ( event: any ) => {
     setActiveTooltip(true)
@@ -53,7 +45,7 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
     setActiveTooltip(false)
   }
 
-  const pricesArray = pricesData.map((items: any) => 
+  const pricesArray = filterPrices.map((items: any) => 
       unitPrice === "price" ? 
       items.price : 
       items.unit_price
@@ -102,14 +94,13 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
       <Points 
         xScale={xScale} 
         yScale={yScale} 
-        linesData={linesData} 
-        pricesData={pricesData} 
+        filterPrices={filterPrices}
       />
       <Refs innerWidth={innerWidth} yScale={yScale}/>
       <rect 
-        x={xScale(currentStartDate)} 
+        x={xScale(formatedStartDate)} 
         y={0} 
-        width={xScale(currentFinalDate) - xScale(currentStartDate)} 
+        width={xScale(formatedFinalDate) - xScale(formatedStartDate)} 
         height={innerHeight} 
         fill="rgba(126, 126, 132, 0.2)"
         stroke="rgba(126, 126, 132, 1)"
@@ -118,8 +109,8 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
       <Tooltip
         activeTooltip={
           activeTooltip && 
-          cursorPosition.x + 10 >= xScale(currentStartDate) && 
-          cursorPosition.x < xScale(currentFinalDate)
+          cursorPosition.x + 10 >= xScale(formatedStartDate) && 
+          cursorPosition.x < xScale(formatedFinalDate)
         } 
         cursorPosition={cursorPosition} 
         cursorPrice={cursorPrice}

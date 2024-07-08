@@ -20,7 +20,7 @@ export const PricesLimitsProvider = ({children}: any) => {
     const { pricesData } = usePricesApi();
     const { areaMin, areaMax } = useAreas();
     const { unitPrice, leftPosition, rightPosition } = usePrices();
-    const { startDate, finalDate } = useDates();
+    const { formatedStartDate, formatedFinalDate } = useDates();
     const { activeEquipment } = usePropertyType();
 
     const currentPriceString = 
@@ -28,22 +28,22 @@ export const PricesLimitsProvider = ({children}: any) => {
         "price" : 
         "unit_price";
 
-    const startDateParts = startDate.split("-");
-    const currentStartDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);
-
-    const finalDateParts = finalDate.split("-");
-    const currentFinalDate = new Date(`${finalDateParts[2]}-${finalDateParts[1]}-${finalDateParts[0]}`);
-
-    const filteredByAreas = pricesData?.filter((d: any) =>
-        areaMin < d.processed_area &&
-        d.processed_area < areaMax &&
+    const filterByPrices = pricesData?.filter((d: any) =>
         leftPosition < d[currentPriceString] &&
-        d[currentPriceString] < rightPosition &&
-        currentStartDate < new Date(d.start_date) &&
-        new Date(d.start_date) < currentFinalDate
-    );
+        d[currentPriceString] < rightPosition
+    );    
 
-    const activePoints = filteredByAreas?.filter((item: any) => {
+    const filteredByAreas = filterByPrices?.filter((d: any) =>
+        areaMin < d.processed_area &&
+        d.processed_area < areaMax
+    );
+        
+    const filteredByDates = filteredByAreas?.filter((d: any) =>
+        formatedStartDate < new Date(d.start_date) &&
+        new Date(d.start_date) < formatedFinalDate
+    );
+    
+    const activePoints = filteredByDates?.filter((item: any) => {
         return item[activeEquipment] === 1;
     });
 

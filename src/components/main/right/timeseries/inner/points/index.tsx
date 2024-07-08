@@ -2,13 +2,11 @@
 import { usePrices } from '../../../../context/filters/prices';
 import { useTooltip } from '../../../../context/maps/tooltip';
 import { useLinesLimits } from '../../../../context/limits/lines';
-import { usePricesLimits } from '../../../../context/limits/prices';
 
-export const Points = ({ linesData, pricesData, xScale, yScale }: any) => {
+export const Points = ({ xScale, yScale, filterPrices }: any) => {
     const { unitPrice } = usePrices();
     const { propertyHoverInfo } = useTooltip();
     const { bottomLimit, topLimit } = useLinesLimits();
-    const { filterPrices } = usePricesLimits();
 
     const currentPriceString = 
         unitPrice === "price" ? 

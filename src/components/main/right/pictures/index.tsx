@@ -13,73 +13,34 @@ import { usePrices } from '../../context/filters/prices';
 import { useDates } from '../../context/filters/dates';
 import { useTooltip } from '../../context/maps/tooltip';
 import { useLinesLimits } from '../../context/limits/lines';
+import { usePricesLimits } from '../../context/limits/prices';
 
-export const Pictures = ({ linesData, pricesData }: any) => {
+export const Pictures = () => {
 	const { rejectedIds, setRejectedIds, currentPropertyId, nearest, setNearest, activeEquipment, setCurrentPropertyId, setSamplesIds } = usePropertyType();
 	const { setSamplesPrices, leftPosition, rightPosition, unitPrice } = usePrices();
 	const { areaMin, areaMax } = useAreas();
-	const { startDate, finalDate } = useDates();
+	const { formatedStartDate, formatedFinalDate } = useDates();
 	const { setPropertyInfo, setActivePropertyInfo } = useTooltip();
 	const { bottomLimit, topLimit } = useLinesLimits();
-
-	const startDateParts = startDate.split("-");
-	const currentStartDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);
-
-	const finalDateParts = finalDate.split("-");
-	const currentFinalDate = new Date(`${finalDateParts[2]}-${finalDateParts[1]}-${finalDateParts[0]}`);
-
-	const currentPriceString = 
-  		unitPrice === "price" ? 
-  		"price" : 
-  		"unit_price";
-
-  	const filteredByAreas = pricesData.filter((d: any) => {
-  		return (areaMin < d.processed_area && d.processed_area < areaMax)
-  	});
-
-	const filterByPrices = filteredByAreas.filter((d: any) => {
-		return (leftPosition < d[currentPriceString] && d[currentPriceString] < rightPosition)
-	});
-
-  	const filterByDates = filterByPrices && filterByPrices.filter((d: any) => {  		
-  		return currentStartDate < new Date(d.start_date) && new Date(d.start_date) < currentFinalDate
-  	});
-
-	const activePoints = filterByDates.filter((item: any) => {
-	    if (item.furnished === 1 && activeEquipment === "furnished") {
-	        return item
-	    }
-	    else if (item.pool === 1 && activeEquipment === "pool") {
-	        return item
-	    }
-	    else if (item.new === 1 && activeEquipment === "new") {
-	        return item
-	    }
-	    else if (item.status === 1 && activeEquipment === "status") {
-	        return item
-	    }
-	});
-
-	const filterPoints = 
-	    activeEquipment === "furnished" || 
-	    activeEquipment === "pool" || 
-	    activeEquipment === "new" || 
-	    activeEquipment === "status" ?
-	    activePoints :
-	    filterByDates
+	const { filterPrices } = usePricesLimits();
 	
-	const filterById = filterPoints.filter((item: any) => !rejectedIds.includes(item.property_id));
+	const filterById = filterPrices.filter((item: any) => !rejectedIds.includes(item.property_id));
 
 	filterById.sort((a: any, b: any) => a["distance"] - b["distance"]);
+
+	const currentPriceString = 
+		unitPrice === "price" ? 
+		"price" : 
+		"unit_price";
 
 	useEffect(() => {
 		setSamplesPrices(filterById.slice(0, nearest).map((item: any) => item[currentPriceString]));
 		setSamplesIds(filterById.slice(0, nearest).map((item: any) => item['property_id']))
 	}, [ 
-		rejectedIds, activeEquipment, linesData, unitPrice, 
+		rejectedIds, activeEquipment, unitPrice, 
 		leftPosition, rightPosition, 
 		areaMin, areaMax,
-		startDate, finalDate,
+		formatedStartDate, formatedFinalDate,
 	]);
 
 	const iscUrl = "https://media.imoveis-sc.com.br/media/thumb-55-45/";

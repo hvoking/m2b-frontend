@@ -19,6 +19,8 @@ export const Timeseries = () => {
   const { unitPrice } = usePrices();
   const { linesData } = useLinesApi();
   const { innerWidth, innerHeight } = useTimeseriesSizes();
+
+  if (!linesData) return <></>
   
   const minLine = 
     unitPrice === "price" ? 

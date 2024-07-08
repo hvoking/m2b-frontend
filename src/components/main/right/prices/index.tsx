@@ -21,19 +21,13 @@ import { useLinesLimits } from '../../context/limits/lines';
 // Third party imports
 import * as d3 from 'd3';
 
-export const Prices = ({ linesData, pricesData }: any) => {
+export const Prices = ({ pricesData }: any) => {
 	const { margin, innerWidth, innerHeight } = usePricesSizes();
 	const { setPriceMin, setPriceMax, leftPosition, setLeftPosition, rightPosition, setRightPosition, unitPrice } = usePrices();
 	const { areaMin, areaMax } = useAreas();
-	const { startDate, finalDate } = useDates();
+	const { formatedStartDate, formatedFinalDate } = useDates();
 	const { activeEquipment } = usePropertyType();
 	const { bottomLimit, topLimit, minLine, maxLine } = useLinesLimits();
-
-	const startDateParts = startDate.split("-");
-	const currentStartDate = new Date(`${startDateParts[2]}-${startDateParts[1]}-${startDateParts[0]}`);
-
-	const finalDateParts = finalDate.split("-");
-	const currentFinalDate = new Date(`${finalDateParts[2]}-${finalDateParts[1]}-${finalDateParts[0]}`);
 
     const currentPriceString = 
         unitPrice === "price" ? 
@@ -45,7 +39,7 @@ export const Prices = ({ linesData, pricesData }: any) => {
 	});
 
 	const filterByDates = filterByAreas.filter((d: any) => {  		
-  		return currentStartDate < new Date(d.start_date) && new Date(d.start_date) < currentFinalDate
+  		return formatedStartDate < new Date(d.start_date) && new Date(d.start_date) < formatedFinalDate
   	});
 
 	const pricesArray = filterByDates.map((item: any) => {
