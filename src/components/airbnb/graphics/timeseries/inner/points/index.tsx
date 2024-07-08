@@ -6,12 +6,12 @@ import { usePricesLimits } from '../../../../context/limits/prices';
 export const Points = ({ linesData, pricesData, xScale, yScale }: any) => {
     const { propertyHoverInfo } = useTooltip();
     const { bottomLimit, topLimit } = useLinesLimits();
-    const { filterPrices } = usePricesLimits();
+    const { filterPoints } = usePricesLimits();
 
     const currentPropertyId = propertyHoverInfo && propertyHoverInfo.object && propertyHoverInfo.object.property_id;
     
     return (
-        filterPrices.map((item: any, i: number) => {
+        filterPoints.map((item: any, i: number) => {
             return (
                 <circle 
                     key={i}

@@ -18,6 +18,8 @@ export const Timeseries = () => {
   const { linesData } = useLinesApi();
   const { innerWidth, innerHeight } = useTimeseriesSizes();
   
+  if (!linesData) return <></>
+    
   const minLine = linesData.min_line_price;
   const maxLine = linesData.max_line_price;
   
