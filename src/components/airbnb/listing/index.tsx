@@ -44,7 +44,6 @@ export const Listing = () => {
 					return (
 						<div 
 							key={index} 
-							className="airbnb-description-wrapper" 
 							onMouseOver={(e: any) => onMouseOver(e, item)}
 						>
 							<Pictures
