@@ -16,7 +16,3 @@ export const ImoveisApiProvider = ({children}: any) => {
 }
 
 ImoveisApiProvider.displayName="ImoveisApiProvider";
-
-export * from './rooms';
-export * from './prices';
-export * from './lines';

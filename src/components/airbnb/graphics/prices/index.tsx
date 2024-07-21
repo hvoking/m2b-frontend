@@ -10,7 +10,10 @@ import { Legend } from './legend';
 import { Header } from './header';
 
 // Context imports
-import { usePrices, usePricesSizes, useLinesLimits, usePricesLimits } from '../../context';
+import { usePrices } from '../../context/filters/prices';
+import { usePricesSizes } from '../../context/sizes/prices';
+import { useLinesLimits } from '../../context/limits/lines';
+import { usePricesLimits } from '../../context/limits/prices';
 
 // Third party imports
 import * as d3 from 'd3';

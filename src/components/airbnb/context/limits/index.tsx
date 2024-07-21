@@ -13,6 +13,3 @@ export const LimitsProvider = ({children}: any) => {
 }
 
 LimitsProvider.displayName="LimitsProvider";
-
-export * from './lines';
-export * from './prices';

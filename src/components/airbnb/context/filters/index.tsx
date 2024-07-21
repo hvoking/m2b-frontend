@@ -22,9 +22,3 @@ export const FiltersProvider = ({children}: any) => {
 }
 
 FiltersProvider.displayName="FiltersProvider";
-
-export * from './property';
-export * from './equipment';
-export * from './dates';
-export * from './prices';
-export * from './geo';

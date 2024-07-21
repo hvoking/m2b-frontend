@@ -2,7 +2,7 @@
 import './styles.scss';
 
 // Context imports
-import { usePrices } from '../../../context';
+import { usePrices } from '../../../context/filters/prices';
 
 // Third-party imports
 import * as d3 from 'd3';

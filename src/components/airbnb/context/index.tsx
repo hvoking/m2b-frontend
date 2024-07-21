@@ -22,9 +22,3 @@ export const MainProvider = ({children}: any) => {
 }
 
 MainProvider.displayName="MainProvider";
-
-export * from './filters';
-export * from './maps';
-export * from './api';
-export * from './sizes';
-export * from './limits';
