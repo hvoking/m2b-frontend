@@ -13,3 +13,6 @@ export const PdfDsvSizesProvider = ({ children }: any) => {
 }
 
 PdfDsvSizesProvider.displayName="PdfDsvSizesProvider";
+
+export * from './gauge';
+export * from './bars';
