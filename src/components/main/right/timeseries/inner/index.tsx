@@ -13,8 +13,11 @@ import { VerticalRef } from './vertical';
 import { yAxisTickFormat } from '../../../utils/constants';
 
 // Context imports
-import { usePricesApi, usePricesLimits, useDates, usePrices, useLinesLimits } from '../../../context';
-
+import { useDates } from '../../../context/filters/dates';
+import { usePrices } from '../../../context/filters/prices';
+import { usePricesApi } from '../../../context/api/imoveis/prices';
+import { usePricesLimits } from '../../../context/limits/prices';
+import { useLinesLimits } from '../../../context/limits/lines';
 
 // Third-party imports
 import * as d3 from 'd3';

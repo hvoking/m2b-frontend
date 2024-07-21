@@ -6,7 +6,8 @@ import { Legend } from './legend';
 import './styles.scss';
 
 // Context imports
-import { useRoomsApi, useDsvApi } from '../../context';
+import { useRoomsApi } from '../../context/api/imoveis/rooms';
+import { useDsvApi } from '../../context/api/imoveis/dsv';
 
 export const Rooms = () => {
 	const { roomsData } = useRoomsApi();

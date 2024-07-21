@@ -1,5 +1,5 @@
 // Context imports
-import { useAreas } from '../../../../context';
+import { useAreas } from '../../../../context/filters/areas';
 
 // Third party imports
 import * as d3 from 'd3';

@@ -6,7 +6,10 @@ import { SVGWrapper } from './svg';
 import './styles.scss';
 
 // Context imports
-import { usePolygonApi, useIsoPolygonApi, useSvgMapSizes, useGeo } from '../../context';
+import { usePolygonApi } from '../../context/api/polygon';
+import { useIsoPolygonApi } from '../../context/api/isoPolygon';
+import { useSvgMapSizes } from '../../context/sizes/svgMap';
+import { useGeo } from '../../context/filters/geo';
 
 // Third-party imports
 import * as d3 from 'd3';

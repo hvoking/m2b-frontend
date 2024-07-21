@@ -4,7 +4,7 @@ import { Page1 } from './page1';
 import './styles.scss';
 
 // Context imports
-import { usePdf } from '../context';
+import { usePdf } from '../context/filters/pdf';
 
 export const UserPdf = () => {
 	const { page1Ref, page2Ref, printDocument, activePdf, setActivePdf } = usePdf();

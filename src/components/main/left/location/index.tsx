@@ -2,7 +2,7 @@
 import './styles.scss';
 
 // Context imports
-import { useReverseGeocodingApi } from '../../context';
+import { useReverseGeocodingApi } from '../../context/api/google/reverse';
 
 export const Location = () => {
 	const { currentAddress } = useReverseGeocodingApi();

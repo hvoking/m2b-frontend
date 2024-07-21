@@ -8,7 +8,8 @@ import { PropertyImages } from './body';
 import './styles.scss';
 
 // Context imports
-import { useTooltip, useImagesApi } from '../../context';
+import { useTooltip } from '../../context/maps/tooltip';
+import { useImagesApi } from '../../context/api/imoveis/images';
 
 export const Pictures = () => {
 	const [ currentImage, setCurrentImage ] = useState(0);

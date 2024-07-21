@@ -3,7 +3,7 @@ import { Table } from './table';
 import { LoadingImage } from '../../utils/loading'
 
 // Context imports
-import { useHistApi } from '../../context';
+import { useHistApi } from '../../context/api/imoveis/hist';
 
 export const Hist = () => {
 	const { histData } = useHistApi();

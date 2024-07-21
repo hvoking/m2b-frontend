@@ -6,7 +6,7 @@ import { Values } from './values';
 import './styles.scss';
 
 // Context imports
-import { usePricesApi } from '../context';
+import { usePricesApi } from '../context/api/imoveis/prices';
 
 export const Right = () => {
 	const { pricesData } = usePricesApi();

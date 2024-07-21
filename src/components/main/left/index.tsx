@@ -8,7 +8,8 @@ import { Location } from './location';
 import './styles.scss';
 
 // Context imports
-import { useIsoPolygonApi, useCategory } from '../context';
+import { useIsoPolygonApi } from '../context/api/isoPolygon';
+import { useCategory } from '../context/filters/category';
 import { UserMessage } from './message';
 
 export const Left = () => {

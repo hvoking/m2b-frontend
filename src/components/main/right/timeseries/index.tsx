@@ -6,7 +6,10 @@ import { Wrapper } from './wrapper';
 import './styles.scss';
 
 // Context imports
-import { usePrices, useDates, useLinesApi, useTimeseriesSizes } from '../../context';
+import { usePrices } from '../../context/filters/prices';
+import { useDates } from '../../context/filters/dates';
+import { useLinesApi } from '../../context/api/imoveis/lines';
+import { useTimeseriesSizes } from '../../context/sizes/timeseries';
 
 // Third-party imports
 import * as d3 from 'd3';

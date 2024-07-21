@@ -2,7 +2,8 @@
 import { SVGWrapper } from './svg';
 
 // Context imports
-import { useEquipment, useBarsSizes } from '../../../../../../context';
+import { useEquipment } from '../../../../../../context/filters/equipment';
+import { useBarsSizes } from '../../../../../../context/sizes/pdf/dsv/bars';
 
 // Third party imports
 import * as d3 from 'd3';
