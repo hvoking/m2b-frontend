@@ -11,7 +11,7 @@ export const Bars = ({
     innerWidth, innerHeight, 
     leftPosition, setLeftPosition, 
     rightPosition, setRightPosition,
-    bottomLimit, topLimit,
+    bottomLimit, topLimit
 }: any) => {
     const currentDragRef = useRef<any>(null);
 

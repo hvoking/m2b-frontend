@@ -1,5 +1,5 @@
 // Context imports
-import { useTooltip } from '../../context/maps/tooltip';
+import { useTooltip } from '../../context';
 
 export const Pictures = ({ item, setValidImages, setRejectedIds }: any) => {
 	const currentImage = item.image_src && item.image_src;

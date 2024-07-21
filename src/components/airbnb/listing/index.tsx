@@ -8,10 +8,7 @@ import { Description } from './description';
 import './styles.scss';
 
 // Context imports
-import { usePropertyType } from '../context/filters/property';
-import { usePrices } from '../context/filters/prices';
-import { useDates } from '../context/filters/dates';
-import { usePricesLimits } from '../context/limits/prices';
+import { usePropertyType, usePrices, useDates, usePricesLimits } from '../context';
 
 export const Listing = () => {
 	const [ validImages, setValidImages ] = useState<any>({});

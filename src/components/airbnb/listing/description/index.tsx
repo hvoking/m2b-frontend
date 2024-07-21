@@ -1,5 +1,5 @@
 // Context imports
-import { useLinesLimits } from '../../context/limits/lines';
+import { useLinesLimits } from '../../context';
 
 export const Description = ({ item }: any) => {
 	const { bottomLimit, topLimit } = useLinesLimits();

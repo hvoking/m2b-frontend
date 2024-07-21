@@ -6,8 +6,7 @@ import { Suggestions } from './suggestions';
 import './styles.scss';
 
 // Context imports
-import { useGoogleSearchApi } from '../../../context/api/google/search';
-import { useGeo } from '../../../context/filters/geo';
+import { useGoogleSearchApi, useGeo } from '../../../context';
 
 export const Search = ({ activeSearch, setActiveSearch }: any) => {
 	const { setPlaceId } = useGeo();

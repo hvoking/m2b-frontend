@@ -16,3 +16,7 @@ export const GoogleApiProvider = ({children}: any) => {
 }
 
 GoogleApiProvider.displayName="GoogleApiProvider";
+
+export * from './search';
+export * from './details';
+export * from './reverse';
