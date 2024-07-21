@@ -6,7 +6,6 @@ import './styles.scss';
 
 // Context imports
 import { useGeo } from '../../../context/filters/geo';
-import { useIsoPolygonApi } from '../../../context/api/isoPolygon';
 
 // Third-party imports
 import { Marker } from 'react-map-gl';

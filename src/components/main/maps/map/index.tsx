@@ -11,9 +11,7 @@ import { HeatmapLayer } from './heatmap';
 import { Buildings } from './buildings';
 
 // Context imports
-import { useMapbox } from '../../context/maps/mapbox';
-import { useGeo } from '../../context/filters/geo';
-import { useIsoPolygonApi } from '../../context/api/isoPolygon';
+import { useMapbox, useGeo, useIsoPolygonApi } from '../../context';
 
 // Third-party imports
 import { Map } from 'react-map-gl';

@@ -31,3 +31,12 @@ export const ImoveisApiProvider = ({children}: any) => {
 }
 
 ImoveisApiProvider.displayName="ImoveisApiProvider";
+
+export * from './areas';
+export * from './dsv';
+export * from './rooms';
+export * from './prices';
+export * from './lines';
+export * from './hist';
+export * from './histPoints';
+export * from './images';

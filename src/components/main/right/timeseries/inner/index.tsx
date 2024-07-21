@@ -13,11 +13,7 @@ import { VerticalRef } from './vertical';
 import { yAxisTickFormat } from '../../../utils/constants';
 
 // Context imports
-import { usePricesApi } from '../../../context/api/imoveis/prices';
-import { usePricesLimits } from '../../../context/limits/prices';
-import { useDates } from '../../../context/filters/dates';
-import { usePrices } from '../../../context/filters/prices';
-import { useLinesLimits } from '../../../context/limits/lines';
+import { usePricesApi, usePricesLimits, useDates, usePrices, useLinesLimits } from '../../../context';
 
 
 // Third-party imports

@@ -2,7 +2,7 @@
 import { useCallback, Children, cloneElement } from 'react';
 
 // Context imports
-import { useTimeseriesSizes } from '../../../context/sizes/timeseries'
+import { useTimeseriesSizes } from '../../../context'
 
 export const SVGWrapper = ({ children }: any) => {
 	const { margin, width, height, setWidth, setHeight } = useTimeseriesSizes();

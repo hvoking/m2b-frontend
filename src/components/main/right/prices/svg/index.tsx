@@ -2,7 +2,7 @@
 import { useCallback, Children, cloneElement } from 'react';
 
 // Context imports
-import { usePricesSizes } from '../../../context/sizes/prices';
+import { usePricesSizes } from '../../../context';
 
 export const SVGWrapper = ({ children }: any) => {
 	const { margin, width, height, setWidth, setHeight } = usePricesSizes();

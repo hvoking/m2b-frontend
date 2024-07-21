@@ -1,5 +1,5 @@
 // Context imports
-import { useReverseGeocodingApi } from '../../../../context/api/google/reverse';
+import { useReverseGeocodingApi } from '../../../../context';
 
 export const Info = () => {
 	const { currentAddress } = useReverseGeocodingApi();

@@ -9,11 +9,9 @@ export const Bars = ({
     minBound, maxBound,
     pricesArray, pricesKeys, 
     innerWidth, innerHeight, 
-    unitPrice, 
     leftPosition, setLeftPosition, 
     rightPosition, setRightPosition,
-    priceFormat,
-    bottomLimit, topLimit,
+    bottomLimit, topLimit
 }: any) => {
     const currentDragRef = useRef<any>(null);
 

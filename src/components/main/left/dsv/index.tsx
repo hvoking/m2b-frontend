@@ -4,8 +4,7 @@ import { Gauge } from './gauge';
 import { LoadingImage } from '../../utils/loading'
 
 // Context imports
-import { useDsvApi } from '../../context/api/imoveis/dsv';
-import { useRoomsApi } from '../../context/api/imoveis/rooms';
+import { useDsvApi, useRoomsApi } from '../../context';
 
 export const Dsv = () => {
 	const { dsvData } = useDsvApi();

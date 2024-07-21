@@ -11,12 +11,7 @@ import { groupPrices } from '../../utils/prices';
 import { priceFormat } from '../../utils/constants';
 
 // Context imports
-import { usePricesSizes } from '../../context/sizes/prices';
-import { usePrices } from '../../context/filters/prices';
-import { useAreas } from '../../context/filters/areas';
-import { useDates } from '../../context/filters/dates';
-import { usePropertyType } from '../../context/filters/property';
-import { useLinesLimits } from '../../context/limits/lines';
+import { usePricesSizes, usePrices, useAreas, useDates, usePropertyType, useLinesLimits } from '../../context';
 
 // Third party imports
 import * as d3 from 'd3';
@@ -125,12 +120,10 @@ export const Prices = ({ pricesData }: any) => {
 					margin={margin}
 					innerWidth={innerWidth}
 					innerHeight={innerHeight}
-					unitPrice={unitPrice}
 					setLeftPosition={setLeftPosition}
 					setRightPosition={setRightPosition}
 					leftPosition={leftPosition}
 					rightPosition={rightPosition}
-					priceFormat={priceFormat}
 					minBound={minBound}
 					maxBound={maxBound}
 					bottomLimit={bottomLimit}

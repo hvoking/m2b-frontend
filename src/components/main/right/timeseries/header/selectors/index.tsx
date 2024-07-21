@@ -5,7 +5,7 @@ import { useState } from 'react';
 import { Selector } from './selector';
 
 // Context imports
-import { usePropertyType } from '../../../../context/filters/property';
+import { usePropertyType } from '../../../../context';
 
 // App imports
 import './styles.scss';

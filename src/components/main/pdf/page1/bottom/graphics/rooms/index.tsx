@@ -5,8 +5,7 @@ import { Bars } from './bars';
 import './styles.scss';
 
 // Context imports
-import { useRoomsApi } from '../../../../../context/api/imoveis/rooms';
-import { useDsvApi } from '../../../../../context/api/imoveis/dsv';
+import { useRoomsApi, useDsvApi } from '../../../../../context';
 
 export const Rooms = () => {
 	const { roomsData } = useRoomsApi();

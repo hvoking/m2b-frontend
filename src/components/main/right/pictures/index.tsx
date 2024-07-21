@@ -7,13 +7,7 @@ import { Description } from './description';
 import './styles.scss';
 
 // Context imports
-import { usePropertyType } from '../../context/filters/property';
-import { useAreas } from '../../context/filters/areas';
-import { usePrices } from '../../context/filters/prices';
-import { useDates } from '../../context/filters/dates';
-import { useTooltip } from '../../context/maps/tooltip';
-import { useLinesLimits } from '../../context/limits/lines';
-import { usePricesLimits } from '../../context/limits/prices';
+import { usePropertyType, useAreas, usePrices, useDates, useTooltip, useLinesLimits, usePricesLimits } from '../../context';
 
 export const Pictures = () => {
 	const { rejectedIds, setRejectedIds, currentPropertyId, nearest, setNearest, activeEquipment, setCurrentPropertyId, setSamplesIds } = usePropertyType();

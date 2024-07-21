@@ -6,8 +6,7 @@ import { Suggestions } from './suggestions';
 import './styles.scss';
 
 // Context imports
-import { useGeo } from '../../context/filters/geo';
-import { useGoogleSearchApi } from '../../context/api/google/search';
+import { useGeo, useGoogleSearchApi } from '../../context';
 
 export const Search = () => {
 	const { setPlaceId } = useGeo();
@@ -75,7 +74,7 @@ export const Search = () => {
 			setSuggestionsActive(false);
 		}
 
-		// scape
+		// escape
 		else if (e.keyCode === 27) {
 			setSearchText("");
 			setSuggestionIndex(0);

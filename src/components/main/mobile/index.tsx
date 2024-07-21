@@ -13,9 +13,7 @@ import { Description } from './description';
 import './styles.scss';
 
 // Context imports
-import { usePricesApi } from '../context/api/imoveis/prices';
-import { usePrices } from '../context/filters/prices';
-import { useCategory } from '../context/filters/category';
+import { usePricesApi, usePrices, useCategory } from '../context';
 
 export const Mobile = () => {
 	const [ activeIndex, setActiveIndex ] = useState(0);

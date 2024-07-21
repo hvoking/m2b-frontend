@@ -9,9 +9,7 @@ import { LoadingImage } from '../../utils/loading';
 import { priceFormat } from '../../utils/constants';
 
 // Context imports
-import { useAreasApi } from '../../context/api/imoveis/areas';
-import { useAreasSizes } from '../../context/sizes/areas';
-import { useAreas } from '../../context/filters/areas';
+import { useAreasApi, useAreasSizes, useAreas } from '../../context';
 
 // Third party imports
 import * as d3 from 'd3';
