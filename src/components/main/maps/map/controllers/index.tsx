@@ -1,6 +1,5 @@
 // App imports
 import { ReCenter } from './reCenter';
-import './styles.scss';
 
 // Context imports
 import { useGeo } from '../../../context/filters/geo';

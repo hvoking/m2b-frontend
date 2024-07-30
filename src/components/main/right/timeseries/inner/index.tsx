@@ -16,14 +16,12 @@ import { yAxisTickFormat } from '../../../utils/constants';
 import { useDates } from '../../../context/filters/dates';
 import { usePrices } from '../../../context/filters/prices';
 import { usePricesApi } from '../../../context/api/imoveis/prices';
-import { usePricesLimits } from '../../../context/limits/prices';
 import { useLinesLimits } from '../../../context/limits/lines';
 
 // Third-party imports
 import * as d3 from 'd3';
 
 export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
-  const { filterPrices } = usePricesLimits();
   const { pricesData } = usePricesApi();
   const { formatedStartDate, formatedFinalDate } = useDates();
   const { unitPrice } = usePrices();
@@ -96,7 +94,6 @@ export const Inner = ({ xScale, yScale, innerWidth, innerHeight }: any) => {
       <Points 
         xScale={xScale} 
         yScale={yScale} 
-        filterPrices={filterPrices}
       />
       <Refs innerWidth={innerWidth} yScale={yScale}/>
       <rect 

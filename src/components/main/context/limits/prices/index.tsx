@@ -38,25 +38,28 @@ export const PricesLimitsProvider = ({children}: any) => {
         d.processed_area < areaMax
     );
         
-    const filteredByDates = filteredByAreas?.filter((d: any) =>
-        formatedStartDate < new Date(d.start_date) &&
-        new Date(d.start_date) < formatedFinalDate
-    );
     
-    const activePoints = filteredByDates?.filter((item: any) => {
+    
+    const activePoints = filteredByAreas?.filter((item: any) => {
         return item[activeEquipment] === 1;
     });
 
-    const filterPrices = 
+    const filterByEquipment = 
         activeEquipment === "furnished" || 
         activeEquipment === "pool" || 
         activeEquipment === "new" || 
         activeEquipment === "status"?
         activePoints :
-        filteredByDates;
+        filteredByAreas;
+
+
+    const filterPrices = filterByEquipment?.filter((d: any) =>
+        formatedStartDate < new Date(d.start_date) &&
+        new Date(d.start_date) < formatedFinalDate
+    );
 
     return (
-        <PricesLimitsContext.Provider value={{filterPrices}}>
+        <PricesLimitsContext.Provider value={{filterPrices, filterByEquipment}}>
             {children}
         </PricesLimitsContext.Provider>
     )
