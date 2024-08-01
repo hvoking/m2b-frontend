@@ -17,7 +17,7 @@ export const blumenau = {
   longitude: -49.08110549040376,
   bearing: -12.02,
   pitch: 60,
-  zoom: 15,
+  zoom: 15.2,
 };
 export const brusque = {
   bearing: -34,

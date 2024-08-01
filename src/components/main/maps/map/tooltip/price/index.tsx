@@ -10,8 +10,8 @@ export const Price = ({ unitPrice, propertyHoverInfo }: any) => {
 			preço: {
 				yAxisTickFormat(
 					unitPrice === "price" ? 
-					propertyHoverInfo.object.price : 
-					propertyHoverInfo.object.unit_price
+					propertyHoverInfo.price : 
+					propertyHoverInfo.unit_price
 				)
 			}
 		</div>
